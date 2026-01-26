@@ -15,7 +15,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedNewsId, setSelectedNewsId] = useState<string | null>(null);
   const theme = THEMES[currentThemeId];
-  
+
   // Select active colors based on mode
   const activeColors = isDarkMode ? theme.colors.dark : theme.colors.light;
 
@@ -28,6 +28,15 @@ function App() {
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
+
+  // Sync Tailwind 'dark' class with state
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   // Apply theme variables to root style
   const themeStyles = {
@@ -52,17 +61,17 @@ function App() {
   const selectedNewsItem = selectedNewsId ? NEWS_DATA.find(n => n.id === selectedNewsId) : null;
 
   return (
-    <div 
-      style={themeStyles} 
+    <div
+      style={themeStyles}
       className="min-h-screen bg-skin-base text-skin-text font-primary transition-colors duration-500 selection:bg-skin-accent selection:text-white"
     >
       <header className="fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center bg-skin-base/80 backdrop-blur-sm border-b border-skin-text/5">
         <div className="flex items-center gap-2">
-           <h1 className="text-xl font-bold tracking-tight cursor-pointer" onClick={() => setSelectedNewsId(null)}>
-             {theme.name} <span className="text-xs font-normal opacity-70">({isDarkMode ? 'Dark' : 'Light'})</span>
-           </h1>
+          <h1 className="text-xl font-bold tracking-tight cursor-pointer" onClick={() => setSelectedNewsId(null)}>
+            {theme.name} <span className="text-xs font-normal opacity-70">({isDarkMode ? 'Dark' : 'Light'})</span>
+          </h1>
         </div>
-        
+
         {/* Navigation only shown on Home */}
         {!selectedNewsId && (
           <nav className="hidden md:flex gap-6 text-sm font-medium text-skin-muted">
@@ -77,9 +86,9 @@ function App() {
 
       <main>
         {selectedNewsId && selectedNewsItem ? (
-          <NewsDetail 
-            item={selectedNewsItem} 
-            onBack={() => setSelectedNewsId(null)} 
+          <NewsDetail
+            item={selectedNewsItem}
+            onBack={() => setSelectedNewsId(null)}
           />
         ) : (
           <>
@@ -93,9 +102,9 @@ function App() {
       </main>
 
       <Footer />
-      
-      <ThemeSelector 
-        currentTheme={currentThemeId} 
+
+      <ThemeSelector
+        currentTheme={currentThemeId}
         setTheme={setCurrentThemeId}
         isDarkMode={isDarkMode}
         toggleDarkMode={() => setIsDarkMode(!isDarkMode)}

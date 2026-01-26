@@ -9,7 +9,7 @@ export const PROFILE = {
   brand: "M Lab",
   university: "北海道大学 工学部 情報エレクトロニクス学科 2年",
   affiliation: "学生団体Nラボ 所属",
-  bio: "Unity(C#)、Python、TypeScriptを駆使し、XRゲームや重機シミュレータ、Vket企業ブース、業務効率化Discord Botなどを開発。「設計から実装まで」をワンストップで担当します。<br />24時間戦える体力と「ワクワク」を原動力に、まだ見ぬ新しい体験を創造します。",
+  bio: "Unity(C#)、Python、TypeScriptを駆使し、XRゲームや重機シミュレータ、Vket企業ブース、業務効率化Discord Botなどを開発。「設計から実装まで」をワンストップで担当します。24時間戦える体力と「ワクワク」を原動力に、まだ見ぬ新しい体験を創造します。",
   heroImage: "https://assets.st-note.com/img/1768467914-4XvN6kDJLc8UFCWO0KeBREfn.png?width=1200",
   // ここにSNSや連絡先のURLを入力してください
   social: {
@@ -33,7 +33,7 @@ export const WORKS_DATA: WorkItem[] = [
     id: 'sim-1',
     title: 'Heavy Machinery Simulator',
     image: 'images/bhsim.png', // Placeholder for Simulator
-    description: '産業用の重機操作トレーニングシミュレータ。<br />実機の操作パネルと連動し、物理エンジンを活用して土砂の挙動や機体の振動をリアルに再現。<br />安全教育コストの削減に貢献。',
+    description: '産業用の重機操作トレーニングシミュレータ実機の操作パネルと連動し、物理エンジンを活用して土砂の挙動や機体の振動をリアルに再現。安全教育コストの削減に貢献。',
     techStack: ['Unity', 'C#', 'PhysX', 'Hardware Integration'],
   },
   {
