@@ -9,12 +9,12 @@ export const PROFILE = {
   brand: "M Lab",
   university: "北海道大学 工学部 情報エレクトロニクス学科 2年",
   affiliation: "学生団体Nラボ 所属",
-  bio: "Mラボ代表。Unity(C#)、Python、TypeScriptを駆使し、XRゲームや重機シミュレータ、Vket企業ブース、業務効率化Discord Botなどを開発。「設計から実装まで」をワンストップで担当します。24時間戦える体力と「ワクワク」を原動力に、まだ見ぬ新しい体験を創造します。",
+  bio: "Unity(C#)、Python、TypeScriptを駆使し、XRゲームや重機シミュレータ、Vket企業ブース、業務効率化Discord Botなどを開発。「設計から実装まで」をワンストップで担当します。<br />24時間戦える体力と「ワクワク」を原動力に、まだ見ぬ新しい体験を創造します。",
   heroImage: "https://assets.st-note.com/img/1768467914-4XvN6kDJLc8UFCWO0KeBREfn.png?width=1200",
   // ここにSNSや連絡先のURLを入力してください
   social: {
-    github: "https://github.com/", // あなたのGitHubプロフィールURL
-    email: "machihara@mlab.example.com" // お問い合わせ用メールアドレス
+    github: "https://github.com/kociden/", // あなたのGitHubプロフィールURL
+    email: "kociden28@gmail.com" // お問い合わせ用メールアドレス
   }
 };
 
@@ -32,24 +32,24 @@ export const WORKS_DATA: WorkItem[] = [
   {
     id: 'sim-1',
     title: 'Heavy Machinery Simulator',
-    image: 'https://picsum.photos/id/119/800/600', // Placeholder for Simulator
-    description: '産業用の重機操作トレーニングシミュレータ。実機の操作パネルと連動し、物理エンジンを活用して土砂の挙動や機体の振動をリアルに再現。安全教育コストの削減に貢献。',
+    image: 'images/bhsim.png', // Placeholder for Simulator
+    description: '産業用の重機操作トレーニングシミュレータ。<br />実機の操作パネルと連動し、物理エンジンを活用して土砂の挙動や機体の振動をリアルに再現。<br />安全教育コストの削減に貢献。',
     techStack: ['Unity', 'C#', 'PhysX', 'Hardware Integration'],
   },
   {
     id: 'vket-1',
     title: 'Vket Corporate Booth',
-    image: 'https://picsum.photos/id/48/800/600', // Placeholder for Vket
-    description: 'バーチャルマーケット（Vket）における企業出展ブースの制作。ブランドの世界観をVR空間に落とし込み、来場者が楽しめるインタラクティブなギミックを多数配置。',
-    techStack: ['Unity', 'Udon', 'VRChat SDK', '3D Design'],
+    image: 'images/vketsummer.png', // Placeholder for Vket
+    description: 'バーチャルマーケット（VketSummer2025）における企業出展ブースの制作。ブランドの世界観をVR空間に落とし込み、来場者が楽しめるインタラクティブなギミックを多数配置。',
+    techStack: ['Unity', 'Udon#', 'VRChat SDK', '3D Design'],
     url: 'https://vket.com'
   },
   {
     id: 'bot-1',
     title: 'Enterprise Discord Bot',
     image: 'https://picsum.photos/id/60/800/600', // Placeholder for Bot
-    description: '大規模コミュニティ向けの管理・業務自動化Bot。PythonとTypeScriptを併用し、ロール管理、問い合わせ自動応答、外部API連携機能を実装。24時間365日の安定稼働を実現。',
-    techStack: ['Python', 'TypeScript', 'Discord.js', 'Docker', 'AWS'],
+    description: '大規模コミュニティ向けの管理・業務自動化Bot。ロール管理、問い合わせ自動応答、外部API連携機能を実装。24時間365日の安定稼働を実現。',
+    techStack: ['Python', 'JavaScript', 'Discord.js', 'Docker'],
   },
   {
     id: 'web-1',
@@ -67,11 +67,11 @@ export const WORKS_DATA: WorkItem[] = [
 export const NEWS_DATA: NewsItem[] = [
   {
     id: 'n1',
-    date: '2023.12.10',
-    title: 'Mラボ (M Lab) を開業しました',
+    date: '2026.1.17',
+    title: 'Mラボを開業しました',
     thumbnail: 'https://picsum.photos/id/101/400/300',
     content: `
-      <p>この度、個人事業主として「Mラボ (M Lab)」を開業いたしました。<br>
+      <p>この度、個人事業主として「Mラボ」を開業いたしました。<br>
       北海道大学 工学部 情報エレクトロニクス学科での学びを活かしつつ、Web開発、XRコンテンツ制作、業務システム開発など、幅広い分野での課題解決に取り組んでまいります。</p>
       
       <h3>主な事業内容</h3>
@@ -86,55 +86,6 @@ export const NEWS_DATA: NewsItem[] = [
       今後ともMラボをよろしくお願いいたします。</p>
     `
   },
-  {
-    id: 'n2',
-    date: '2023.11.25',
-    title: '学生団体Nラボでの活動がメディアに掲載されました',
-    thumbnail: 'https://picsum.photos/id/102/400/300',
-    content: `
-      <p>所属している学生団体「Nラボ」での活動の様子が、地元メディアに取り上げられました。</p>
-      <p>記事では、私たちが取り組んでいる地域課題解決のためのアプリ開発プロジェクトについて詳しく紹介されています。</p>
-      <p>私たちは技術の力で北海道を盛り上げるべく、日々活動しています。今後もハッカソンへの参加や勉強会の主催などを通じて、技術力の向上とコミュニティへの貢献を目指します。</p>
-    `
-  },
-  {
-    id: 'n3',
-    date: '2023.11.01',
-    title: '新作XRゲームのα版テストを開始しました',
-    thumbnail: 'https://picsum.photos/id/103/400/300',
-    content: `
-      <p>現在開発中のVRアクションゲーム「Cyber Slash (仮)」のα版テストを開始しました。</p>
-      <p>本作は、物理演算を駆使した爽快な剣劇アクションが特徴です。Oculus Quest 2およびPCVRに対応予定です。</p>
-      <p>テストにご協力いただける方は、お問い合わせフォームよりご連絡ください。フィードバックを元に、さらなるクオリティアップを目指して開発を進めてまいります。</p>
-    `
-  },
-  {
-    id: 'n4',
-    date: '2023.10.15',
-    title: '技術ブログ「Tech M」を開設しました',
-    thumbnail: 'https://picsum.photos/id/104/400/300',
-    content: `
-      <p>日々の開発で得た知見や、新しい技術への挑戦を記録するためのブログ「Tech M」を開設しました。</p>
-      <p>主に以下のトピックについて発信していく予定です。</p>
-      <ul>
-        <li>Next.js / TypeScript の実践的なTips</li>
-        <li>Unity / C# の最適化テクニック</li>
-        <li>電子工作とIoTの連携実験</li>
-      </ul>
-      <p>アウトプットを通じて自身の理解を深めるとともに、同じ技術を学ぶ方々の参考になれば幸いです。</p>
-    `
-  },
-  {
-    id: 'n5',
-    date: '2023.09.20',
-    title: '重機シミュレータのデモ動画を公開',
-    content: `
-      <p>建設会社様向けに開発を行った「重機操作トレーニングシミュレータ」のデモ動画を公開しました。</p>
-      <p>実機に近い操作感を再現するために、専用のコントローラー連携と物理エンジンのチューニングを行っています。<br>
-      これにより、安全かつ低コストでの新人教育が可能となります。</p>
-      <p>詳細はWorksページをご覧ください。</p>
-    `
-  }
 ];
 
 // ==========================================
@@ -144,90 +95,90 @@ export const THEMES: Record<ThemeId, ThemeConfig> = {
   'minimal': {
     id: 'minimal',
     name: 'Minimal',
-    colors: { 
+    colors: {
       light: { bg: '#ffffff', text: '#1a1a1a', accent: '#000000', card: '#f4f4f5', cardText: '#1a1a1a', muted: '#71717a' },
-      dark:  { bg: '#09090b', text: '#fafafa', accent: '#ffffff', card: '#18181b', cardText: '#fafafa', muted: '#a1a1aa' }
+      dark: { bg: '#09090b', text: '#fafafa', accent: '#ffffff', card: '#18181b', cardText: '#fafafa', muted: '#a1a1aa' }
     },
     styles: { rounded: '0px', font: 'sans-serif', shadow: 'none', border: '1px solid #e4e4e7' }
   },
   'dark-dev': {
     id: 'dark-dev',
     name: 'Dev Terminal',
-    colors: { 
+    colors: {
       light: { bg: '#eef2f6', text: '#1e293b', accent: '#16a34a', card: '#ffffff', cardText: '#1e293b', muted: '#64748b' },
-      dark:  { bg: '#09090b', text: '#e4e4e7', accent: '#22c55e', card: '#18181b', cardText: '#e4e4e7', muted: '#a1a1aa' }
+      dark: { bg: '#09090b', text: '#e4e4e7', accent: '#22c55e', card: '#18181b', cardText: '#e4e4e7', muted: '#a1a1aa' }
     },
     styles: { rounded: '4px', font: 'monospace', shadow: 'none', border: '1px solid #27272a' }
   },
   'hokkaido-snow': {
     id: 'hokkaido-snow',
     name: 'Hokkaido Snow',
-    colors: { 
+    colors: {
       light: { bg: '#f0f9ff', text: '#334155', accent: '#38bdf8', card: '#ffffff', cardText: '#334155', muted: '#94a3b8' },
-      dark:  { bg: '#0f172a', text: '#e2e8f0', accent: '#7dd3fc', card: '#1e293b', cardText: '#f1f5f9', muted: '#94a3b8' }
+      dark: { bg: '#0f172a', text: '#e2e8f0', accent: '#7dd3fc', card: '#1e293b', cardText: '#f1f5f9', muted: '#94a3b8' }
     },
     styles: { rounded: '16px', font: 'sans-serif', shadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', border: 'none' }
   },
   'cyberpunk': {
     id: 'cyberpunk',
     name: 'Cyberpunk',
-    colors: { 
+    colors: {
       light: { bg: '#e0e0e0', text: '#2a0a2a', accent: '#d000d0', card: '#f5f5f5', cardText: '#008080', muted: '#a030a0' },
-      dark:  { bg: '#050505', text: '#ffff00', accent: '#ff00ff', card: '#1a1a1a', cardText: '#00ffff', muted: '#d946ef' }
+      dark: { bg: '#050505', text: '#ffff00', accent: '#ff00ff', card: '#1a1a1a', cardText: '#00ffff', muted: '#d946ef' }
     },
     styles: { rounded: '0px', font: 'sans-serif', shadow: '4px 4px 0px var(--color-accent)', border: '2px solid var(--color-card-text)' }
   },
   'forest': {
     id: 'forest',
     name: 'Organic Forest',
-    colors: { 
+    colors: {
       light: { bg: '#f7fee7', text: '#14532d', accent: '#65a30d', card: '#ffffff', cardText: '#365314', muted: '#84a98c' },
-      dark:  { bg: '#1a2e05', text: '#ecfccb', accent: '#a3e635', card: '#365314', cardText: '#ecfccb', muted: '#bef264' }
+      dark: { bg: '#1a2e05', text: '#ecfccb', accent: '#a3e635', card: '#365314', cardText: '#ecfccb', muted: '#bef264' }
     },
     styles: { rounded: '8px', font: 'serif', shadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', border: '1px solid var(--color-accent)' }
   },
   'corporate': {
     id: 'corporate',
     name: 'Trust Blue',
-    colors: { 
+    colors: {
       light: { bg: '#f8fafc', text: '#0f172a', accent: '#2563eb', card: '#ffffff', cardText: '#1e293b', muted: '#64748b' },
-      dark:  { bg: '#020617', text: '#f8fafc', accent: '#3b82f6', card: '#1e293b', cardText: '#f1f5f9', muted: '#94a3b8' }
+      dark: { bg: '#020617', text: '#f8fafc', accent: '#3b82f6', card: '#1e293b', cardText: '#f1f5f9', muted: '#94a3b8' }
     },
     styles: { rounded: '6px', font: 'sans-serif', shadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)', border: '1px solid var(--color-muted)' }
   },
   'sunset': {
     id: 'sunset',
     name: 'Sunset',
-    colors: { 
+    colors: {
       light: { bg: '#fff7ed', text: '#7c2d12', accent: '#ea580c', card: '#fff', cardText: '#7c2d12', muted: '#fdba74' },
-      dark:  { bg: '#431407', text: '#ffedd5', accent: '#fb923c', card: '#7c2d12', cardText: '#ffedd5', muted: '#fdba74' }
+      dark: { bg: '#431407', text: '#ffedd5', accent: '#fb923c', card: '#7c2d12', cardText: '#ffedd5', muted: '#fdba74' }
     },
     styles: { rounded: '24px', font: 'sans-serif', shadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)', border: 'none' }
   },
   'luxury': {
     id: 'luxury',
     name: 'Mono Luxury',
-    colors: { 
+    colors: {
       light: { bg: '#fcfcfc', text: '#8a6d3b', accent: '#111111', card: '#ffffff', cardText: '#8a6d3b', muted: '#999999' },
-      dark:  { bg: '#000000', text: '#d4af37', accent: '#ffffff', card: '#111111', cardText: '#d4af37', muted: '#525252' }
+      dark: { bg: '#000000', text: '#d4af37', accent: '#ffffff', card: '#111111', cardText: '#d4af37', muted: '#525252' }
     },
     styles: { rounded: '2px', font: 'serif', shadow: 'none', border: '1px solid var(--color-text)' }
   },
   'retro-pop': {
     id: 'retro-pop',
     name: 'Retro Pop',
-    colors: { 
+    colors: {
       light: { bg: '#fef08a', text: '#000000', accent: '#ef4444', card: '#ffffff', cardText: '#000000', muted: '#4b5563' },
-      dark:  { bg: '#4c1d95', text: '#fef08a', accent: '#f472b6', card: '#2e1065', cardText: '#fef08a', muted: '#ddd6fe' }
+      dark: { bg: '#4c1d95', text: '#fef08a', accent: '#f472b6', card: '#2e1065', cardText: '#fef08a', muted: '#ddd6fe' }
     },
     styles: { rounded: '12px', font: 'sans-serif', shadow: '6px 6px 0px 0px var(--color-text)', border: '3px solid var(--color-text)' }
   },
   'glass': {
     id: 'glass',
     name: 'Glass',
-    colors: { 
+    colors: {
       light: { bg: '#e0e7ff', text: '#4338ca', accent: '#6366f1', card: 'rgba(255, 255, 255, 0.4)', cardText: '#3730a3', muted: '#818cf8' },
-      dark:  { bg: '#312e81', text: '#e0e7ff', accent: '#818cf8', card: 'rgba(0, 0, 0, 0.3)', cardText: '#e0e7ff', muted: '#a5b4fc' }
+      dark: { bg: '#312e81', text: '#e0e7ff', accent: '#818cf8', card: 'rgba(0, 0, 0, 0.3)', cardText: '#e0e7ff', muted: '#a5b4fc' }
     },
     styles: { rounded: '16px', font: 'sans-serif', shadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)', border: '1px solid rgba(255, 255, 255, 0.18)' }
   }
