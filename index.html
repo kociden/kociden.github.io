@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M Lab | Yuta Machihara</title>
-    <!-- Tailwind CSS (Keep CDN for dynamic config compatibility in this setup) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              skin: {
-                base: 'var(--color-bg)',
-                text: 'var(--color-text)',
-                accent: 'var(--color-accent)',
-                card: 'var(--color-card)',
-                'card-text': 'var(--color-card-text)',
-                muted: 'var(--color-muted)',
-              }
-            },
-            fontFamily: {
-              primary: 'var(--font-primary)',
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M Lab | Yuta Machihara</title>
+  <!-- Tailwind CSS (Keep CDN for dynamic config compatibility in this setup) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // 重要: システム設定ではなくクラスで切り替える設定
+      theme: {
+        extend: {
+          colors: {
+            skin: {
+              base: 'var(--color-bg)',
+              text: 'var(--color-text)',
+              accent: 'var(--color-accent)',
+              card: 'var(--color-card)',
+              'card-text': 'var(--color-card-text)',
+              muted: 'var(--color-muted)',
             }
+          },
+          fontFamily: {
+            primary: 'var(--font-primary)',
           }
         }
       }
-    </script>
-    <style>
-      /* Smooth scrolling for anchor links */
-      html {
-        scroll-behavior: smooth;
-      }
-      /* Custom scrollbar to match aesthetics */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
 
-<link rel="stylesheet" href="/index.css">
+    /* Custom scrollbar to match aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+
   <script type="importmap">
 {
   "imports": {
@@ -61,9 +66,11 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-C9CVItfa.js"></script>
+  <script type="module" crossorigin src="./assets/index-Dx6AkcUw.js"></script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<body>
+  <div id="root"></div>
+</body>
+
 </html>
