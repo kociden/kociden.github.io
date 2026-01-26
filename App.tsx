@@ -12,27 +12,41 @@ import { ThemeId } from './types';
 
 function App() {
   const [currentThemeId, setCurrentThemeId] = useState<ThemeId>('minimal');
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedNewsId, setSelectedNewsId] = useState<string | null>(null);
   const theme = THEMES[currentThemeId];
+  
+  // Select active colors based on mode
+  const activeColors = isDarkMode ? theme.colors.dark : theme.colors.light;
+
+  // Initialize dark mode based on system preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   // Apply theme variables to root style
   const themeStyles = {
-    '--color-bg': theme.colors.bg,
-    '--color-text': theme.colors.text,
-    '--color-accent': theme.colors.accent,
-    '--color-card': theme.colors.card,
-    '--color-card-text': theme.colors.cardText,
-    '--color-muted': theme.colors.muted,
+    '--color-bg': activeColors.bg,
+    '--color-text': activeColors.text,
+    '--color-accent': activeColors.accent,
+    '--color-card': activeColors.card,
+    '--color-card-text': activeColors.cardText,
+    '--color-muted': activeColors.muted,
     '--style-rounded': theme.styles.rounded,
     '--font-primary': theme.styles.font,
     '--style-shadow': theme.styles.shadow,
     '--style-border': theme.styles.border,
   } as React.CSSProperties;
 
-  // Handle body background
+  // Handle body background for overscroll areas
   useEffect(() => {
-    document.body.style.backgroundColor = theme.colors.bg;
-  }, [theme]);
+    document.body.style.backgroundColor = activeColors.bg;
+  }, [activeColors]);
 
   // Find selected news item
   const selectedNewsItem = selectedNewsId ? NEWS_DATA.find(n => n.id === selectedNewsId) : null;
@@ -45,7 +59,7 @@ function App() {
       <header className="fixed top-0 w-full z-40 px-6 py-4 flex justify-between items-center bg-skin-base/80 backdrop-blur-sm border-b border-skin-text/5">
         <div className="flex items-center gap-2">
            <h1 className="text-xl font-bold tracking-tight cursor-pointer" onClick={() => setSelectedNewsId(null)}>
-             {theme.name} Mode
+             {theme.name} <span className="text-xs font-normal opacity-70">({isDarkMode ? 'Dark' : 'Light'})</span>
            </h1>
         </div>
         
@@ -82,7 +96,9 @@ function App() {
       
       <ThemeSelector 
         currentTheme={currentThemeId} 
-        setTheme={setCurrentThemeId} 
+        setTheme={setCurrentThemeId}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={() => setIsDarkMode(!isDarkMode)}
       />
     </div>
   );

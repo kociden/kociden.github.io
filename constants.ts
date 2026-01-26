@@ -143,62 +143,92 @@ export const NEWS_DATA: NewsItem[] = [
 export const THEMES: Record<ThemeId, ThemeConfig> = {
   'minimal': {
     id: 'minimal',
-    name: 'Minimal White',
-    colors: { bg: '#ffffff', text: '#1a1a1a', accent: '#000000', card: '#f4f4f5', cardText: '#1a1a1a', muted: '#71717a' },
+    name: 'Minimal',
+    colors: { 
+      light: { bg: '#ffffff', text: '#1a1a1a', accent: '#000000', card: '#f4f4f5', cardText: '#1a1a1a', muted: '#71717a' },
+      dark:  { bg: '#09090b', text: '#fafafa', accent: '#ffffff', card: '#18181b', cardText: '#fafafa', muted: '#a1a1aa' }
+    },
     styles: { rounded: '0px', font: 'sans-serif', shadow: 'none', border: '1px solid #e4e4e7' }
   },
   'dark-dev': {
     id: 'dark-dev',
     name: 'Dev Terminal',
-    colors: { bg: '#09090b', text: '#e4e4e7', accent: '#22c55e', card: '#18181b', cardText: '#e4e4e7', muted: '#a1a1aa' },
+    colors: { 
+      light: { bg: '#eef2f6', text: '#1e293b', accent: '#16a34a', card: '#ffffff', cardText: '#1e293b', muted: '#64748b' },
+      dark:  { bg: '#09090b', text: '#e4e4e7', accent: '#22c55e', card: '#18181b', cardText: '#e4e4e7', muted: '#a1a1aa' }
+    },
     styles: { rounded: '4px', font: 'monospace', shadow: 'none', border: '1px solid #27272a' }
   },
   'hokkaido-snow': {
     id: 'hokkaido-snow',
     name: 'Hokkaido Snow',
-    colors: { bg: '#f0f9ff', text: '#334155', accent: '#38bdf8', card: '#ffffff', cardText: '#334155', muted: '#94a3b8' },
+    colors: { 
+      light: { bg: '#f0f9ff', text: '#334155', accent: '#38bdf8', card: '#ffffff', cardText: '#334155', muted: '#94a3b8' },
+      dark:  { bg: '#0f172a', text: '#e2e8f0', accent: '#7dd3fc', card: '#1e293b', cardText: '#f1f5f9', muted: '#94a3b8' }
+    },
     styles: { rounded: '16px', font: 'sans-serif', shadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', border: 'none' }
   },
   'cyberpunk': {
     id: 'cyberpunk',
     name: 'Cyberpunk',
-    colors: { bg: '#050505', text: '#ffff00', accent: '#ff00ff', card: '#1a1a1a', cardText: '#00ffff', muted: '#d946ef' },
-    styles: { rounded: '0px', font: 'sans-serif', shadow: '4px 4px 0px #ff00ff', border: '2px solid #00ffff' }
+    colors: { 
+      light: { bg: '#e0e0e0', text: '#2a0a2a', accent: '#d000d0', card: '#f5f5f5', cardText: '#008080', muted: '#a030a0' },
+      dark:  { bg: '#050505', text: '#ffff00', accent: '#ff00ff', card: '#1a1a1a', cardText: '#00ffff', muted: '#d946ef' }
+    },
+    styles: { rounded: '0px', font: 'sans-serif', shadow: '4px 4px 0px var(--color-accent)', border: '2px solid var(--color-card-text)' }
   },
   'forest': {
     id: 'forest',
     name: 'Organic Forest',
-    colors: { bg: '#f7fee7', text: '#14532d', accent: '#65a30d', card: '#ffffff', cardText: '#365314', muted: '#84a98c' },
-    styles: { rounded: '8px', font: 'serif', shadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', border: '1px solid #d9f99d' }
+    colors: { 
+      light: { bg: '#f7fee7', text: '#14532d', accent: '#65a30d', card: '#ffffff', cardText: '#365314', muted: '#84a98c' },
+      dark:  { bg: '#1a2e05', text: '#ecfccb', accent: '#a3e635', card: '#365314', cardText: '#ecfccb', muted: '#bef264' }
+    },
+    styles: { rounded: '8px', font: 'serif', shadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', border: '1px solid var(--color-accent)' }
   },
   'corporate': {
     id: 'corporate',
     name: 'Trust Blue',
-    colors: { bg: '#f8fafc', text: '#0f172a', accent: '#2563eb', card: '#ffffff', cardText: '#1e293b', muted: '#64748b' },
-    styles: { rounded: '6px', font: 'sans-serif', shadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)', border: '1px solid #e2e8f0' }
+    colors: { 
+      light: { bg: '#f8fafc', text: '#0f172a', accent: '#2563eb', card: '#ffffff', cardText: '#1e293b', muted: '#64748b' },
+      dark:  { bg: '#020617', text: '#f8fafc', accent: '#3b82f6', card: '#1e293b', cardText: '#f1f5f9', muted: '#94a3b8' }
+    },
+    styles: { rounded: '6px', font: 'sans-serif', shadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)', border: '1px solid var(--color-muted)' }
   },
   'sunset': {
     id: 'sunset',
-    name: 'Sunset Gradient',
-    colors: { bg: '#fff7ed', text: '#7c2d12', accent: '#ea580c', card: '#fff', cardText: '#7c2d12', muted: '#fdba74' },
+    name: 'Sunset',
+    colors: { 
+      light: { bg: '#fff7ed', text: '#7c2d12', accent: '#ea580c', card: '#fff', cardText: '#7c2d12', muted: '#fdba74' },
+      dark:  { bg: '#431407', text: '#ffedd5', accent: '#fb923c', card: '#7c2d12', cardText: '#ffedd5', muted: '#fdba74' }
+    },
     styles: { rounded: '24px', font: 'sans-serif', shadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)', border: 'none' }
   },
   'luxury': {
     id: 'luxury',
     name: 'Mono Luxury',
-    colors: { bg: '#000000', text: '#d4af37', accent: '#ffffff', card: '#111111', cardText: '#d4af37', muted: '#525252' },
-    styles: { rounded: '2px', font: 'serif', shadow: 'none', border: '1px solid #d4af37' }
+    colors: { 
+      light: { bg: '#fcfcfc', text: '#8a6d3b', accent: '#111111', card: '#ffffff', cardText: '#8a6d3b', muted: '#999999' },
+      dark:  { bg: '#000000', text: '#d4af37', accent: '#ffffff', card: '#111111', cardText: '#d4af37', muted: '#525252' }
+    },
+    styles: { rounded: '2px', font: 'serif', shadow: 'none', border: '1px solid var(--color-text)' }
   },
   'retro-pop': {
     id: 'retro-pop',
     name: 'Retro Pop',
-    colors: { bg: '#fef08a', text: '#000000', accent: '#ef4444', card: '#ffffff', cardText: '#000000', muted: '#4b5563' },
-    styles: { rounded: '12px', font: 'sans-serif', shadow: '6px 6px 0px 0px #000000', border: '3px solid #000000' }
+    colors: { 
+      light: { bg: '#fef08a', text: '#000000', accent: '#ef4444', card: '#ffffff', cardText: '#000000', muted: '#4b5563' },
+      dark:  { bg: '#4c1d95', text: '#fef08a', accent: '#f472b6', card: '#2e1065', cardText: '#fef08a', muted: '#ddd6fe' }
+    },
+    styles: { rounded: '12px', font: 'sans-serif', shadow: '6px 6px 0px 0px var(--color-text)', border: '3px solid var(--color-text)' }
   },
   'glass': {
     id: 'glass',
-    name: 'Glassmorphism',
-    colors: { bg: '#c084fc', text: '#ffffff', accent: '#e879f9', card: 'rgba(255, 255, 255, 0.2)', cardText: '#ffffff', muted: '#e9d5ff' },
+    name: 'Glass',
+    colors: { 
+      light: { bg: '#e0e7ff', text: '#4338ca', accent: '#6366f1', card: 'rgba(255, 255, 255, 0.4)', cardText: '#3730a3', muted: '#818cf8' },
+      dark:  { bg: '#312e81', text: '#e0e7ff', accent: '#818cf8', card: 'rgba(0, 0, 0, 0.3)', cardText: '#e0e7ff', muted: '#a5b4fc' }
+    },
     styles: { rounded: '16px', font: 'sans-serif', shadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)', border: '1px solid rgba(255, 255, 255, 0.18)' }
   }
 };

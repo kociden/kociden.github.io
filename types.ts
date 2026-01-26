@@ -16,16 +16,21 @@ export interface NewsItem {
   content?: string; // The detailed content of the news
 }
 
+export interface ColorScheme {
+  bg: string;
+  text: string;
+  accent: string;
+  card: string;
+  cardText: string;
+  muted: string;
+}
+
 export interface ThemeConfig {
   id: string;
   name: string;
   colors: {
-    bg: string;
-    text: string;
-    accent: string;
-    card: string;
-    cardText: string;
-    muted: string;
+    light: ColorScheme;
+    dark: ColorScheme;
   };
   styles: {
     rounded: string;
