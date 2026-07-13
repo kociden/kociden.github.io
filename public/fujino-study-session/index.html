@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="藤野さん勉強会 LPデザイン案">
+  <title>藤野さん勉強会 | LPデザイン案</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #13233a;
+      --paper: #f7f7f2;
+      --white: #ffffff;
+      --yellow: #f3cf3f;
+      --coral: #dc684e;
+      --line: rgba(19, 35, 58, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--paper);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .tag {
+      margin: 0;
+      color: rgba(19, 35, 58, 0.62);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    main {
+      padding: 72px 0 88px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
+      gap: 64px;
+      align-items: end;
+      padding-bottom: 56px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 22px;
+      padding: 7px 10px;
+      background: var(--yellow);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .intro-copy {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.9;
+    }
+
+    .concepts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .concept {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .concept:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 52px rgba(19, 35, 58, 0.13);
+    }
+
+    .visual {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #d8ddd9;
+    }
+
+    .visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 550ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    .concept:hover .visual img {
+      transform: scale(1.035);
+    }
+
+    .visual::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 25, 20, 0.48), transparent 60%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .number {
+      position: absolute;
+      right: 18px;
+      bottom: 13px;
+      z-index: 1;
+      color: var(--white);
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .content h2 {
+      margin: 0 0 10px;
+      font-size: 27px;
+      line-height: 1.35;
+    }
+
+    .content p {
+      min-height: 3.6em;
+      margin: 0 0 26px;
+      color: rgba(19, 35, 58, 0.7);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      width: 100%;
+      min-height: 54px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-radius: 4px;
+      color: var(--white);
+      background: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      transition: background-color 180ms ease;
+    }
+
+    .button::after {
+      content: "→";
+      font-size: 20px;
+    }
+
+    .button:hover {
+      background: var(--coral);
+    }
+
+    footer {
+      display: flex;
+      min-height: 92px;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      color: rgba(19, 35, 58, 0.58);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(100% - 32px, 560px);
+      }
+
+      header {
+        min-height: 72px;
+      }
+
+      main {
+        padding: 48px 0 64px;
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .intro-copy {
+        font-size: 14px;
+      }
+
+      .concepts {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        padding: 24px;
+      }
+
+      .content p {
+        min-height: 0;
+      }
+
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <p class="brand">藤野さん勉強会</p>
+    <p class="tag">LP DESIGN CONCEPTS</p>
+  </header>
+
+  <main class="shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">2つのデザイン案</p>
+        <h1 id="page-title">LPを選ぶ。</h1>
+      </div>
+      <p class="intro-copy">それぞれ異なる視点から、藤野さん勉強会の熱量と価値を伝えるページです。</p>
+    </section>
+
+    <section class="concepts" aria-label="LPデザイン案一覧">
+      <article class="concept">
+        <div class="visual">
+          <img src="concept-01/assets/fujino-study-session.jpg" alt="藤野さん勉強会の参加者が対話している様子" width="1824" height="1368">
+          <span class="number" aria-hidden="true">01</span>
+        </div>
+        <div class="content">
+          <h2>視座と熱量を伝える案</h2>
+          <p>力強いメッセージと写真で、勉強会に参加する意味を正面から伝えます。</p>
+          <a class="button" href="concept-01/">案1を見る</a>
+        </div>
+      </article>
+
+      <article class="concept">
+        <div class="visual">
+          <img src="concept-02/assets/PXL_20260522_093737851.jpg" alt="藤野さん勉強会で参加者が発表している様子" width="1200" height="900">
+          <span class="number" aria-hidden="true">02</span>
+        </div>
+        <div class="content">
+          <h2>余白と物語で伝える案</h2>
+          <p>写真と余白を大きく使い、読み進めるほど熱量が高まる構成です。</p>
+          <a class="button" href="concept-02/">案2を見る</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>FUJINO STUDY SESSION</span>
+    <span>DESIGN REVIEW HUB</span>
+  </footer>
+</body>
+</html>
