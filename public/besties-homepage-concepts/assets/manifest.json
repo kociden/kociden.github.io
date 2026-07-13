@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-07-13T06:00:00+09:00",
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "concept": "01 cinematic aerial field grid",
+      "file": "hero-01.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium corporate website hero, wide landscape. Cinematic aerial view of precisely cultivated Japanese agricultural fields forming an elegant geometric grid, with a subtle suggestion of technology and responsible regional infrastructure. Early morning in rural western Japan, distant low mountains, atmospheric depth. Ultra-premium cinematic editorial photography, realistic and sophisticated. Panoramic 16:9 feeling, sweeping leading lines, clear calm negative space on the left for website copy. Golden dawn light; deep forest green, muted gold, warm earth and restrained teal. No readable text, letters, logos, watermarks, UI or border."
+    },
+    {
+      "concept": "02 human craft documentary",
+      "file": "hero-02.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium corporate website hero, wide landscape. Intimate documentary scene of skilled Japanese hands carefully inspecting soil and young crops, expressing human craft, trust and real field expertise. Working farm edge in western Japan with softly blurred landscape and practical tools. Luxury documentary photography, tactile realism, subtle film grain. Cinematic wide crop with subject on right-center and generous softly lit negative space on left. Natural late-afternoon light; warm skin tones, olive, straw, charcoal and cream. Anatomically correct hands, no posed stock-photo smiles, readable text, letters, logos, watermarks, UI or border."
+    },
+    {
+      "concept": "03 digital twin terrain",
+      "file": "hero-03.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. A breathtaking digital twin of Japanese terrain where real mountains, rivers, farmland and infrastructure transition seamlessly into refined translucent topographic data layers. Chugoku-region-inspired landscape from an elevated perspective. Photoreal landscape fused with elegant high-end 3D data visualization, not a sci-fi cliché. Panoramic terrain flowing diagonally with quiet dark negative space on the left. Blue hour; midnight navy, emerald, cyan glass and restrained amber. No text, numbers, labels, map names, logos, watermarks, UI panels or border."
+    },
+    {
+      "concept": "04 Japanese washi luxury",
+      "file": "hero-04.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. An exquisite abstract Japanese washi paper landscape inspired by layered hills, cultivated fields, wind and flowing information. Sculptural paper relief with delicate fibers and subtle metallic accents. Luxury Japanese art direction, handcrafted washi, editorial still life, museum-grade detail. Very wide layered composition, focus to the right and serene cream negative space on the left. Soft raking gallery light; ivory, sumi charcoal, moss green and pale gold. No calligraphy, text, letters, logos, watermarks, frame or UI."
+    },
+    {
+      "concept": "05 food supply journey",
+      "file": "hero-05.webp",
+      "prompt": "Use case: ads-marketing. Asset type: premium corporate website hero, wide landscape. A poetic food supply journey shown as one continuous cinematic scene, from healthy field and harvest through careful logistics to a beautifully prepared Japanese table. Seamless spatial transition rather than separate panels. Luxury brand campaign photography, photorealistic, art-directed yet believable. Panoramic narrative with refined dining detail on the right and open atmospheric space on the left. Warm sunrise evolving to soft interior glow; fresh green, rice gold, warm walnut and porcelain white. No collage borders, visible brands, packaging text, readable text, logos, watermarks or UI."
+    },
+    {
+      "concept": "06 signal through nature",
+      "file": "hero-06.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. A subtle luminous signal traveling through a living Japanese natural landscape, connecting forest, water, farmland and community as one resilient system. Misty valley in western Japan with river and fields. Cinematic photorealism with restrained long-exposure light art. Panoramic composition with an elegant light path curving through depth and moody negative space on the left. Predawn mist; deep green-black, slate blue, pearl mist and thin warm-white signal. One organic light path only; no neon circuit-board look, text, logos, watermarks, UI or border."
+    },
+    {
+      "concept": "07 editorial collage",
+      "file": "hero-07.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. Sophisticated editorial collage celebrating agriculture, regional people, landscape, food and digital innovation in western Japan. Layered photographic fragments and tactile paper shapes arranged as a cohesive luxury magazine image. Contemporary Japanese editorial art direction, analog cut paper plus premium photography. Wide asymmetric arrangement concentrated on the right and lower edge with spacious off-white left area. Off-white, ink black, persimmon, field green and cobalt accent. No printed words, headlines, letters, logos, watermarks, messy scrapbook aesthetic or UI."
+    },
+    {
+      "concept": "08 living data particles",
+      "file": "hero-08.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. Living data particles behaving like seeds, pollen and fireflies, gathering into a graceful flowing ecosystem above dark farmland. Twilight agricultural landscape with barely visible terraced contours. Sophisticated cinematic 3D particle art grounded in photoreal nature. Panoramic particle current blooming on the right and arcing toward center, with deep clean negative space on the left. Near-black navy, deep green, champagne gold and soft cyan. No globe, human silhouette, text, numbers, logos, watermarks, UI or border."
+    },
+    {
+      "concept": "09 Chugoku partnership atlas",
+      "file": "hero-09.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. Elegant abstract atlas of partnerships across the Chugoku region, expressed through tactile terrain, rivers and warm connection points without literal labels. Sculpted relief-map-inspired landscape of western Honshu and surrounding sea, artistic rather than cartographically exact. Luxury architectural model photography fused with subtle data visualization. Oblique panoramic view with illuminated network center-right and dark calm space on the left. Graphite, deep sea blue, cedar green and warm copper lights. No boundaries, city names, text, letters, logos, watermarks, UI panels or border."
+    },
+    {
+      "concept": "10 future heritage",
+      "file": "hero-10.webp",
+      "prompt": "Use case: stylized-concept. Asset type: premium corporate website hero, wide landscape. Future heritage vision where an ancient Japanese satoyama landscape and contemporary regenerative infrastructure coexist beautifully across generations. Timeless rural valley with old woodland, water channels, productive fields and discreet modern structures. Epic photoreal cinematic environmental portrait with award-winning architecture campaign quality. Expansive wide view at human eye level, symbolic mature tree on the right, open luminous valley and sky on the left. First light after rain; verdant green, stone gray, mist white and gentle sunrise gold. Culturally authentic; no fantasy castle, futuristic skyscrapers, text, logos, watermarks, UI or border."
+    }
+  ]
+}
