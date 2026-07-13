@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>藤野さん勉強会 | 金曜の夜に、やりたいを行動へ変える</title>
+  <meta name="description" content="毎週金曜18:15-22:00、北海道大学エンレイソウで開催。大学では学べない人生の経営を、仲間と学び、次の一歩に変える勉強会です。">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #151917;
+      --paper: #f6f5f0;
+      --white: #ffffff;
+      --blue: #2457d6;
+      --yellow: #f3c94a;
+      --line: rgba(21, 25, 23, 0.16);
+      --muted: rgba(21, 25, 23, 0.68);
+      --soft: rgba(21, 25, 23, 0.06);
+      --line-green: #06c755;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      letter-spacing: 0;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::selection {
+      color: var(--ink);
+      background: var(--yellow);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol,
+    figure {
+      margin: 0;
+    }
+
+    ul,
+    ol {
+      padding: 0;
+      list-style: none;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      transform: translateY(-140%);
+      padding: 12px 16px;
+      color: var(--white);
+      background: var(--ink);
+      font-weight: 800;
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: 4px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 50;
+      background: rgba(246, 245, 240, 0.88);
+      border-bottom: 1px solid rgba(21, 25, 23, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(var(--max), calc(100% - 48px));
+      min-height: 68px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand::before {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      background: var(--yellow);
+      content: "";
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      color: rgba(21, 25, 23, 0.78);
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+    }
+
+    .nav .nav-cta {
+      min-height: 44px;
+      padding: 0 18px;
+      color: var(--white);
+      background: var(--blue);
+      border-radius: 6px;
+    }
+
+    .section-inner {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section-inner > *,
+    .section-head > *,
+    .experience > *,
+    .participants-intro > *,
+    .last-links > * {
+      min-width: 0;
+    }
+
+    .split span {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .split .line {
+      display: block;
+    }
+
+    .marker {
+      position: relative;
+      z-index: 0;
+      display: inline-block;
+    }
+
+    .marker::after {
+      position: absolute;
+      right: 0;
+      bottom: 0.04em;
+      left: 0;
+      z-index: -1;
+      height: 0.34em;
+      background: var(--yellow);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 90svh;
+      color: var(--white);
+      background: var(--ink);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url("assets/fujino-study-session.jpg") center 28% / cover no-repeat;
+      content: "";
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.74) 0%, rgba(0, 0, 0, 0.42) 52%, rgba(0, 0, 0, 0.08) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.02) 28%, rgba(21, 25, 23, 0.70) 100%);
+      content: "";
+    }
+
+    .hero-inner {
+      min-height: 90svh;
+      display: grid;
+      align-items: start;
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 128px 0 72px;
+    }
+
+    .hero-content {
+      width: min(760px, 100%);
+      padding-top: 8svh;
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: center;
+      margin-bottom: 26px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+    }
+
+    .hero-meta span + span::before {
+      width: 1px;
+      height: 16px;
+      margin-right: 12px;
+      background: rgba(255, 255, 255, 0.42);
+      content: "";
+    }
+
+    h1 {
+      max-width: 820px;
+      font-size: clamp(48px, 7.2vw, 104px);
+      line-height: 1.02;
+      font-weight: 900;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .hero-lead {
+      max-width: 700px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, 0.90);
+      font-size: clamp(17px, 2vw, 24px);
+      line-height: 1.9;
+      font-weight: 700;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border: 1px solid currentColor;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.2;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: var(--white);
+      border-color: var(--blue);
+      background: var(--blue);
+    }
+
+    .button.secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .button.dark {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: transparent;
+    }
+
+    .button.line-button {
+      color: var(--white);
+      border-color: var(--line-green);
+      background: var(--line-green);
+    }
+
+    .section {
+      padding: 136px 0;
+      background: var(--paper);
+    }
+
+    .section.white {
+      background: var(--white);
+    }
+
+    .section.dark {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 58px;
+    }
+
+    .section-title-block {
+      grid-column: 1 / span 7;
+      min-width: 0;
+    }
+
+    .section-lead {
+      grid-column: 8 / span 5;
+      min-width: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+      font-weight: 700;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .dark .section-lead,
+    .dark .eyebrow {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .eyebrow::before {
+      width: 48px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 76px);
+      line-height: 1.08;
+      font-weight: 900;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    h3 {
+      font-size: clamp(22px, 2.4vw, 32px);
+      line-height: 1.28;
+      font-weight: 900;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .threat {
+      position: relative;
+      overflow: hidden;
+      padding: 152px 0;
+    }
+
+    .threat .section-inner {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .threat-copy {
+      grid-column: 1 / span 9;
+    }
+
+    .threat h2 {
+      font-size: clamp(42px, 7vw, 112px);
+      line-height: 1;
+    }
+
+    .threat-text {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 54px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(18px, 2.2vw, 28px);
+      line-height: 1.9;
+      font-weight: 800;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .threat-text p:first-child {
+      grid-column: 1 / span 6;
+    }
+
+    .threat-text p:last-child {
+      grid-column: 7 / span 5;
+      padding-top: 64px;
+    }
+
+    .definition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .definition-item {
+      min-height: 260px;
+      padding: 30px 28px 34px;
+      border-right: 1px solid var(--line);
+    }
+
+    .definition-item:last-child {
+      border-right: 0;
+    }
+
+    .definition-number {
+      display: block;
+      margin-bottom: 56px;
+      color: rgba(21, 25, 23, 0.34);
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .definition-item p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 700;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .experience-copy {
+      grid-column: 1 / span 5;
+      position: sticky;
+      top: 112px;
+    }
+
+    .experience-steps {
+      grid-column: 7 / span 6;
+      border-top: 1px solid var(--line);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 22px;
+      align-items: center;
+      min-height: 112px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step span {
+      color: var(--yellow);
+      font-size: 44px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .step strong {
+      font-size: clamp(28px, 4vw, 54px);
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .photo-band {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .photo-gallery {
+      display: grid;
+      gap: 32px;
+      width: min(1040px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .wide-photo {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .wide-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .photo-grid figure {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .photo-grid img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .representative {
+      background: var(--paper);
+    }
+
+    .representative-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 40px;
+      align-items: center;
+      margin-top: 34px;
+    }
+
+    .representative-photo {
+      grid-column: 1 / span 5;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .representative-photo img {
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 38%;
+    }
+
+    .representative-copy {
+      grid-column: 6 / span 7;
+    }
+
+    .representative-name {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .representative-name span {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .representative-name h2 {
+      font-size: clamp(30px, 4.2vw, 58px);
+    }
+
+    .voice-bubble {
+      position: relative;
+      margin: 0;
+      padding: 38px 40px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.9;
+      font-weight: 800;
+      word-break: auto-phrase;
+    }
+
+    .voice-bubble::before {
+      position: absolute;
+      top: 54px;
+      left: -18px;
+      width: 20px;
+      height: 28px;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      clip-path: polygon(100% 0, 100% 100%, 0 50%);
+      content: "";
+    }
+
+    .person,
+    .definition-item,
+    .fit-list li,
+    .overview-item,
+    .contact-block {
+      position: relative;
+      z-index: 0;
+      transition:
+        transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 260ms ease,
+        background-color 260ms ease;
+    }
+
+    .participants-intro {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 54px;
+    }
+
+    .participants-intro h2 {
+      grid-column: 1 / span 7;
+    }
+
+    .participants-intro p {
+      grid-column: 8 / span 5;
+      align-self: end;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+      font-weight: 700;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .people-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .person {
+      min-height: 470px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      padding: 30px;
+      background: var(--paper);
+    }
+
+    .person-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 58px;
+    }
+
+    .person-initial {
+      color: var(--blue);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .person-number {
+      color: rgba(21, 25, 23, 0.16);
+      font-size: clamp(64px, 9vw, 124px);
+      line-height: 0.8;
+      font-weight: 900;
+    }
+
+    .person h3 {
+      max-width: 500px;
+    }
+
+    .person p {
+      margin-top: 22px;
+      color: rgba(21, 25, 23, 0.72);
+      font-size: 15px;
+      line-height: 1.95;
+      font-weight: 700;
+    }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 50px;
+    }
+
+    .learn-item {
+      padding-top: 20px;
+      border-top: 4px solid var(--yellow);
+    }
+
+    .learn-item p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 700;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .fit-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .fit-list li {
+      min-height: 156px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 28px;
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.90);
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.55;
+      font-weight: 800;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .fit-list li::before {
+      flex: 0 0 auto;
+      width: 12px;
+      height: 12px;
+      background: var(--yellow);
+      content: "";
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .overview-item {
+      padding: 30px 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .overview-item:last-child {
+      border-right: 0;
+    }
+
+    .overview-item dt {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .overview-item dd {
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.35;
+      font-weight: 900;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .form-section {
+      padding-top: 144px;
+    }
+
+    .form-section .section-head {
+      display: block;
+    }
+
+    .form-section .section-title-block {
+      max-width: 980px;
+    }
+
+    .form-section .section-lead {
+      max-width: 720px;
+      margin-top: 34px;
+    }
+
+    .form-wrap {
+      margin-top: 50px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .form-wrap iframe {
+      display: block;
+      width: 100%;
+      min-height: 1480px;
+      border: 0;
+      background: var(--white);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .form-actions p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .last-links {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-block {
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .contact-block h2 {
+      font-size: clamp(30px, 3.2vw, 48px);
+      line-height: 1.16;
+    }
+
+    .contact-block p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      font-weight: 700;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .contact-block .actions {
+      margin-top: 28px;
+    }
+
+    .site-footer {
+      padding: 34px 0;
+      color: rgba(21, 25, 23, 0.64);
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .js .motion-item {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 720ms cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 260ms ease,
+          background-color 260ms ease;
+        transition-delay: var(--motion-delay, 0ms);
+      }
+
+      .js .motion-item.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .photo-band figure img {
+        transform: scale(1.035);
+        transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .photo-band figure.is-visible img {
+        transform: scale(1);
+      }
+
+      .person-number {
+        transition: color 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .person.is-visible .person-number {
+        color: rgba(21, 25, 23, 0.22);
+        transform: translateY(-6px);
+      }
+
+      .threat-copy.is-visible .marker::after {
+        animation: marker-sweep 620ms cubic-bezier(0.22, 1, 0.36, 1) 520ms forwards;
+      }
+
+      @keyframes marker-sweep {
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      @media (hover: hover) {
+        .photo-band figure:hover img {
+          transform: scale(1.018);
+        }
+
+        .js .motion-item.person:hover,
+        .js .motion-item.definition-item:hover,
+        .js .fit-list .motion-item:hover,
+        .js .motion-item.overview-item:hover,
+        .js .motion-item.contact-block:hover {
+          z-index: 3;
+          transform: translateY(-7px);
+          box-shadow: 0 18px 38px rgba(21, 25, 23, 0.14);
+        }
+
+        .js .motion-item.definition-item:hover,
+        .js .motion-item.overview-item:hover {
+          background: var(--white);
+        }
+
+        .js .fit-list .motion-item:hover {
+          background: #202622;
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .marker::after {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav a:not(.nav-cta) {
+        display: none;
+      }
+
+      .section-head,
+      .participants-intro,
+      .experience,
+      .threat .section-inner,
+      .threat-text,
+      .last-links {
+        grid-template-columns: 1fr;
+      }
+
+      .representative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title-block,
+      .section-lead,
+      .participants-intro h2,
+      .participants-intro p,
+      .experience-copy,
+      .experience-steps,
+      .threat-copy,
+      .threat-text p:first-child,
+      .threat-text p:last-child,
+      .contact-block {
+        grid-column: auto;
+      }
+
+      .representative-photo,
+      .representative-copy {
+        grid-column: auto;
+      }
+
+      .representative-photo {
+        width: min(100%, 620px);
+      }
+
+      .experience-copy {
+        position: static;
+      }
+
+      .threat-text p:last-child {
+        padding-top: 0;
+      }
+
+      .definition-grid,
+      .learn-grid,
+      .overview {
+        grid-template-columns: 1fr;
+      }
+
+      .definition-item,
+      .overview-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .definition-item:last-child,
+      .overview-item:last-child {
+        border-bottom: 0;
+      }
+
+      .people-list,
+      .fit-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .header-inner,
+      .hero-inner,
+      .section-inner,
+      .footer-inner {
+        width: calc(100% - 40px);
+      }
+
+      .site-header {
+        position: absolute;
+      }
+
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .brand {
+        font-size: 15px;
+      }
+
+      .nav .nav-cta {
+        padding: 0 14px;
+      }
+
+      .hero {
+        min-height: 88svh;
+      }
+
+      .hero::before {
+        background-position: 58% 24%;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.18) 38%, rgba(21, 25, 23, 0.82) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.12));
+      }
+
+      .hero-inner {
+        min-height: 88svh;
+        padding: 96px 0 54px;
+      }
+
+      .hero-content {
+        padding-top: 5svh;
+      }
+
+      .hero-meta {
+        display: grid;
+        gap: 4px;
+        margin-bottom: 22px;
+      }
+
+      .hero-meta span + span::before {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(38px, 12vw, 54px);
+      }
+
+      h2 {
+        font-size: clamp(30px, 9vw, 42px);
+      }
+
+      .threat h2 {
+        font-size: clamp(30px, 9vw, 42px);
+      }
+
+      .mobile-stack span {
+        display: block;
+        max-width: 100%;
+        overflow-wrap: normal;
+        word-break: auto-phrase;
+      }
+
+      .mobile-stack .marker {
+        display: inline-block;
+        width: auto;
+      }
+
+      .section-lead,
+      .definition-item p,
+      .person > *,
+      .person div,
+      .person h3,
+      .person p,
+      .learn-item p,
+      .fit-list li,
+      .overview-item dd,
+      .contact-block p,
+      .note {
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: auto-phrase;
+      }
+
+      .hero-lead,
+      .section-lead,
+      .participants-intro p,
+      .contact-block p {
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .section {
+        padding: 86px 0;
+      }
+
+      .threat {
+        padding: 96px 0;
+      }
+
+      .section-head {
+        gap: 26px;
+        margin-bottom: 42px;
+      }
+
+      .threat-text {
+        margin-top: 36px;
+        font-size: 17px;
+      }
+
+      .definition-item,
+      .person,
+      .contact-block {
+        padding: 24px 20px;
+      }
+
+      .definition-number {
+        margin-bottom: 34px;
+        font-size: 42px;
+      }
+
+      .step {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 14px;
+        min-height: 92px;
+      }
+
+      .step span {
+        font-size: 30px;
+      }
+
+      .photo-band {
+        padding: 80px 0;
+      }
+
+      .photo-gallery {
+        gap: 16px;
+        width: calc(100% - 40px);
+      }
+
+      .wide-photo {
+        aspect-ratio: 4 / 3;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .representative-grid {
+        gap: 24px;
+      }
+
+      .representative-name {
+        display: grid;
+        gap: 6px;
+      }
+
+      .voice-bubble {
+        padding: 28px 24px;
+        font-size: 17px;
+      }
+
+      .voice-bubble::before {
+        top: -17px;
+        left: 38px;
+        width: 28px;
+        height: 18px;
+        border-bottom: 0;
+        clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      }
+
+      .person {
+        min-height: auto;
+      }
+
+      .person-head {
+        margin-bottom: 34px;
+      }
+
+      .fit-list li {
+        min-height: 136px;
+        padding: 24px 20px;
+        font-size: 18px;
+      }
+
+      .overview-item {
+        padding: 26px 20px;
+      }
+
+      .form-section {
+        padding-top: 92px;
+      }
+
+      .form-wrap iframe {
+        min-height: 2400px;
+      }
+
+      .form-actions {
+        display: grid;
+      }
+
+      .footer-inner {
+        display: grid;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .header-inner,
+      .hero-inner,
+      .section-inner,
+      .footer-inner {
+        width: calc(100% - 32px);
+      }
+
+      .brand::before {
+        margin-right: 8px;
+      }
+
+      .nav .nav-cta {
+        padding: 0 10px;
+        font-size: 12px;
+      }
+
+      .button {
+        padding-right: 14px;
+        padding-left: 14px;
+        font-size: 14px;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="藤野さん勉強会の先頭へ">藤野さん勉強会</a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <a href="#about">この場所について</a>
+        <a href="#friday">金曜の学び</a>
+        <a href="#participants">参加者</a>
+        <a class="nav-cta" href="#applyForm">参加申込</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-label="藤野さん勉強会">
+      <div class="hero-inner">
+        <div class="hero-content fade">
+          <p class="hero-meta" aria-label="開催情報">
+            <span>毎週金曜 18:15-22:00</span>
+            <span>北海道大学 エンレイソウ</span>
+          </p>
+          <h1 class="split">
+            <span class="line">人生は、</span>
+            <span class="line">教室だけでは</span>
+            <span class="line">決められない。</span>
+          </h1>
+          <p class="hero-lead split mobile-stack">
+            <span>大学では学べない「人生の経営」を、</span>
+            <span>仲間と学び、次の一歩に変える。</span>
+            <span>北海道につくる、現代の松下村塾です。</span>
+          </p>
+          <div class="actions" aria-label="申込と活動紹介">
+            <a class="button primary" href="#applyForm">参加申込フォームへ</a>
+            <a class="button secondary" href="#activity">活動の様子を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark threat" aria-labelledby="threatTitle">
+      <div class="section-inner">
+        <div class="threat-copy fade">
+          <p class="eyebrow">いま向き合うこと</p>
+          <h2 id="threatTitle" class="split mobile-stack">
+            <span class="line">いちばん怖いのは、</span>
+            <span class="line"><span>失敗すること</span><span class="marker">じゃない。</span></span>
+          </h2>
+          <div class="threat-text">
+            <p class="split mobile-stack">
+              <span>やりたいことに本気で</span>
+              <span>向き合わないまま、</span>
+              <span>それなりに満足できる</span>
+              <span>人生に</span>
+              <span>流れていくこと。</span>
+            </p>
+            <p class="split mobile-stack">
+              <span>何かが足りないと</span>
+              <span>気づいているなら、</span>
+              <span>その感覚を置き去りにしない。</span>
+              <span>環境を変え、言葉にし、</span>
+              <span>小さくても行動を始める。</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="aboutTitle">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-title-block fade">
+            <p class="eyebrow">この場所について</p>
+            <h2 id="aboutTitle" class="split mobile-stack">
+              <span>現代の松下村塾を、</span>
+              <span>北海道に。</span>
+            </h2>
+          </div>
+          <p class="section-lead split mobile-stack">
+            <span>答えを教わるだけの場所ではありません。</span>
+            <span>自分は何を大切にし、どこへ進みたいのか。</span>
+            <span>問いを持ち寄り、仲間の視点を借り、</span>
+            <span>言葉を行動に変えていく場所です。</span>
+          </p>
+        </div>
+
+        <ol class="definition-grid" aria-label="この場所で行うこと">
+          <li class="definition-item">
+            <span class="definition-number">01</span>
+            <h3>志を言葉にする</h3>
+            <p>まだ曖昧な思いを、自分の言葉にする。</p>
+          </li>
+          <li class="definition-item">
+            <span class="definition-number">02</span>
+            <h3>違う視点を受け取る</h3>
+            <p>立場や専攻を越えて、率直に返し合う。</p>
+          </li>
+          <li class="definition-item">
+            <span class="definition-number">03</span>
+            <h3>次の行動を決める</h3>
+            <p>学んだことを、次の一週間の一歩に落とす。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section representative" aria-labelledby="representativeTitle">
+      <div class="section-inner">
+        <p class="eyebrow">代表の声</p>
+        <div class="representative-grid">
+          <figure class="representative-photo">
+            <img src="assets/representative-fujino.jpg" alt="ラーメンを前に写る代表の藤野悠生" width="1108" height="1478" loading="lazy" decoding="async">
+          </figure>
+          <div class="representative-copy">
+            <div class="representative-name">
+              <span>代表</span>
+              <h2 id="representativeTitle">藤野悠生</h2>
+            </div>
+            <blockquote class="voice-bubble">
+              <p>「やりたいことが、最初からきれいな言葉になっている人なんていません。誰かと本気で話し、フィードバックを受けて、まず動いてみる。その繰り返しの中で、その人にしかない個性が見えてくる。ここを、北海道の若者が志を育てる、現代の松下村塾にしたいと思っています。」</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="friday" aria-labelledby="fridayTitle">
+      <div class="section-inner experience">
+        <div class="experience-copy fade">
+          <p class="eyebrow">金曜の体験</p>
+          <h2 id="fridayTitle" class="split mobile-stack">
+            <span>学んだだけで、</span>
+            <span>終わらせない。</span>
+          </h2>
+          <p class="section-lead split mobile-stack" style="margin-top: 30px;">
+            <span>テーマを学び、自分の考えを話し、</span>
+            <span>仲間からフィードバックを受ける。</span>
+            <span>最後に、次に何をするかを決める。</span>
+            <span>知識を増やすためではなく、</span>
+            <span>人生を少しずつ動かすための時間です。</span>
+          </p>
+          <p class="note">内容や進行は、開催回によって変わります。</p>
+        </div>
+        <ol class="experience-steps" aria-label="金曜の流れ">
+          <li class="step"><span>一</span><strong>学ぶ</strong></li>
+          <li class="step"><span>二</span><strong>話す</strong></li>
+          <li class="step"><span>三</span><strong>返し合う</strong></li>
+          <li class="step"><span>四</span><strong>行動を決める</strong></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="photo-band" id="activity" aria-label="活動実写">
+      <div class="photo-gallery">
+        <figure class="wide-photo">
+          <img src="assets/PXL_20260306_100706715.MP.jpg" alt="机を囲んで参加者がノートパソコンを見ながら話している様子">
+        </figure>
+        <div class="photo-grid">
+          <figure>
+            <img src="assets/PXL_20251219_101138222.MP.jpg" alt="参加者が教室で前を向いて話を聞いている様子">
+          </figure>
+          <figure>
+            <img src="assets/PXL_20260424_105403471.jpg" alt="参加者がホワイトボードの前で発表している様子">
+          </figure>
+          <figure>
+            <img src="assets/fujino-study-session.jpg" alt="勉強会で複数の参加者が向かい合って対話している様子">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="participants" aria-labelledby="participantsTitle">
+      <div class="section-inner">
+        <div class="participants-intro fade">
+          <h2 id="participantsTitle" class="split mobile-stack">
+            <span>ここには、</span>
+            <span>もう動き始めている</span>
+            <span>仲間がいる。</span>
+          </h2>
+          <p class="split mobile-stack">
+            <span>肩書きよりも、何を考え、何を始めたか。</span>
+            <span>それぞれの「やりたい」が、</span>
+            <span>互いの次の行動を刺激しています。</span>
+          </p>
+        </div>
+
+        <ol class="people-list">
+          <li class="person">
+            <div class="person-head">
+              <span class="person-initial">U.R</span>
+              <span class="person-number">01</span>
+            </div>
+            <div>
+              <h3>チームを強くし、次のつながりをつくる。</h3>
+              <p>北大サッカー部元キャプテン。数百万円規模のスポンサーを集め、データを用いた戦術でチームの実力を底上げ。現在は株式会社SPOTERIAを立ち上げ、体育会系学生と企業をつないでいる。</p>
+            </div>
+          </li>
+          <li class="person">
+            <div class="person-head">
+              <span class="person-initial">F.H</span>
+              <span class="person-number">02</span>
+            </div>
+            <div>
+              <h3>地方から、世界に届く技術を。</h3>
+              <p>北大工学部情報学科。東京の会社でエンジニアインターンを経験し、東京と地方の差に衝撃を受ける。ビジョンは「GAFAをつくること」。2026年にAIサークルを立ち上げ、約50名が参加している。</p>
+            </div>
+          </li>
+          <li class="person">
+            <div class="person-head">
+              <span class="person-initial">M.I</span>
+              <span class="person-number">03</span>
+            </div>
+            <div>
+              <h3>「やりたい」を、未来の選択肢にする。</h3>
+              <p>小樽商科大学。「感情に敬意を、未来に透明性を。」を掲げ、「やりたい」を主軸にモデルを考える新しいビジコンHFFを主催運営。小樽商科大学「オアソビプロジェクト」に採択され、学生団体を立ち上げた。HFFを中心に、教育の文脈で自治体などとの活動を広げている。</p>
+            </div>
+          </li>
+          <li class="person">
+            <div class="person-head">
+              <span class="person-initial">M.Y</span>
+              <span class="person-number">04</span>
+            </div>
+            <div>
+              <h3>地方に、熱狂が生まれ続ける未来を。</h3>
+              <p>北海道大学工学部情報学科。「地方に熱狂を生み続ける」を掲げ、ゲーム制作から発展して、札幌の伝説的ゲーム会社「ハドソン」をもう一度つくることを目指す。2026年夏休みに、AIで1日でゲームをつくる「Hokkaido AI GameJam」を複数のIT企業協賛で開催予定。将来の目標は、Jリーグチームのオーナーになること。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section white" aria-labelledby="learnTitle">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-title-block fade">
+            <p class="eyebrow">得られるもの</p>
+            <h2 id="learnTitle" class="split mobile-stack">
+              <span>自分の人生を、</span>
+              <span>自分で経営する。</span>
+            </h2>
+          </div>
+          <p class="section-lead split mobile-stack">
+            <span>ここで扱う「人生の経営」は、</span>
+            <span>会社の話だけではありません。</span>
+            <span>自分の軸を持ち、誰かに価値を届け、</span>
+            <span>失敗しても動き続けるための学びです。</span>
+          </p>
+        </div>
+        <div class="learn-grid" aria-label="得られる学び">
+          <article class="learn-item">
+            <h3>自分の軸</h3>
+            <p>大切にしたいことを言葉にする。</p>
+          </article>
+          <article class="learn-item">
+            <h3>届ける力</h3>
+            <p>考えを伝え、仲間を巻き込む。</p>
+          </article>
+          <article class="learn-item">
+            <h3>動き続ける力</h3>
+            <p>振り返り、次の一歩を決める。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" aria-labelledby="fitTitle">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-title-block fade">
+            <p class="eyebrow">向いている人</p>
+            <h2 id="fitTitle" class="split mobile-stack">
+              <span>こんな違和感を、</span>
+              <span>置き去りにしない人へ。</span>
+            </h2>
+          </div>
+        </div>
+        <ul class="fit-list">
+          <li>授業や部活だけでは届かない手応えを探している。</li>
+          <li>やりたい気持ちはあるが、まだ言葉や行動になっていない。</li>
+          <li>背景の違う仲間から、率直な意見を受け取りたい。</li>
+          <li>受け取るだけでなく、自分も誰かに返したい。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section white" aria-labelledby="overviewTitle">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-title-block fade">
+            <p class="eyebrow">開催概要</p>
+            <h2 id="overviewTitle" class="split mobile-stack">
+              <span>金曜の夜、</span>
+              <span>北大で会いましょう。</span>
+            </h2>
+          </div>
+        </div>
+        <dl class="overview">
+          <div class="overview-item">
+            <dt>日時</dt>
+            <dd>毎週金曜<br>18:15-22:00</dd>
+          </div>
+          <div class="overview-item">
+            <dt>会場</dt>
+            <dd>北海道大学<br>エンレイソウ</dd>
+          </div>
+          <div class="overview-item">
+            <dt>参加方法</dt>
+            <dd>下のフォームから<br>お申し込みください。</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <a class="button primary" href="#applyForm">参加申込フォームへ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section form-section" id="applyForm" aria-labelledby="formTitle">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-title-block fade">
+            <p class="eyebrow">参加申込</p>
+            <h2 id="formTitle" class="split mobile-stack">
+              <span>やりたいことを、</span>
+              <span>ここから行動に変える。</span>
+            </h2>
+          </div>
+          <p class="section-lead split mobile-stack">
+            <span>まだ、きれいな答えになっていなくてもかまいません。</span>
+            <span>今考えていることを、あなたの言葉で聞かせてください。</span>
+          </p>
+        </div>
+        <div class="form-wrap">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5rC0lBe0oEiXyAj1XUpFsHd7v2ht06NdOK-RafLNeYE_LZg/viewform?embedded=true" title="藤野さん勉強会 参加申込フォーム" loading="lazy">読み込んでいます</iframe>
+          <div class="form-actions">
+            <p>埋め込みフォームが表示されない場合は、別タブで開いてお申し込みください。</p>
+            <a class="button dark" href="https://docs.google.com/forms/d/e/1FAIpQLSf5rC0lBe0oEiXyAj1XUpFsHd7v2ht06NdOK-RafLNeYE_LZg/viewform" target="_blank" rel="noopener">フォームを別タブで開く</a>
+          </div>
+        </div>
+        <p class="note">質問や、参加前に確認したいことがある方は公式LINEへ。</p>
+      </div>
+    </section>
+
+    <section class="section white" aria-label="LINEと地図">
+      <div class="section-inner last-links">
+        <div class="contact-block">
+          <div>
+            <p class="eyebrow">質問する</p>
+            <h2>公式LINE</h2>
+            <p>参加前の確認や質問はこちらから。申込はフォームで受け付けています。</p>
+          </div>
+          <div class="actions">
+            <a class="button line-button" href="https://line.me/R/ti/p/@412ulcav" target="_blank" rel="noopener">公式LINEを開く</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div>
+            <p class="eyebrow">会場を見る</p>
+            <h2>北海道大学 エンレイソウ</h2>
+            <p>北大エンレイソウの場所を地図で確認できます。開催日は毎週金曜18:15からです。</p>
+          </div>
+          <div class="actions">
+            <a class="button dark" href="https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E5%A4%A7%E3%82%A8%E3%83%B3%E3%83%AC%E3%82%A4%E3%82%BD%E3%82%A6" target="_blank" rel="noopener">地図で見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>藤野さん勉強会</span>
+      <span>毎週金曜 18:15-22:00 / 北海道大学 エンレイソウ</span>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const groups = [
+        ".fade",
+        ".definition-item",
+        ".step",
+        ".photo-band figure",
+        ".representative-photo",
+        ".representative-copy",
+        ".person",
+        ".learn-item",
+        ".fit-list li",
+        ".overview-item",
+        ".form-wrap",
+        ".contact-block"
+      ];
+      const items = [...document.querySelectorAll(groups.join(","))];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      items.forEach((item) => {
+        item.classList.add("motion-item");
+        const siblings = item.parentElement
+          ? [...item.parentElement.children].filter((child) => items.includes(child))
+          : [];
+        const index = Math.max(0, siblings.indexOf(item));
+        item.style.setProperty("--motion-delay", `${Math.min(index, 3) * 80}ms`);
+      });
+
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        items.forEach((item) => item.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        rootMargin: "0px 0px -10%",
+        threshold: 0.08
+      });
+
+      items.forEach((item) => observer.observe(item));
+    })();
+  </script>
+</body>
+</html>
