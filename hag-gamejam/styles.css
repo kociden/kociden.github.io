@@ -370,6 +370,15 @@ a {
   letter-spacing: 0;
 }
 
+.partners h2 {
+  font-size: clamp(34px, 3.4vw, 52px);
+  white-space: nowrap;
+}
+
+html[lang="en"] .partners h2 {
+  font-size: clamp(30px, 3vw, 46px);
+}
+
 .desktop-title {
   display: inline;
 }
@@ -778,6 +787,14 @@ footer a {
   .event h2,
   .partners h2 {
     font-size: 34px;
+  }
+
+  .partners h2 {
+    font-size: 26px;
+  }
+
+  html[lang="en"] .partners h2 {
+    font-size: 24px;
   }
 
   .timeline li {
