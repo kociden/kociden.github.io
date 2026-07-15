@@ -356,6 +356,11 @@ a {
   gap: clamp(48px, 8vw, 120px);
 }
 
+.intro-grid {
+  grid-template-columns: 1fr;
+  gap: 46px;
+}
+
 .intro h2,
 .event h2,
 .partners h2 {
@@ -373,7 +378,15 @@ a {
   display: none;
 }
 
+.heading-line {
+  display: block;
+  width: fit-content;
+  white-space: nowrap;
+}
+
 .intro-copy {
+  width: min(100%, 650px);
+  margin-left: auto;
   font-size: 17px;
 }
 
@@ -422,14 +435,18 @@ a {
 
 .event-heading {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   align-items: end;
-  gap: 40px;
+  gap: 24px;
+}
+
+.event-heading h2 {
+  font-size: clamp(34px, 4.2vw, 56px);
 }
 
 .event-note {
   max-width: 380px;
-  margin: 0;
+  margin: 0 0 0 auto;
   color: #c4c9cc;
   font-size: 13px;
 }
@@ -566,7 +583,7 @@ a {
 .vision blockquote {
   max-width: 1040px;
   margin: 30px 0;
-  font-size: clamp(38px, 6vw, 84px);
+  font-size: clamp(38px, 5.2vw, 72px);
   line-height: 1.15;
   font-weight: 900;
 }
@@ -731,6 +748,10 @@ footer a {
     display: inline;
   }
 
+  .intro h2 {
+    font-size: clamp(28px, 8.2vw, 34px);
+  }
+
   .hero-lead {
     font-size: 15px;
   }
@@ -778,7 +799,7 @@ footer a {
   }
 
   .vision blockquote {
-    font-size: 38px;
+    font-size: 29px;
   }
 
   footer {
