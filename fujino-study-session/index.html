@@ -8,30 +8,22 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #111512;
-      --paper: #f1f2ed;
-      --surface: #fbfbf8;
-      --steel: #c9ccc6;
-      --muted: #5f655f;
-      --signal: #f2cf32;
+      --ink: #1d2520;
+      --muted: #667069;
+      --line: #d8ddd9;
+      --soft: #f5f7f5;
+      --white: #ffffff;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      background: var(--paper);
-    }
-
     body {
       margin: 0;
       min-width: 320px;
       color: var(--ink);
-      background:
-        linear-gradient(rgba(17, 21, 18, 0.035) 1px, transparent 1px),
-        var(--paper);
-      background-size: 100% 32px;
+      background: var(--white);
       font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
       letter-spacing: 0;
     }
@@ -46,7 +38,7 @@
       left: 8px;
       z-index: 10;
       padding: 10px 14px;
-      color: var(--surface);
+      color: var(--white);
       background: var(--ink);
       transform: translateY(-160%);
     }
@@ -55,260 +47,186 @@
       transform: translateY(0);
     }
 
-    .frame {
-      width: min(1240px, calc(100% - 48px));
+    .container {
+      width: min(1040px, calc(100% - 40px));
       margin: 0 auto;
-      border-right: 1px solid var(--ink);
-      border-left: 1px solid var(--ink);
-      background: var(--surface);
     }
 
     header {
       display: flex;
-      min-height: 72px;
+      min-height: 68px;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
-      border-bottom: 2px solid var(--ink);
+      border-bottom: 1px solid var(--line);
     }
 
-    .brand,
-    .edition {
+    header p {
       margin: 0;
       font-size: 13px;
-      font-weight: 900;
+      font-weight: 800;
     }
 
-    .edition {
+    header p:last-child {
       color: var(--muted);
-      font-family: Consolas, "Courier New", monospace;
+      font-weight: 600;
     }
 
     main {
-      padding: 0 24px 72px;
+      padding: 68px 0 80px;
     }
 
     .intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
-      gap: 56px;
-      align-items: end;
-      min-height: 290px;
-      padding: 56px 0 40px;
-    }
-
-    .kicker {
-      display: inline-block;
-      margin: 0 0 20px;
-      padding: 7px 10px;
-      background: var(--signal);
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 12px;
-      font-weight: 900;
+      max-width: 680px;
+      margin-bottom: 48px;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(48px, 7vw, 92px);
-      line-height: 0.98;
+      margin: 0 0 16px;
+      font-size: 42px;
+      line-height: 1.25;
       letter-spacing: 0;
     }
 
-    .intro p:last-child {
+    .intro p {
       margin: 0;
+      color: var(--muted);
       font-size: 15px;
-      font-weight: 700;
-      line-height: 1.9;
+      font-weight: 600;
+      line-height: 1.8;
     }
 
-    .proposal-list {
-      border-top: 2px solid var(--ink);
+    .options {
+      border-top: 1px solid var(--line);
     }
 
-    .proposal {
+    .option {
       display: grid;
-      grid-template-columns: 88px 280px minmax(0, 1fr) 72px;
-      min-height: 200px;
-      align-items: stretch;
-      border-bottom: 1px solid var(--ink);
+      grid-template-columns: 56px 220px minmax(0, 1fr) 134px;
+      gap: 24px;
+      align-items: center;
+      min-height: 170px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
       text-decoration: none;
-      transition: background-color 180ms ease;
+      transition: background-color 160ms ease;
     }
 
-    .proposal:hover {
-      background: var(--signal);
+    .option:hover {
+      background: var(--soft);
     }
 
-    .proposal:focus-visible {
-      outline: 4px solid var(--ink);
-      outline-offset: -4px;
+    .option:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 3px;
     }
 
     .number {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 25px;
-      border-right: 1px solid var(--ink);
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 34px;
-      font-weight: 900;
+      align-self: flex-start;
+      padding-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    figure {
-      position: relative;
-      min-height: 200px;
-      margin: 0;
-      overflow: hidden;
-      border-right: 1px solid var(--ink);
-      background: var(--steel);
-    }
-
-    figure img {
+    .option img {
+      display: block;
       width: 100%;
-      height: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
       object-fit: cover;
-      filter: grayscale(1) contrast(1.08);
-      transition: filter 180ms ease, transform 300ms ease;
-    }
-
-    .proposal:hover figure img {
-      filter: grayscale(0) contrast(1);
-      transform: scale(1.02);
+      border-radius: 4px;
+      background: var(--soft);
     }
 
     .copy {
-      display: flex;
       min-width: 0;
-      flex-direction: column;
-      justify-content: center;
-      padding: 28px 34px;
     }
 
     .copy h2 {
-      margin: 0 0 10px;
-      font-size: clamp(23px, 2.5vw, 34px);
-      line-height: 1.3;
+      margin: 0 0 9px;
+      font-size: 24px;
+      line-height: 1.4;
       letter-spacing: 0;
     }
 
     .copy p {
-      max-width: 590px;
       margin: 0;
       color: var(--muted);
       font-size: 14px;
-      font-weight: 700;
-      line-height: 1.8;
+      font-weight: 600;
+      line-height: 1.75;
     }
 
-    .proposal:hover .copy p {
-      color: var(--ink);
-    }
-
-    .arrow {
-      display: flex;
+    .open {
+      display: inline-flex;
+      min-height: 44px;
       align-items: center;
       justify-content: center;
-      border-left: 1px solid var(--ink);
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 30px;
-      font-weight: 900;
-    }
-
-    footer {
-      display: flex;
-      min-height: 64px;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 24px;
-      border-top: 1px solid var(--ink);
-      color: var(--muted);
-      font-size: 11px;
+      padding: 0 16px;
+      border-radius: 4px;
+      color: var(--white);
+      background: var(--ink);
+      font-size: 13px;
       font-weight: 800;
     }
 
-    @media (max-width: 760px) {
-      .frame {
-        width: 100%;
-        border: 0;
+    footer {
+      min-height: 64px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 32px, 560px);
       }
 
       header {
-        min-height: 64px;
-        padding: 0 16px;
-      }
-
-      .edition {
-        font-size: 10px;
+        min-height: 62px;
       }
 
       main {
-        padding: 0 16px 48px;
+        padding: 48px 0 64px;
       }
 
       .intro {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        min-height: 0;
-        padding: 48px 0 36px;
+        margin-bottom: 36px;
       }
 
       h1 {
-        font-size: 52px;
+        font-size: 34px;
       }
 
-      .intro p:last-child {
-        max-width: 32em;
-        font-size: 14px;
-      }
-
-      .proposal {
-        grid-template-columns: 56px minmax(0, 1fr) 48px;
-        min-height: 0;
+      .option {
+        grid-template-columns: 1fr auto;
+        gap: 14px 16px;
+        padding: 24px 0 28px;
       }
 
       .number {
         grid-column: 1;
         grid-row: 1;
-        padding-top: 24px;
-        font-size: 23px;
+        align-self: center;
+        padding: 0;
       }
 
-      figure {
+      .open {
+        grid-column: 2;
+        grid-row: 1;
+        min-height: 38px;
+      }
+
+      .option img {
         grid-column: 1 / -1;
         grid-row: 2;
-        min-height: 0;
-        aspect-ratio: 16 / 9;
-        border-top: 1px solid var(--ink);
-        border-right: 0;
       }
 
       .copy {
-        grid-column: 2;
-        grid-row: 1;
-        min-height: 132px;
-        padding: 22px 16px;
+        grid-column: 1 / -1;
+        grid-row: 3;
       }
 
       .copy h2 {
-        margin-bottom: 7px;
         font-size: 22px;
-      }
-
-      .copy p {
-        font-size: 12px;
-        line-height: 1.65;
-      }
-
-      .arrow {
-        grid-column: 3;
-        grid-row: 1;
-        font-size: 24px;
-      }
-
-      footer {
-        min-height: 56px;
-        padding: 0 16px;
       }
     }
 
@@ -320,63 +238,52 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#proposals">3つの案へ移動</a>
+  <a class="skip-link" href="#options">3つの案へ移動</a>
 
-  <div class="frame">
-    <header>
-      <p class="brand">藤野さん勉強会</p>
-      <p class="edition">LP検討案 / 03</p>
-    </header>
+  <header class="container">
+    <p>藤野さん勉強会</p>
+    <p>LP検討案</p>
+  </header>
 
-    <main>
-      <section class="intro" aria-labelledby="page-title">
-        <div>
-          <p class="kicker">3案を比較</p>
-          <h1 id="page-title">3つの視点。</h1>
+  <main class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">3つの案</h1>
+      <p>藤野さん勉強会の伝え方を、3つの切り口で作りました。それぞれのページを開いて比較できます。</p>
+    </section>
+
+    <nav class="options" id="options" aria-label="LP案一覧">
+      <a class="option" href="proposal-01/">
+        <span class="number">案1</span>
+        <img src="proposal-01/assets/fujino-study-session.jpg" alt="藤野さん勉強会で参加者が対話している様子" width="1824" height="1368">
+        <div class="copy">
+          <h2>同期との集い</h2>
+          <p>同期と、すでに動いているプロジェクトから価値を伝える案です。</p>
         </div>
-        <p>同じ勉強会を、異なる入口から伝える3案です。内容を比べて、もっとも届く構成を選んでください。</p>
-      </section>
+        <span class="open">この案を見る</span>
+      </a>
 
-      <nav class="proposal-list" id="proposals" aria-label="LP案一覧">
-        <a class="proposal" href="proposal-01/">
-          <span class="number">01</span>
-          <figure>
-            <img src="proposal-01/assets/fujino-study-session.jpg" alt="藤野さん勉強会で参加者が対話している様子" width="1824" height="1368">
-          </figure>
-          <div class="copy">
-            <h2>同期との集い</h2>
-            <p>同期と、すでに動いているプロジェクトから価値を伝える。</p>
-          </div>
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
+      <a class="option" href="proposal-02/">
+        <span class="number">案2</span>
+        <img src="proposal-02/assets/PXL_20260424_105403471.jpg" alt="藤野さん勉強会で参加者が発表している様子" width="1200" height="900">
+        <div class="copy">
+          <h2>なんとなくを終わらせる</h2>
+          <p>予想できる未来への違和感から、金曜の対話へつなげる案です。</p>
+        </div>
+        <span class="open">この案を見る</span>
+      </a>
 
-        <a class="proposal" href="proposal-02/">
-          <span class="number">02</span>
-          <figure>
-            <img src="proposal-02/assets/PXL_20260424_105403471.jpg" alt="藤野さん勉強会で参加者が発表している様子" width="1200" height="900">
-          </figure>
-          <div class="copy">
-            <h2>なんとなくを終わらせる</h2>
-            <p>予想できる未来への違和感から、金曜の対話へつなげる。</p>
-          </div>
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
+      <a class="option" href="proposal-03/">
+        <span class="number">案3</span>
+        <img src="proposal-03/assets/PXL_20260306_100706715.MP.jpg" alt="藤野さん勉強会で参加者が話している様子" width="1200" height="900">
+        <div class="copy">
+          <h2>現代の松下村塾</h2>
+          <p>向いている人、得られるもの、実績から全体像を伝える案です。</p>
+        </div>
+        <span class="open">この案を見る</span>
+      </a>
+    </nav>
+  </main>
 
-        <a class="proposal" href="proposal-03/">
-          <span class="number">03</span>
-          <figure>
-            <img src="proposal-03/assets/PXL_20260306_100706715.MP.jpg" alt="藤野さん勉強会で参加者が話している様子" width="1200" height="900">
-          </figure>
-          <div class="copy">
-            <h2>現代の松下村塾</h2>
-            <p>向いている人、得られるもの、実績から全体像を伝える。</p>
-          </div>
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
-      </nav>
-    </main>
-
-    <footer>比較検討用ページ</footer>
-  </div>
+  <footer></footer>
 </body>
 </html>
