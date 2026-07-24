@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>藤野さん勉強会 | 同期との集い</title>
+  <meta name="description" content="毎週金曜18:15-22:00、北海道大学エンレイソウで開催。夢や将来について考え、動き始めている同期と問いを持ち寄る金曜夜の集いです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <style>
+    :root {
+      --paper: #FAFAF7;
+      --ink: #2D2D2D;
+      --navy: #08121E;
+      --yellow: #F5C842;
+      --coral: #E8734A;
+      --cta: #C64E2E;
+      --line: rgba(45, 45, 45, .18);
+      --soft: rgba(255, 255, 255, .62);
+      --white: #FFFFFF;
+      --content: 640px;
+      --inner: 592px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      letter-spacing: 0;
+      line-break: strict;
+      overflow-wrap: anywhere;
+      text-size-adjust: 100%;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    iframe:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 30;
+      min-height: 44px;
+      padding: 10px 16px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 900;
+      transform: translateY(-150%);
+      transition: transform 200ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy) url("assets/fujino-study-session.jpg") center / cover no-repeat;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(8, 18, 30, .62), rgba(8, 18, 30, .38) 44%, rgba(8, 18, 30, .84)),
+        linear-gradient(90deg, rgba(8, 18, 30, .76), rgba(8, 18, 30, .12));
+      content: "";
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transform: scale(1.02);
+      animation: heroFade 24s infinite;
+    }
+
+    .hero-slide:nth-child(1) {
+      background-image: url("assets/fujino-study-session.jpg");
+      animation-delay: 0s;
+    }
+
+    .hero-slide:nth-child(2) {
+      background-image: url("assets/PXL_20260306_100706715.MP.jpg");
+      animation-delay: 8s;
+    }
+
+    .hero-slide:nth-child(3) {
+      background-image: url("assets/PXL_20260424_105403471.jpg");
+      animation-delay: 16s;
+    }
+
+    @keyframes heroFade {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      33% { opacity: 1; }
+      38% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(100%, var(--content));
+      min-height: 100svh;
+      margin: 0 auto;
+      padding: 24px 24px 34px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 24px;
+    }
+
+    .hero-top {
+      padding-top: 8px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: 34px;
+      line-height: 1.235;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-size: 28px;
+      line-height: 1.43;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.55;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .phrase {
+      display: block;
+    }
+
+    .sp-break {
+      display: none;
+    }
+
+    .label {
+      margin: 0 0 12px;
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.846;
+    }
+
+    .hero .label {
+      color: var(--yellow);
+    }
+
+    .hero-note {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.846;
+      font-weight: 700;
+    }
+
+    .hero-copy {
+      align-self: start;
+      padding-top: min(12svh, 96px);
+    }
+
+    .hero-text,
+    .lead {
+      max-width: 560px;
+      font-size: 17px;
+      line-height: 1.824;
+      font-weight: 700;
+    }
+
+    .hero-bottom {
+      display: grid;
+      gap: 14px;
+    }
+
+    .event-facts {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .fact dt {
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .fact dd {
+      margin: 0;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 8px;
+      padding: 12px 18px;
+      background: var(--cta);
+      color: var(--white);
+      font-weight: 900;
+      line-height: 1.4;
+      text-align: center;
+      transition: transform 300ms ease, background 300ms ease, box-shadow 300ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      background: #AA3F24;
+      box-shadow: 0 12px 28px rgba(8, 18, 30, .22);
+    }
+
+    .button.full {
+      width: 100%;
+    }
+
+    .button.secondary {
+      background: var(--navy);
+    }
+
+    .button.line {
+      background: #06C755;
+      color: #052413;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 48px 24px 44px;
+    }
+
+    .section-inner {
+      width: min(100%, var(--inner));
+      margin: 0 auto;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .dark-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .dark-section h2,
+    .dark-section h3 {
+      color: var(--white);
+    }
+
+    .dark-section .label {
+      color: var(--yellow);
+    }
+
+    .intro-band {
+      padding-top: 54px;
+    }
+
+    .peer-list,
+    .fit-list,
+    .principles,
+    .steps,
+    .overview,
+    .contact-actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .peer-list {
+      margin-top: 24px;
+    }
+
+    .peer-card {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .peer-card:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .peer-initial {
+      width: 42px;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--coral);
+      border-radius: 8px;
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .peer-card p,
+    .principle p,
+    .step p,
+    .fit-list li p,
+    .overview dd {
+      margin-bottom: 0;
+    }
+
+    .peer-meta {
+      margin-bottom: 8px;
+      color: rgba(45, 45, 45, .72);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.846;
+    }
+
+    .fit-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fit-list li {
+      position: relative;
+      min-height: 64px;
+      padding: 15px 16px 15px 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+      font-weight: 700;
+    }
+
+    .fit-list li::before {
+      position: absolute;
+      top: 22px;
+      left: 18px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      content: "";
+    }
+
+    .principles {
+      margin-top: 24px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .principle:last-child {
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .number {
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.8;
+    }
+
+    .dialogue-flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .dialogue {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, .62);
+      font-weight: 900;
+    }
+
+    .photo-frame {
+      margin: 28px 0 0;
+      overflow: hidden;
+      border: 6px solid var(--white);
+      border-radius: 4px;
+      background: var(--navy);
+      box-shadow: 0 18px 34px rgba(8, 18, 30, .14);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform 300ms ease;
+    }
+
+    .photo-frame:hover img {
+      transform: scale(1.025);
+    }
+
+    .caption {
+      margin: 12px 0 0;
+      color: rgba(45, 45, 45, .72);
+      font-size: 13px;
+      line-height: 1.846;
+      font-weight: 700;
+    }
+
+    .dark-section .caption {
+      color: rgba(255, 255, 255, .76);
+    }
+
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .step {
+      min-height: 124px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--coral);
+      font-size: 13px;
+      line-height: 1.846;
+    }
+
+    .overview {
+      margin: 22px 0;
+    }
+
+    .overview-item {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .overview-item dt {
+      color: var(--coral);
+      font-weight: 900;
+    }
+
+    .overview-item dd {
+      margin-left: 0;
+    }
+
+    .voice-card {
+      display: grid;
+      grid-template-columns: 236px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+      margin-top: 24px;
+    }
+
+    .voice-photo {
+      margin: 0;
+      overflow: hidden;
+      border: 6px solid var(--white);
+      border-radius: 4px;
+      background: #111;
+    }
+
+    .voice-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: 50% 38%;
+    }
+
+    .voice-role {
+      margin-bottom: 8px;
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.846;
+    }
+
+    .voice-text {
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    .form-shell {
+      margin-top: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: 1480px;
+      border: 0;
+      background: var(--white);
+    }
+
+    .form-link {
+      padding: 14px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .qr {
+      margin: 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .site-footer {
+      padding: 34px 24px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      width: min(100%, var(--inner));
+      margin: 0 auto;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      line-height: 1.846;
+      font-weight: 700;
+    }
+
+    .js .reveal,
+    .js .dialogue {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .js .reveal.is-visible,
+    .js .dialogue.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 500ms ease, transform 500ms ease;
+      transition-delay: min(calc(var(--i, 0) * 90ms), 360ms);
+    }
+
+    @media (max-width: 640px) {
+      .pc-break {
+        display: none;
+      }
+
+      .sp-break {
+        display: block;
+      }
+
+      .section {
+        padding: 44px 24px 40px;
+      }
+
+      h1 {
+        font-size: 33px;
+      }
+
+      h2 {
+        font-size: 27px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .voice-card {
+        grid-template-columns: 136px minmax(0, 177px);
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .voice-role {
+        margin-bottom: 4px;
+      }
+
+      .voice-text {
+        font-size: 13px;
+        line-height: 1.77;
+      }
+
+      iframe {
+        min-height: 2400px;
+      }
+    }
+
+    @media (max-width: 374px) {
+      .hero-inner,
+      .section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      .fact,
+      .overview-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .peer-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 359px) {
+      .voice-card,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .voice-photo {
+        width: min(100%, 220px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+
+      .hero-slide {
+        opacity: 0;
+        animation: none;
+      }
+
+      .hero-slide:first-child {
+        opacity: 1;
+      }
+
+      .js .reveal,
+      .js .dialogue {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="hero" id="top" aria-label="藤野さん勉強会">
+    <div class="hero-slide" aria-hidden="true"></div>
+    <div class="hero-slide" aria-hidden="true"></div>
+    <div class="hero-slide" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-top reveal">
+        <p class="label">毎週金曜、北大エンレイソウで。</p>
+        <p class="hero-note">18:15-22:00 / 北海道大学 エンレイソウ</p>
+      </div>
+      <div class="hero-copy reveal" style="--i: 1">
+        <h1 aria-label="自分の人生を自分で切り拓く同期との集い。">
+          <span class="pc-break" aria-hidden="true"><span class="phrase">自分の人生を自分で切り拓く</span><span class="phrase">同期との集い。</span></span>
+          <span class="sp-break" aria-hidden="true"><span class="phrase">自分の人生を</span><span class="phrase">自分で切り拓く</span><span class="phrase">同期との集い。</span></span>
+        </h1>
+        <p class="hero-text">夢や将来について、よく考えている。でも、行動の参考になる同期が、身近にはまだ少ない。藤野さん勉強会は、それぞれの問いと行動を持ち寄る、金曜夜の集いです。</p>
+      </div>
+      <div class="hero-bottom reveal" style="--i: 2">
+        <dl class="event-facts">
+          <div class="fact">
+            <dt>日時</dt>
+            <dd>毎週金曜 18:15-22:00</dd>
+          </div>
+          <div class="fact">
+            <dt>会場</dt>
+            <dd>北海道大学 エンレイソウ</dd>
+          </div>
+        </dl>
+        <a class="button full" href="#applyForm">同期と出会いに行く</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section intro-band" aria-labelledby="peersTitle">
+      <div class="section-inner">
+        <p class="label reveal">この場にいる同期</p>
+        <h2 class="reveal" id="peersTitle" style="--i: 1"><span class="phrase">考えているだけではなく、</span><span class="phrase">もう動き始めている人がいる。</span></h2>
+        <div class="peer-list">
+          <article class="peer-card reveal" style="--i: 2">
+            <span class="peer-initial">U.R</span>
+            <div>
+              <p class="peer-meta">北大サッカー部元主将</p>
+              <h3><span class="phrase">チームを強くし、</span><span class="phrase">次のつながりをつくる。</span></h3>
+              <p>数百万円のスポンサー獲得に取り組み、データを用いた戦術でチームづくりを進めてきた。現在はSPOTERIAで、体育会系学生と企業をつなぐ活動をしている。</p>
+            </div>
+          </article>
+          <article class="peer-card reveal" style="--i: 3">
+            <span class="peer-initial">F.H</span>
+            <div>
+              <p class="peer-meta">北大工学部情報</p>
+              <h3><span class="phrase">地方から、</span><span class="phrase">世界に届く技術を。</span></h3>
+              <p>東京でエンジニアインターンを経験し、「GAFAをつくる」という視点で動いている。約50名のAIサークルを立ち上げ、学び合う場を広げている。</p>
+            </div>
+          </article>
+          <article class="peer-card reveal" style="--i: 4">
+            <span class="peer-initial">M.I</span>
+            <div>
+              <p class="peer-meta">小樽商科大学</p>
+              <h3><span class="phrase">感情に敬意を、</span><span class="phrase">未来に透明性を。</span></h3>
+              <p>「やりたい」を主軸にしたHFFを主催。小樽商科大学「オアソビプロジェクト」に採択され、学生団体として活動を進めている。</p>
+            </div>
+          </article>
+          <article class="peer-card reveal" style="--i: 4">
+            <span class="peer-initial">M.Y</span>
+            <div>
+              <p class="peer-meta">北大工学部情報</p>
+              <h3><span class="phrase">地方に熱狂を</span><span class="phrase">生み続ける。</span></h3>
+              <p>Hokkaido AI GameJamの開催を準備中。ゲームづくりを起点に、北海道から熱狂が生まれ続ける未来を目指し、複数IT企業が協賛予定。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="fitTitle">
+      <div class="section-inner">
+        <p class="label reveal">一人で考える時間を、同期と進む時間へ。</p>
+        <h2 class="reveal" id="fitTitle" style="--i: 1"><span class="phrase">こんな違和感を、</span><span class="phrase">置き去りにしない人へ。</span></h2>
+        <ul class="fit-list">
+          <li class="reveal" style="--i: 2">夢や将来について考える時間が、最近増えている。</li>
+          <li class="reveal" style="--i: 3">身近な環境だけでは、行動の参考になる同期がまだ少ない。</li>
+          <li class="reveal" style="--i: 4">違う背景の人に、自分の問いを聞いてもらいたい。</li>
+          <li class="reveal" style="--i: 4">話して終わりではなく、次の一歩を決めたい。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section dark-section" aria-labelledby="principlesTitle">
+      <div class="section-inner">
+        <p class="label reveal">違う人生を考える同期が、互いの参考になる。</p>
+        <h2 class="reveal" id="principlesTitle" style="--i: 1"><span class="phrase">問いを持ち寄り、</span><span class="phrase">視点を受け取り、</span><span class="phrase">次の行動へ。</span></h2>
+        <div class="principles" aria-label="この場で行うこと">
+          <div class="principle reveal" style="--i: 2">
+            <span class="number">01</span>
+            <div>
+              <h3>言葉にする</h3>
+              <p>まだ曖昧な夢や違和感を、自分の言葉で置いてみる。</p>
+            </div>
+          </div>
+          <div class="principle reveal" style="--i: 3">
+            <span class="number">02</span>
+            <div>
+              <h3>視点を受け取る</h3>
+              <p>専攻や大学、活動の違う同期から、率直な見方を受け取る。</p>
+            </div>
+          </div>
+          <div class="principle reveal" style="--i: 4">
+            <span class="number">03</span>
+            <div>
+              <h3>次の行動</h3>
+              <p>話して終わらせず、次の金曜までに試す一歩を決める。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="fridayTitle">
+      <div class="section-inner">
+        <p class="label reveal">金曜の夜を、人生について話す時間に。</p>
+        <h2 class="reveal" id="fridayTitle" style="--i: 1"><span class="phrase">予定の最後に、</span><span class="phrase">自分の未来を置く。</span></h2>
+        <p class="reveal" style="--i: 2">毎週金曜18:15から22:00まで、北大エンレイソウに集まります。学ぶ、話す、返し合う、次の行動を決める。週末の手前に、自分の人生について立ち止まる時間をつくります。</p>
+        <div class="steps" aria-label="金曜の流れ">
+          <div class="step reveal" style="--i: 3"><strong>学ぶ</strong><p>考える材料を受け取る。</p></div>
+          <div class="step reveal" style="--i: 4"><strong>話す</strong><p>自分の問いを言葉にする。</p></div>
+          <div class="step reveal" style="--i: 4"><strong>決める</strong><p>次の一歩を持ち帰る。</p></div>
+        </div>
+        <figure class="photo-frame reveal" style="--i: 4">
+          <img src="assets/PXL_20260306_100706715.MP.jpg" alt="金曜の夜に机を囲んで話し合う参加者" width="1156" height="868" loading="lazy" decoding="async">
+          <figcaption class="caption">考え、話し、返し合う。金曜夜のいつもの時間。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="shoinTitle">
+      <div class="section-inner">
+        <p class="label reveal">現代の松下村塾を、北海道に。</p>
+        <h2 class="reveal" id="shoinTitle" style="--i: 1"><span class="phrase">答えをもらう場所ではなく、</span><span class="phrase">志を育てる場所へ。</span></h2>
+        <p class="reveal" style="--i: 2">藤野さん勉強会は、立場や肩書きよりも、その人が何を問い、どこへ進もうとしているかを大切にします。誰かの行動が、自分の行動の参考になる。そんな同期の関係を、北海道につくっていきます。</p>
+        <figure class="photo-frame reveal" style="--i: 3">
+          <img src="assets/PXL_20260424_105403471.jpg" alt="ホワイトボードの前で考えを共有する勉強会の参加者" width="1156" height="868" loading="lazy" decoding="async">
+          <figcaption class="caption">背景が違うからこそ、互いの問いが参考になる。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section dark-section" aria-labelledby="voiceTitle">
+      <div class="section-inner">
+        <p class="label reveal">代表の声</p>
+        <h2 class="reveal" id="voiceTitle" style="--i: 1"><span class="phrase">ここを、北海道の若者が</span><span class="phrase">志を育てる場所に。</span></h2>
+        <div class="voice-card">
+          <figure class="voice-photo reveal" style="--i: 2">
+            <img src="assets/representative-fujino.jpg" alt="ラーメンを前に写る代表の藤野悠生" width="1108" height="1478" loading="lazy" decoding="async">
+          </figure>
+          <div class="reveal" style="--i: 3">
+            <p class="voice-role">代表 / 藤野悠生</p>
+            <p class="voice-text">やりたいことが、最初からきれいな言葉になっている人なんていません。誰かと本気で話し、フィードバックを受けて、まず動いてみる。その繰り返しの中で、その人にしかない個性が見えてくる。ここを、北海道の若者が志を育てる、現代の松下村塾にしたいと思っています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="applyForm" aria-labelledby="formTitle">
+      <div class="section-inner">
+        <p class="label reveal">次の金曜、同期と話してみる。</p>
+        <h2 class="reveal" id="formTitle" style="--i: 1"><span class="phrase">きれいな答えになる前に、</span><span class="phrase">いまの問いを持ってくる。</span></h2>
+        <p class="reveal" style="--i: 2">参加申込はフォームから。質問や参加前に確認したいことがある方は、公式LINEでも受け付けています。</p>
+        <dl class="overview reveal" style="--i: 3">
+          <div class="overview-item">
+            <dt>日時</dt>
+            <dd>毎週金曜 18:15-22:00</dd>
+          </div>
+          <div class="overview-item">
+            <dt>会場</dt>
+            <dd>北海道大学 エンレイソウ</dd>
+          </div>
+          <div class="overview-item">
+            <dt>申込</dt>
+            <dd>下のGoogleフォームからお申し込みください。</dd>
+          </div>
+        </dl>
+        <div class="form-shell reveal" style="--i: 4">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5rC0lBe0oEiXyAj1XUpFsHd7v2ht06NdOK-RafLNeYE_LZg/viewform?embedded=true" title="藤野さん勉強会 参加申込フォーム" loading="lazy">読み込んでいます</iframe>
+          <div class="form-link">
+            <a class="button secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSf5rC0lBe0oEiXyAj1XUpFsHd7v2ht06NdOK-RafLNeYE_LZg/viewform" target="_blank" rel="noopener">フォームを別タブで開く</a>
+          </div>
+        </div>
+        <div class="contact-grid reveal" style="--i: 4">
+          <figure class="qr">
+            <img src="assets/official-line-qr.png" alt="藤野さん勉強会 公式LINEのQRコード" width="360" height="360" loading="lazy" decoding="async">
+          </figure>
+          <div class="contact-actions">
+            <a class="button line" href="https://line.me/R/ti/p/@412ulcav" target="_blank" rel="noopener">公式LINEへ</a>
+            <a class="button secondary" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%20%E3%82%A8%E3%83%B3%E3%83%AC%E3%82%A4%E3%82%BD%E3%82%A6" target="_blank" rel="noopener">Google Mapで会場を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>藤野さん勉強会</span>
+      <span>毎週金曜 18:15-22:00 / 北海道大学 エンレイソウ</span>
+    </div>
+  </footer>
+
+  <script>
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (!motionQuery.matches && "IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+
+      document.querySelectorAll(".reveal, .dialogue").forEach((node, index) => {
+        if (!node.style.getPropertyValue("--i")) {
+          node.style.setProperty("--i", Math.min(index % 5, 4));
+        }
+        revealObserver.observe(node);
+      });
+    } else {
+      document.querySelectorAll(".reveal, .dialogue").forEach((node) => {
+        node.classList.add("is-visible");
+      });
+    }
+  </script>
+</body>
+</html>
