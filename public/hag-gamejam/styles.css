@@ -795,6 +795,12 @@ footer a {
 
   html[lang="en"] .partners h2 {
     font-size: 24px;
+    white-space: normal;
+  }
+
+  html[lang="en"] .vision .heading-line {
+    width: auto;
+    white-space: normal;
   }
 
   .timeline li {
