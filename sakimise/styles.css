@@ -131,22 +131,61 @@ summary {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 2.7rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  color: var(--white);
-  background: var(--ink);
-  font-family: Georgia, "Yu Mincho", serif;
-  font-size: 1.35rem;
-  font-weight: 700;
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 auto;
+  width: 3.15rem;
+  height: 2.7rem;
 }
 
-.brand strong {
+.brand-mark::before,
+.brand-mark::after {
+  position: absolute;
+  width: 2.35rem;
+  height: 1.75rem;
+  border: 1px solid var(--ink);
+  border-radius: 0.48rem;
+  content: "";
+}
+
+.brand-mark::before {
+  top: 0;
+  right: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 82% 25%, var(--orange) 0 0.18rem, transparent 0.2rem),
+    var(--lime);
+  transform: rotate(5deg);
+}
+
+.brand-mark::after {
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: var(--ink);
+  box-shadow: 0.2rem 0.22rem 0 rgba(23, 25, 20, 0.14);
+  transform: rotate(-4deg);
+}
+
+.brand-mark > span {
+  position: absolute;
+  bottom: 0.13rem;
+  left: 0.78rem;
+  color: var(--white);
+  font-family: Georgia, "Yu Mincho", serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.75rem;
+}
+
+.brand-name {
   display: block;
   line-height: 1.15;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.055em;
+}
+
+.brand-name > span:last-child {
+  color: var(--orange);
 }
 
 .brand small {
