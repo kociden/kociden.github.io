@@ -1178,6 +1178,10 @@ summary {
     gap: 1rem;
   }
 
+  .examples-heading h2 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+
   .process-grid,
   .boundary-grid,
   .work-grid {
