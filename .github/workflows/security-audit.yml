@@ -25,3 +25,12 @@ jobs:
       - run: npm audit --omit=dev --audit-level=high
       - run: npm run build
 
+  website-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run OWASP ZAP baseline scan
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          target: https://kociden.github.io/sakimise/
+          allow_issue_writing: false
+          fail_action: false
