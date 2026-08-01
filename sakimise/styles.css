@@ -171,6 +171,13 @@ summary {
   padding-block: 0.5rem;
 }
 
+.language-link {
+  min-width: 2.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-align: center;
+}
+
 .site-nav a:hover,
 .site-nav a:focus-visible,
 .site-footer a:hover,
