@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How SAKIMISE handles payment security, information, and website operations." />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Security | SAKIMISE</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="icon" type="image/png" href="../../assets/sakimise-mark.png" />
+    <style>
+      .security-page { padding-block: clamp(4rem, 9vw, 8rem); }
+      .security-page h1 { max-width: 12em; font-size: clamp(2.4rem, 6vw, 5rem); }
+      .security-body { max-width: 54rem; margin-top: 3rem; }
+      .security-body section { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+      .security-body h2 { font-size: 1.2rem; }
+      .security-body p { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../"><img class="brand-mark" src="../../assets/sakimise-mark.png" alt="" /><span><strong class="brand-name" aria-label="SAKIMISE"><span>SAKI</span><span>MISE</span></strong><small>by M-lab</small></span></a>
+      <a class="nav-cta" href="../">Back to home</a>
+    </header>
+    <main class="security-page section-shell">
+      <p class="eyebrow">SECURITY</p>
+      <h1>Secure payments. Minimal data.</h1>
+      <div class="security-body">
+        <section><h2>We do not hold card data</h2><p>Card payments use Stripe-hosted Payment Links. SAKIMISE does not provide a custom card form and does not receive, store, or transmit card numbers or security codes.</p></section>
+        <section><h2>Encrypted connections</h2><p>Both the service website and Stripe Checkout use HTTPS. Customers should confirm that a payment link uses Stripe's official domain before entering payment information.</p></section>
+        <section><h2>Reduced attack surface</h2><p>The service website is static and has no customer accounts, login, uploads, database, or custom payment code. Customer data, payment data, and credentials are not placed in public directories.</p></section>
+        <section><h2>Administration and review</h2><p>Administrator accounts use multi-factor authentication. Malware protection is maintained, and source code and dependencies are reviewed regularly. A serious issue results in prompt remediation or temporary suspension.</p></section>
+        <section><h2>Fraud controls</h2><p>We rely on Stripe's card-testing controls, attempt limits, risk analysis, and 3D Secure when required. Suspicious payments are reviewed before production begins.</p></section>
+        <section><h2>Report a concern</h2><p>Please report a potential security issue privately to <a href="mailto:milk.lab28@gmail.com?subject=SAKIMISE%20security%20report">milk.lab28@gmail.com</a>.</p></section>
+      </div>
+    </main>
+  </body>
+</html>
