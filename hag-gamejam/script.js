@@ -1,171 +1,97 @@
 const copy = {
   ja: {
-    skip: "本文へ移動",
-    navAbout: "HAGとは",
-    navEvent: "開催概要",
-    navPartners: "協賛",
-    locationLabel: "札幌開催",
-    heroTitle: "<span>AIで、</span><span>1日ゲームを</span><span>つくる。</span>",
-    heroLead: "札幌で、経験ゼロからゲームを完成させる1日。アイデアひとつを持って、AIと仲間と作り切ろう。",
-    heroFocusLabel: "GAME MVP",
-    heroFocusValue: "遊べる核",
-    heroFocusNote: "をつくる",
-    entrySoon: "参加募集は近日公開",
-    sponsorCta: "協賛について相談する",
-    dateLabel: "開催日",
-    sat: "土",
-    venueLabel: "会場",
-    venueShort: "札幌・北海道大学 エンレイソウ1F",
-    feeLabel: "参加費",
-    free: "無料",
-    focusLabel: "制作テーマ",
-    focus: "ゲームのMVP",
-    aboutKicker: "WHAT IS HAG?",
-    aboutTitle: '<span class="desktop-title"><span class="heading-line">ゲームを作ったことがなくても、</span><span class="heading-line">その日に遊べるところまで。</span></span><span class="mobile-title"><span class="heading-line">ゲームを作ったことが</span><span class="heading-line">なくても、</span><span class="heading-line">その日に遊べる</span><span class="heading-line">ところまで。</span></span>',
-    aboutBody1: "HAGは、AIを相棒に短時間でゲームを企画・制作し、最後にみんなで遊んで発表するイベントです。",
-    aboutBody2: "プログラミングや絵の経験は問いません。AIで何か作ってみたい人、ゲームが好きな人、面白い仲間と出会いたい人を歓迎します。",
-    audience1Title: "はじめて作る人",
-    audience1Body: "制作の進め方とAIの使い方を、事前・当日にサポートします。",
-    audience2Title: "腕を試したい人",
-    audience2Body: "限られた時間で、アイデアと完成度を競います。",
-    audience3Title: "仲間を見つけたい人",
-    audience3Body: "企画、AI、ゲームに前のめりな学生・若手と出会えます。",
-    eventKicker: "EVENT",
-    eventTitle: '<span class="desktop-title"><span class="heading-line">1日で、企画から発表まで。</span></span><span class="mobile-title"><span class="heading-line">1日で、</span><span class="heading-line">企画から発表まで。</span></span>',
-    eventNote: "詳細な時間・参加条件は、募集開始時に公開します。",
-    flow1Title: "集合・チームづくり",
-    flow1Body: "テーマ発表、アイデア出し、ひとり参加者のチーム編成。",
-    flow2Title: "AIとゲーム制作",
-    flow2Body: "AIを使いながら、まず遊べる一本を完成させます。",
-    flow3Title: "試遊・発表・表彰",
-    flow3Body: "作品をみんなで遊び、審査員への発表と表彰を行います。",
-    factFormat: "形式",
-    factFormatValue: "1〜4人程度のチーム制作",
-    factTarget: "対象",
-    factTargetValue: "学生・若手 / 初心者歓迎",
-    factScale: "定員",
-    factScaleValue: "30〜50名予定",
-    factTools: "制作環境",
-    factToolsValue: "PC持参 / AI利用支援を予定",
-    partnersKicker: "PARTNERS",
-    partnersTitle: "北海道の次の作り手に、<br />最初の追い風を。",
-    partnersBody: "HAGでは、制作環境・参加者との交流・当日の運営を一緒につくるスポンサー、協力団体を募集しています。確定したパートナーはこのページでご紹介します。",
-    partnersButton: "協賛について相談する",
-    return1: "当日のLT・審査員参加",
-    return2: "公式サイト・SNSへのロゴ掲載",
-    return3: "参加者コミュニティでの情報発信",
-    return4: "企業賞・技術支援の共同設計",
-    sponsorStageTitle: "SPONSORS & SUPPORTERS",
-    sponsorStageBody: "協賛・協力企業は順次掲載します",
-    visionQuote: '<span class="desktop-title"><span class="heading-line">作って終わりじゃない。</span><span class="heading-line">次のゲームを一緒に作る</span><span class="heading-line">仲間と出会う。</span></span><span class="mobile-title"><span class="heading-line">作って終わりじゃない。</span><span class="heading-line">次のゲームを</span><span class="heading-line">一緒に作る仲間と</span><span class="heading-line">出会う。</span></span>',
-    visionBody: "HAGは、北海道でゲームとAIに挑戦する人が継続的につながるコミュニティを目指しています。",
+    skip: "本文へ移動", navAbout: "HAGとは", navMvp: "ゲームMVP", navSchedule: "当日の流れ", navPartners: "協賛・連携",
+    locationLabel: "札幌開催", heroTitle: "<span>AIで、</span><span>1日ゲームを</span><span>つくる。</span>",
+    heroLead: "経験ゼロから、遊べるゲームの核まで。AIと仲間でアイデアを形にする、札幌の1day制作イベント。",
+    entrySoon: "参加募集は近日公開", sponsorCta: "協賛・連携について", dateLabel: "開催日", sat: "土", venueLabel: "会場",
+    venueShort: "札幌・北海道大学 エンレイソウ1F", feeLabel: "参加費", free: "無料", capacityLabel: "定員", capacityValue: "40〜50名予定",
+    aboutTitle: "ゲームを作ったことがなくても、<br />その日に遊べるところまで。",
+    aboutBody1: "HAGは、AIを相棒にゲームを企画・制作し、発表と試遊まで行う1dayイベントです。プログラミングや絵の経験は問いません。",
+    aboutBody2: "ひとり参加も、友人とのチーム参加も歓迎。制作経験者、AIを使って何か作りたい人、次の仲間を探している人が同じ場所で手を動かします。",
+    teamImageAlt: "AIを使いながらチームでゲームを制作するイメージ", audience1Title: "はじめて作る", audience1Body: "AIの使い方と制作の進め方をサポート",
+    audience2Title: "腕を試す", audience2Body: "限られた時間でゲーム性を研ぎ澄ます", audience3Title: "仲間と出会う", audience3Body: "AI・企画・ゲームに前のめりな人とつながる",
+    mvpEyebrow: "完成度より、ゲーム性の核。", mvpTitle: "作るのは、<br /><em>ゲームのMVP。</em>",
+    mvpBody: "壮大な設定や大量のステージではなく、「この操作が面白い」「もう一回遊びたい」と思える最小限のゲームを目指します。AIは、アイデアを遊べる形へ変えるための制作パートナーです。",
+    mvpStep1: "面白さをひとつ決める", mvpStep1Body: "誰が、何をすると面白いのかを言葉にする。",
+    mvpStep2: "AIと最短で実装する", mvpStep2Body: "機能を絞り、まず動いて遊べる状態をつくる。",
+    mvpStep3: "見せて、遊んでもらう", mvpStep3Body: "狙いを発表してから試遊し、反応を確かめる。",
+    scheduleTitle: "1日で、企画から<br />発表・試遊まで。", scheduleNote: "発表で各作品の面白さを知ってから、気になるゲームを実際に遊びます。時刻は運営状況により微調整する場合があります。",
+    tt1: "開会・チームづくり", tt1Body: "趣旨説明、チーム編成、アイスブレイク", tt2: "ルール・審査基準", tt2Body: "MVP、提出方法、制作環境を確認",
+    tt3: "企画・ゲーム制作", tt3Body: "面白さの核を決め、AIと一気に形にする", tt4: "MVP中間確認", tt4Body: "遊べる状態を確認し、必要なら機能を削る",
+    tt5: "Code Freeze・提出", tt5Body: "ビルド、操作方法、作品説明を提出", tt6: "協賛企業LT", tt6Body: "企業・技術・キャリアのショートトーク",
+    tt7: "10チーム発表", tt7Body: "面白さの核と、試してほしいポイントを紹介", tt8: "並行試遊・審査", tt8Body: "気になる作品を遊び、審査員が全作品を確認",
+    tt9: "投票・審査集計", tt9Body: "観客投票、軽食配布、審査集計", tt10: "表彰・スポンサー賞", tt10Body: "受賞作品と選出理由を発表",
+    tt11: "公式懇親会", tt11Body: "参加者、審査員、協賛企業が交流", tt12: "自由交流・自由試遊", tt12Body: "作品へのフィードバック、自由解散",
+    tt13: "締め・集合写真", tt13Body: "22:30参加者退出、23:00撤収完了",
+    partnersEyebrow: "企業・団体のみなさまへ", partnersTitle: "北海道の次の作り手に、<br />最初の追い風を。",
+    partnersBody: "HAGでは、札幌のAI・ゲーム制作に前向きな学生や若手と企業が、作品と対話を通して出会える場をつくります。採用広報、技術発信、地域人材育成など、各社の目的に合わせて連携内容を設計します。",
+    metricPeople: "参加者予定", metricTeams: "チーム予定", metricMvp: "企画からMVPまで", return1: "当日のLT・審査員参加", return2: "参加者との試遊・交流",
+    return3: "公式サイト・SNS・開催レポート掲載", return4: "企業賞・AI/技術支援の共同設計", partnerStatus: "北海道大学内の関係組織との共催を調整中",
+    partnerStatusBody: "会場：北海道大学 エンレイソウ1F（予定）", partnersButton: "協賛・連携について相談する",
+    visionQuote: "作って終わりじゃない。<br />次のゲームを一緒に作る<br />仲間と出会う。", visionBody: "HAGは、北海道でゲームとAIに挑戦する人が継続的につながるコミュニティを目指します。",
     footerOrganizer: "企画・運営：HAG実行委員会",
   },
   en: {
-    skip: "Skip to content",
-    navAbout: "About",
-    navEvent: "Event",
-    navPartners: "Partners",
-    locationLabel: "SAPPORO, JAPAN",
-    heroTitle: "<span>Build a game.</span><span>In one day,</span><span>with AI.</span>",
-    heroLead: "Come to Sapporo with one idea, even with zero experience. Build with AI and new teammates, and leave with a playable game.",
-    heroFocusLabel: "GAME MVP",
-    heroFocusValue: "PLAYABLE CORE",
-    heroFocusNote: "IN ONE DAY",
-    entrySoon: "Registration opening soon",
-    sponsorCta: "Partner with HAG",
-    dateLabel: "Date",
-    sat: "SAT",
-    venueLabel: "Venue",
-    venueShort: "Sapporo / Enreiso 1F, Hokkaido University",
-    feeLabel: "Entry",
-    free: "Free",
-    focusLabel: "Build focus",
-    focus: "A playable game MVP",
-    aboutKicker: "WHAT IS HAG?",
-    aboutTitle: '<span class="desktop-title"><span class="heading-line">No game-making experience?</span><span class="heading-line">Make something playable anyway.</span></span><span class="mobile-title"><span class="heading-line">No experience?</span><span class="heading-line">Make something</span><span class="heading-line">playable anyway.</span></span>',
-    aboutBody1: "HAG is a one-day event where participants plan and build games with AI, then play, present, and celebrate what they made together.",
-    aboutBody2: "No programming or art background is required. We welcome students and young builders who want to create with AI, love games, or want to meet interesting collaborators.",
-    audience1Title: "First-time builders",
-    audience1Body: "We will support the workflow and practical use of AI before and during the event.",
-    audience2Title: "Experienced creators",
-    audience2Body: "Test your ideas and execution under a tight one-day deadline.",
-    audience3Title: "Future teammates",
-    audience3Body: "Meet students and young builders in Hokkaido who are serious about ideas, AI, and games.",
-    eventKicker: "EVENT",
-    eventTitle: '<span class="desktop-title"><span class="heading-line">From idea to demo in one day.</span></span><span class="mobile-title"><span class="heading-line">From idea to demo</span><span class="heading-line">in one day.</span></span>',
-    eventNote: "The detailed schedule and participation requirements will be announced when registration opens.",
-    flow1Title: "Meet and form teams",
-    flow1Body: "Theme reveal, ideation, and team matching for solo participants.",
-    flow2Title: "Build with AI",
-    flow2Body: "Use AI throughout production and focus on finishing one playable game.",
-    flow3Title: "Play, pitch, and award",
-    flow3Body: "Try every team's game, present to the judges, and celebrate the winners.",
-    factFormat: "Format",
-    factFormatValue: "Teams of roughly 1–4",
-    factTarget: "Who",
-    factTargetValue: "Students & young builders / beginners welcome",
-    factScale: "Capacity",
-    factScaleValue: "30–50 participants planned",
-    factTools: "Setup",
-    factToolsValue: "Bring a laptop / AI access support planned",
-    partnersKicker: "PARTNERS",
-    partnersTitle: "Give Hokkaido's next creators<br />their first tailwind.",
-    partnersBody: "HAG is looking for sponsors and supporting organizations to help shape the production environment, participant connections, and event operations. Confirmed partners will be featured here.",
-    partnersButton: "Discuss a partnership",
-    return1: "Lightning talks and judging opportunities",
-    return2: "Logo placement on the website and social media",
-    return3: "Updates shared with the participant community",
-    return4: "Co-designed company awards and technical support",
-    sponsorStageTitle: "SPONSORS & SUPPORTERS",
-    sponsorStageBody: "Confirmed partners will be announced here",
-    visionQuote: '<span class="desktop-title"><span class="heading-line">More than a finished game.</span><span class="heading-line">Meet the people you will build</span><span class="heading-line">the next one with.</span></span><span class="mobile-title"><span class="heading-line">More than a finished game.</span><span class="heading-line">Meet the people</span><span class="heading-line">you will build</span><span class="heading-line">the next one with.</span></span>',
-    visionBody: "HAG aims to grow a lasting community for people building with games and AI in Hokkaido.",
+    skip: "Skip to content", navAbout: "About", navMvp: "Game MVP", navSchedule: "Schedule", navPartners: "Partners",
+    locationLabel: "SAPPORO, JAPAN", heroTitle: "<span>Build a game.</span><span>In one day,</span><span>with AI.</span>",
+    heroLead: "From zero experience to a playable core. A one-day event in Sapporo where ideas become games with AI and new teammates.",
+    entrySoon: "Registration opening soon", sponsorCta: "Partnerships", dateLabel: "Date", sat: "SAT", venueLabel: "Venue",
+    venueShort: "Enreiso 1F, Hokkaido University, Sapporo", feeLabel: "Entry", free: "Free", capacityLabel: "Capacity", capacityValue: "40–50 planned",
+    aboutTitle: "No game-making experience?<br />Make something playable anyway.",
+    aboutBody1: "HAG is a one-day event where participants plan and build a game with AI, then pitch it and let everyone play. No programming or art background is required.",
+    aboutBody2: "Join solo or with friends. Experienced creators, first-time AI builders, and people looking for their next teammates all make together in one place.",
+    teamImageAlt: "A team building a game together with AI", audience1Title: "Build for the first time", audience1Body: "Get support with AI and the production workflow",
+    audience2Title: "Test your skills", audience2Body: "Refine the game idea under a one-day deadline", audience3Title: "Meet teammates", audience3Body: "Connect with people serious about AI, ideas, and games",
+    mvpEyebrow: "The core mechanic comes first.", mvpTitle: "Build a<br /><em>game MVP.</em>",
+    mvpBody: "Skip the epic lore and endless levels. Build the smallest game that makes someone say, ‘this interaction is fun’ and ‘one more try.’ AI is a production partner that turns an idea into something playable.",
+    mvpStep1: "Choose one source of fun", mvpStep1Body: "Define who does what, and why the action is fun.", mvpStep2: "Implement fast with AI", mvpStep2Body: "Cut features and get to a playable state first.",
+    mvpStep3: "Pitch it, then let people play", mvpStep3Body: "Explain the intent, watch players, and test the response.",
+    scheduleTitle: "From idea to pitch<br />and playtest in one day.", scheduleNote: "Teams pitch the intended fun first, then everyone tries the games that caught their attention. Times may be adjusted slightly during operations.",
+    tt1: "Opening and team formation", tt1Body: "Purpose, team matching, and icebreaker", tt2: "Rules and judging", tt2Body: "MVP, submission, and production setup",
+    tt3: "Ideation and production", tt3Body: "Choose the core fun and build rapidly with AI", tt4: "MVP checkpoint", tt4Body: "Confirm it is playable and cut features if needed",
+    tt5: "Code Freeze and submission", tt5Body: "Submit the build, controls, and game description", tt6: "Sponsor lightning talks", tt6Body: "Short talks on companies, technology, and careers",
+    tt7: "Ten team pitches", tt7Body: "Share the core fun and what players should try", tt8: "Parallel playtest and judging", tt8Body: "Try interesting games while judges cover every entry",
+    tt9: "Voting and judging", tt9Body: "Audience vote, snacks, and score aggregation", tt10: "Awards", tt10Body: "Winners, sponsor awards, and selection reasons",
+    tt11: "Official networking", tt11Body: "Participants, judges, and partners connect", tt12: "Open play and conversation", tt12Body: "Feedback, connections, and optional departure",
+    tt13: "Closing and group photo", tt13Body: "Participants leave by 22:30; teardown by 23:00",
+    partnersEyebrow: "FOR COMPANIES AND ORGANIZATIONS", partnersTitle: "Give Hokkaido's next creators<br />their first tailwind.",
+    partnersBody: "HAG creates a place where companies meet students and young builders in Sapporo through working games and real conversation. Partnership options are tailored around recruiting, technical outreach, and regional talent development.",
+    metricPeople: "planned participants", metricTeams: "planned teams", metricMvp: "from idea to MVP", return1: "Lightning talks and judging", return2: "Playtests and participant interaction",
+    return3: "Website, social, and event-report coverage", return4: "Company awards and AI/technical support", partnerStatus: "Co-hosting is under discussion with a Hokkaido University organization",
+    partnerStatusBody: "Planned venue: Enreiso 1F, Hokkaido University", partnersButton: "Discuss a partnership",
+    visionQuote: "More than a finished game.<br />Meet the people you will build<br />the next one with.", visionBody: "HAG aims to grow a lasting community for people building with games and AI in Hokkaido.",
     footerOrganizer: "Planned and operated by the HAG Executive Committee",
   },
 };
 
 const meta = {
-  ja: {
-    title: "HAG | AIで、1日ゲームをつくる。",
-    description: "HAGは、AIを使って1日でゲームをつくる北海道発のイベントです。2026年9月19日、北海道大学エンレイソウで開催予定。参加無料・初心者歓迎。",
-  },
-  en: {
-    title: "HAG | Build a game in one day with AI",
-    description: "HAG is a one-day AI game-making event in Sapporo on September 19, 2026. Free entry, beginners welcome, with a focus on building a playable game MVP.",
-  },
+  ja: { title: "HAG | AIで、1日ゲームをつくる。", description: "HAGは、AIを使って1日でゲームのMVPをつくる札幌発のイベントです。2026年9月19日、北海道大学エンレイソウ1Fで開催予定。参加無料・初心者歓迎。" },
+  en: { title: "HAG | Build a game in one day with AI", description: "HAG is a one-day AI game MVP event in Sapporo on September 19, 2026. Free entry and beginners welcome." },
 };
 
 function setLanguage(language, remember = true) {
-  const languageCode = language === "ja" ? "ja" : "en";
-  const dictionary = copy[languageCode];
-
-  document.documentElement.lang = languageCode;
-  document.title = meta[languageCode].title;
-  document.querySelector('meta[name="description"]').content = meta[languageCode].description;
-
+  const code = language === "ja" ? "ja" : "en";
+  const dictionary = copy[code];
+  document.documentElement.lang = code;
+  document.title = meta[code].title;
+  document.querySelector('meta[name="description"]').content = meta[code].description;
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = dictionary[element.dataset.i18n];
     if (value) element.textContent = value;
   });
-
   document.querySelectorAll("[data-i18n-html]").forEach((element) => {
     const value = dictionary[element.dataset.i18nHtml];
     if (value) element.innerHTML = value;
   });
-
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.lang === languageCode));
+  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+    const value = dictionary[element.dataset.i18nAlt];
+    if (value) element.alt = value;
   });
-
-  if (remember) localStorage.setItem("hag-language", languageCode);
+  document.querySelectorAll("[data-lang]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === code)));
+  if (remember) localStorage.setItem("hag-language", code);
 }
 
-document.querySelectorAll("[data-lang]").forEach((button) => {
-  button.addEventListener("click", () => setLanguage(button.dataset.lang));
-});
-
+document.querySelectorAll("[data-lang]").forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
 const savedLanguage = localStorage.getItem("hag-language");
 const browserLanguage = navigator.languages?.[0] || navigator.language || "en";
-const initialLanguage = savedLanguage || (browserLanguage.toLowerCase().startsWith("ja") ? "ja" : "en");
-setLanguage(initialLanguage, false);
+setLanguage(savedLanguage || (browserLanguage.toLowerCase().startsWith("ja") ? "ja" : "en"), false);
