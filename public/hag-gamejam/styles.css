@@ -223,6 +223,17 @@ img { max-width: 100%; }
 .partner-cta span { font-size: 13px; }
 .contact-button:hover, .contact-button:focus-visible { color: var(--ink); background: var(--yellow); }
 
+.organizer { background: var(--white); }
+.organizer-layout { display: grid; grid-template-columns: minmax(320px, .8fr) minmax(0, 1.2fr); gap: clamp(48px, 8vw, 110px); align-items: center; }
+.organizer-image { margin: 0; overflow: hidden; border: 1px solid var(--ink); background: var(--blue); }
+.organizer-image img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.organizer-copy h2 { margin: 0 0 5px; font-size: clamp(42px, 5vw, 72px); line-height: 1.1; }
+.organizer-copy > strong { display: block; font-size: 15px; }
+.organizer-copy > p { margin: 22px 0 0; font-size: 16px; font-weight: 650; }
+.organizer-vision { display: grid; grid-template-columns: 80px 1fr; gap: 22px; margin-top: 28px; padding-block: 23px; border-block: 1px solid var(--ink); }
+.organizer-vision b { color: var(--orange); font: 900 12px/1.4 ui-monospace, monospace; }
+.organizer-vision ul { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; font-weight: 900; }
+
 .vision { position: relative; overflow: hidden; color: white; background: var(--blue-deep); }
 .vision::after { content: "HAG"; position: absolute; right: -20px; bottom: -55px; color: rgba(255,255,255,.11); font: 900 clamp(170px, 31vw, 500px)/.8 ui-monospace, monospace; }
 .vision blockquote { position: relative; z-index: 1; max-width: 900px; margin: 36px 0 32px; font-size: clamp(39px, 5.6vw, 78px); line-height: 1.15; font-weight: 900; }
@@ -268,7 +279,7 @@ footer p { margin: 0; }
   .event-strip div { min-height: 78px; }
   .event-strip div:nth-child(3) { border-left: 0; border-top: 1px solid var(--ink); }
   .event-strip div:nth-child(4) { border-top: 1px solid var(--ink); }
-  .about-layout, .mvp-heading, .partners-heading, .schedule-heading { grid-template-columns: 1fr; }
+  .about-layout, .mvp-heading, .partners-heading, .schedule-heading, .organizer-layout { grid-template-columns: 1fr; }
   .about-layout > h2 { grid-column: auto; }
   .audience-band, .mvp-steps, .partner-metrics { grid-template-columns: 1fr; }
   .audience-band > div + div, .mvp-steps li + li, .partner-metrics div + div { border-left: 0; border-top: 1px solid currentColor; }
@@ -297,6 +308,7 @@ footer p { margin: 0; }
   .title-mobile { display: block; }
   .about-copy > p, .mvp-heading > p, .partners-heading > p, .schedule-heading > p { font-size: 15px; }
   .about-layout { gap: 34px; }
+  .organizer-layout { gap: 34px; }
   .section-illustration { margin-top: 42px; }
   .section-illustration img { aspect-ratio: 4 / 3; }
   .mvp-illustration img { object-position: 54% center; }
