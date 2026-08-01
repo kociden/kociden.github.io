@@ -297,7 +297,7 @@ footer p { margin: 0; }
   .hero { min-height: 770px; }
   .hero-copy { margin: 98px 18px 260px; }
   .hero h1 { font-size: clamp(44px, 15vw, 66px); }
-  .hero h1 span { white-space: normal; }
+  .hero h1 span { white-space: nowrap; }
   .hero-lead { max-width: 92%; font-size: 15px; }
   .hero-actions { align-items: stretch; flex-direction: column; width: min(100%, 310px); }
   .event-strip dd { font-size: 14px; }

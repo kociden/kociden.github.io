@@ -3,7 +3,7 @@ document.documentElement.classList.add("js");
 const copy = {
   ja: {
     skip: "本文へ移動", navAbout: "HAGとは", navMvp: "ゲームMVP", navSchedule: "当日の流れ", navPartners: "協賛・連携",
-    locationLabel: "札幌開催", heroTitle: "<span>AIで、</span><span>1日ゲームを</span><span>つくる。</span>",
+    locationLabel: "札幌開催", heroTitle: "<span>AIで、</span><span>アイデアを</span><span>形にしよう</span>",
     heroLead: "経験ゼロから、遊べるゲームの核まで。AIと仲間でアイデアを形にする、札幌の1day制作イベント。",
     entrySoon: "参加募集は近日公開", sponsorCta: "協賛・連携について", dateLabel: "開催日", sat: "土", venueLabel: "会場",
     venueShort: "札幌・北海道大学 エンレイソウ1F", feeLabel: "参加費", free: "無料", capacityLabel: "定員", capacityValue: "40〜50名予定",
@@ -42,7 +42,7 @@ const copy = {
   },
   en: {
     skip: "Skip to content", navAbout: "About", navMvp: "Game MVP", navSchedule: "Schedule", navPartners: "Partners",
-    locationLabel: "SAPPORO, JAPAN", heroTitle: "<span>Build a game.</span><span>In one day,</span><span>with AI.</span>",
+    locationLabel: "SAPPORO, JAPAN", heroTitle: "<span>With AI,</span><span>turn ideas</span><span>into reality.</span>",
     heroLead: "From zero experience to a playable core. A one-day event in Sapporo where ideas become games with AI and new teammates.",
     entrySoon: "Registration opening soon", sponsorCta: "Partnerships", dateLabel: "Date", sat: "SAT", venueLabel: "Venue",
     venueShort: "Enreiso 1F, Hokkaido University, Sapporo", feeLabel: "Entry", free: "Free", capacityLabel: "Capacity", capacityValue: "40–50 planned",
@@ -81,8 +81,8 @@ const copy = {
 };
 
 const meta = {
-  ja: { title: "HAG | AIで、1日ゲームをつくる。", description: "HAGは、AIを使って1日でゲームのMVPをつくる札幌発のイベントです。2026年9月19日、北海道大学エンレイソウ1Fで開催予定。参加無料・初心者歓迎。" },
-  en: { title: "HAG | Build a game in one day with AI", description: "HAG is a one-day AI game MVP event in Sapporo on September 19, 2026. Free entry and beginners welcome." },
+  ja: { title: "HAG | AIで、アイデアを形にしよう", description: "HAGは、AIを使って1日でゲームのMVPをつくる札幌発のイベントです。2026年9月19日、北海道大学エンレイソウ1Fで開催予定。参加無料・初心者歓迎。" },
+  en: { title: "HAG | Turn ideas into reality with AI", description: "HAG is a one-day AI game MVP event in Sapporo on September 19, 2026. Free entry and beginners welcome." },
 };
 
 function setLanguage(language, remember = true) {
