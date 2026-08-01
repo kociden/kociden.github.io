@@ -478,22 +478,6 @@ summary {
   border-radius: 0.4rem;
 }
 
-.shift-arrow {
-  position: absolute;
-  top: 45%;
-  left: 46%;
-  z-index: 4;
-  display: grid;
-  place-items: center;
-  width: 4.5rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  color: var(--white);
-  background: var(--ink);
-  box-shadow: 0 14px 30px rgba(23, 25, 20, 0.25);
-  font-size: 1.7rem;
-}
-
 .visual-stamp {
   position: absolute;
   right: -1.5rem;
@@ -1026,11 +1010,6 @@ summary {
   .visual-stamp {
     right: -0.25rem;
     width: 6.5rem;
-  }
-
-  .shift-arrow {
-    left: 42%;
-    width: 3.5rem;
   }
 
   .statement-inner {
