@@ -131,51 +131,11 @@ summary {
 }
 
 .brand-mark {
-  position: relative;
-  isolation: isolate;
+  display: block;
   flex: 0 0 auto;
-  width: 3.15rem;
-  height: 2.7rem;
-}
-
-.brand-mark::before,
-.brand-mark::after {
-  position: absolute;
-  width: 2.35rem;
-  height: 1.75rem;
-  border: 1px solid var(--ink);
-  border-radius: 0.48rem;
-  content: "";
-}
-
-.brand-mark::before {
-  top: 0;
-  right: 0;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 82% 25%, var(--orange) 0 0.18rem, transparent 0.2rem),
-    var(--lime);
-  transform: rotate(5deg);
-}
-
-.brand-mark::after {
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background: var(--ink);
-  box-shadow: 0.2rem 0.22rem 0 rgba(23, 25, 20, 0.14);
-  transform: rotate(-4deg);
-}
-
-.brand-mark > span {
-  position: absolute;
-  bottom: 0.13rem;
-  left: 0.78rem;
-  color: var(--white);
-  font-family: Georgia, "Yu Mincho", serif;
-  font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1.75rem;
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -574,6 +534,78 @@ summary {
   padding-block: clamp(5.5rem, 10vw, 9rem);
 }
 
+.examples {
+  padding-block: clamp(5.5rem, 10vw, 9rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.examples-heading {
+  max-width: 50rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.work-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--paper);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.work-card:hover,
+.work-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.work-visual {
+  min-height: 240px;
+  border-bottom: 1px solid var(--ink);
+  background-position: center;
+  background-size: cover;
+}
+
+.work-besties {
+  background-image: linear-gradient(90deg, rgba(23, 25, 20, 0.1), transparent), url("../besties-homepage-concepts/assets/hero-01.webp");
+}
+
+.work-fujino {
+  background-image: linear-gradient(90deg, rgba(23, 25, 20, 0.08), transparent), url("../fujino-study-session/proposal-01/assets/fujino-study-session.jpg");
+}
+
+.work-body {
+  display: grid;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.work-body small {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.work-body strong {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.2;
+}
+
+.work-body > span {
+  color: var(--muted);
+}
+
+.work-body b {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+}
+
 .section-heading {
   max-width: 46rem;
   margin-bottom: 4rem;
@@ -793,6 +825,96 @@ summary {
   content: "↳";
 }
 
+.care {
+  padding-block: clamp(5.5rem, 10vw, 9rem);
+  color: var(--white);
+  background: var(--ink);
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.care-copy h2 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4vw, 4.3rem);
+}
+
+.care-copy > p:last-child {
+  max-width: 34em;
+  color: #c7c8bf;
+}
+
+.care-card {
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 2rem;
+  background: #252820;
+}
+
+.care-card > div:first-child {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.care-card p {
+  margin-bottom: 0;
+  font-weight: 800;
+}
+
+.care-price {
+  margin-block: 0.75rem !important;
+  color: var(--lime);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 950 !important;
+  line-height: 1;
+  letter-spacing: -0.07em;
+}
+
+.care-price span {
+  font-size: 0.45em;
+  vertical-align: top;
+}
+
+.care-price small {
+  margin-left: 0.5rem;
+  color: var(--white);
+  font-size: 0.18em;
+  letter-spacing: 0;
+}
+
+.care-card ul {
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.care-card li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.care-card li::before {
+  margin-right: 0.65rem;
+  color: var(--lime);
+  content: "✓";
+}
+
+.care-link {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: var(--lime);
+}
+
+.care-card > small {
+  display: block;
+  color: #aeb0a8;
+  line-height: 1.7;
+}
+
 .faq {
   padding-block: clamp(5.5rem, 10vw, 9rem);
   border-top: 1px solid var(--line);
@@ -942,6 +1064,7 @@ summary {
 
   .statement-inner,
   .offer-grid,
+  .care-grid,
   .faq-grid {
     grid-template-columns: 1fr;
   }
@@ -1056,7 +1179,8 @@ summary {
   }
 
   .process-grid,
-  .boundary-grid {
+  .boundary-grid,
+  .work-grid {
     grid-template-columns: 1fr;
   }
 
