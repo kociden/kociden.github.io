@@ -33,6 +33,10 @@ const copy = {
     metricPeople: "参加者予定", metricTeams: "チーム予定", metricMvp: "企画からMVPまで", return1: "当日のLT・審査員参加", return2: "参加者との試遊・交流",
     return3: "公式サイト・SNS・開催レポート掲載", return4: "企業賞・AI/技術支援の共同設計", partnerStatus: "北海道大学内の関係組織との共催を調整中",
     partnerStatusBody: "会場：北海道大学 エンレイソウ1F（予定）", partnersButton: "協賛・連携について相談する",
+    organizerImageAlt: "HAG主催者の町原悠太", organizerEyebrow: "HAG発起人・主催", organizerName: "町原 悠太", organizerRole: "北海道大学工学部 情報学科3年（休学中）",
+    organizerBody1: "大学からゲーム制作を始め、SAOへの強い憧れからVRゲームやVRコンテンツ制作に取り組む。東京で複数のハッカソンに参加し、開催機会や参加層の厚さに衝撃を受けた。",
+    organizerBody2: "札幌にも、挑戦を始める場所と制作を通じて仲間に出会う機会を増やしたいと考え、HAGを企画。1年後に札幌でゲーム会社を立ち上げる予定で、一緒に挑戦する仲間を募集中。",
+    organizerVisionLabel: "VISION", organizerVision1: "SAOをつくること。", organizerVision2: "日本を代表するゲーム会社をつくること。", organizerVision3: "持続可能なドパガキであること。",
     visionQuote: "作って終わりじゃない。<br />次のゲームを一緒に作る<br />仲間と出会う。", visionBody: "HAGは、北海道でゲームとAIに挑戦する人が継続的につながるコミュニティを目指します。",
     footerOrganizer: "企画・運営：HAG実行委員会",
   },
@@ -67,6 +71,10 @@ const copy = {
     metricPeople: "planned participants", metricTeams: "planned teams", metricMvp: "from idea to MVP", return1: "Lightning talks and judging", return2: "Playtests and participant interaction",
     return3: "Website, social, and event-report coverage", return4: "Company awards and AI/technical support", partnerStatus: "Co-hosting is under discussion with a Hokkaido University organization",
     partnerStatusBody: "Planned venue: Enreiso 1F, Hokkaido University", partnersButton: "Discuss a partnership",
+    organizerImageAlt: "HAG organizer Yuta Machihara", organizerEyebrow: "FOUNDER AND ORGANIZER", organizerName: "Yuta Machihara", organizerRole: "Third-year Information Engineering student at Hokkaido University, currently on leave",
+    organizerBody1: "He began making games at university. Inspired by Sword Art Online, he has built VR games and worked on commissioned VR projects. After joining several hackathons in Tokyo, he was struck by the scale and depth of its tech-event ecosystem.",
+    organizerBody2: "He started HAG to create more places in Sapporo where people can begin ambitious projects and meet future teammates through making. He plans to launch a game company in Sapporo within a year and is looking for people to build it with.",
+    organizerVisionLabel: "VISION", organizerVision1: "Build SAO.", organizerVision2: "Build a game company that represents Japan.", organizerVision3: "Stay sustainably dopamine-driven.",
     visionQuote: "More than a finished game.<br />Meet the people you will build<br />the next one with.", visionBody: "HAG aims to grow a lasting community for people building with games and AI in Hokkaido.",
     footerOrganizer: "Planned and operated by the HAG Executive Committee",
   },
@@ -105,7 +113,7 @@ const browserLanguage = navigator.languages?.[0] || navigator.language || "en";
 setLanguage(savedLanguage || (browserLanguage.toLowerCase().startsWith("ja") ? "ja" : "en"), false);
 
 const revealTargets = document.querySelectorAll(
-  ".section-label, .about-layout > *, .audience-band > div, .mvp-heading > *, .section-illustration, .mvp-steps > li, .schedule-heading > *, .day-timetable > li, .partners-heading > *, .partner-metrics > div, .partner-options > div, .partner-cta, .vision > *",
+  ".section-label, .about-layout > *, .audience-band > div, .mvp-heading > *, .section-illustration, .mvp-steps > li, .schedule-heading > *, .day-timetable > li, .partners-heading > *, .partner-metrics > div, .partner-options > div, .partner-cta, .organizer-layout > *, .vision > *",
 );
 
 revealTargets.forEach((element, index) => {
