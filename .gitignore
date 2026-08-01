@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+SAKIMISE_STRIPE_PRIVATE.md
 
 # Editor directories and files
 .vscode/*
