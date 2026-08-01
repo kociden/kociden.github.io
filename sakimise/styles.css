@@ -2,7 +2,7 @@
   --paper: #f4f1e8;
   --paper-deep: #e9e4d7;
   --ink: #171914;
-  --muted: #66685f;
+  --muted: #5d6057;
   --line: rgba(23, 25, 20, 0.18);
   --lime: #d5ff43;
   --orange: #ff6b3d;
@@ -487,7 +487,7 @@ summary {
   width: 8rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  color: var(--white);
+  color: var(--ink);
   background: var(--orange);
   transform: rotate(8deg);
 }
@@ -966,7 +966,7 @@ summary {
 }
 
 .final-cta {
-  color: var(--white);
+  color: var(--ink);
   background: var(--orange);
 }
 
