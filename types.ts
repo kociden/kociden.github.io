@@ -1,6 +1,8 @@
 export interface WorkItem {
   id: string;
   title: string;
+  category: string;
+  year: string;
   image: string;
   description: string;
   techStack: string[];
@@ -11,43 +13,24 @@ export interface NewsItem {
   id: string;
   date: string;
   title: string;
-  url?: string; // Optional now, used for external links if needed
+  tag?: string;      // 'Award' | 'Info' | 'Release' など自由
+  url?: string;      // 外部リンク（任意）
   thumbnail?: string;
-  content?: string; // The detailed content of the news
+  content?: string;  // 詳細本文（HTML可）
 }
 
-export interface ColorScheme {
-  bg: string;
-  text: string;
-  accent: string;
-  card: string;
-  cardText: string;
-  muted: string;
-}
+// デザイン案の識別子
+export type DesignId = 'signal' | 'bento' | 'editorial';
 
-export interface ThemeConfig {
-  id: string;
+export interface DesignMeta {
+  id: DesignId;
   name: string;
-  colors: {
-    light: ColorScheme;
-    dark: ColorScheme;
-  };
-  styles: {
-    rounded: string;
-    font: string;
-    shadow: string;
-    border: string;
-  };
+  description: string;
+  reference: string;
 }
 
-export type ThemeId = 
-  | 'minimal' 
-  | 'dark-dev' 
-  | 'hokkaido-snow' 
-  | 'cyberpunk' 
-  | 'forest' 
-  | 'corporate' 
-  | 'sunset' 
-  | 'luxury' 
-  | 'retro-pop' 
-  | 'glass';
+export const DESIGNS: DesignMeta[] = [
+  { id: 'signal', name: 'A. Signal', description: 'ダーク × グリッド × モノスペース', reference: 'Linear / Vercel' },
+  { id: 'bento', name: 'B. Bento', description: 'ガラス質のタイルグリッド', reference: 'Apple / Raycast' },
+  { id: 'editorial', name: 'C. Editorial', description: '明朝 × 余白 × 大型タイポ', reference: 'Awwwards系スタジオサイト' },
+];
