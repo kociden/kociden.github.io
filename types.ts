@@ -18,19 +18,3 @@ export interface NewsItem {
   thumbnail?: string;
   content?: string;  // 詳細本文（HTML可）
 }
-
-// デザイン案の識別子
-export type DesignId = 'signal' | 'bento' | 'editorial';
-
-export interface DesignMeta {
-  id: DesignId;
-  name: string;
-  description: string;
-  reference: string;
-}
-
-export const DESIGNS: DesignMeta[] = [
-  { id: 'signal', name: 'A. Signal', description: 'ダーク × グリッド × モノスペース', reference: 'Linear / Vercel' },
-  { id: 'bento', name: 'B. Bento', description: 'ガラス質のタイルグリッド', reference: 'Apple / Raycast' },
-  { id: 'editorial', name: 'C. Editorial', description: '明朝 × 余白 × 大型タイポ', reference: 'Awwwards系スタジオサイト' },
-];

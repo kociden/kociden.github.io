@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, ArrowLeft, Github, Mail, MapPin, Trophy, Gamepad2, Sparkles } from 'lucide-react';
-import { PROFILE, WORKS_DATA, NEWS_DATA, SKILLS } from '../../constants';
-import { useReveal } from '../../components/useReveal';
-import type { SiteProps } from '../../App';
+import { PROFILE, WORKS_DATA, NEWS_DATA, SKILLS } from '../constants';
+import { useReveal } from './useReveal';
+import type { SiteProps } from '../App';
 
 /**
- * B. Bento — ガラス質のタイルグリッド
+ * Site — ガラス質のタイルグリッド
  * 参考: Apple の製品ページ / Raycast / bento.me
  * 情報を「タイル」に分割し、サイズの強弱で視線を誘導する。メッシュグラデーション背景 + グラスモーフィズム。
  */
@@ -27,7 +27,7 @@ const Clock: React.FC = () => {
   return <span className="font-mono tabular-nums">{now.toLocaleTimeString('ja-JP', { timeZone: 'Asia/Tokyo', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>;
 };
 
-const BentoSite: React.FC<SiteProps> = ({ selectedNewsId, onSelectNews }) => {
+const Site: React.FC<SiteProps> = ({ selectedNewsId, onSelectNews }) => {
   useReveal([selectedNewsId]);
   const news = selectedNewsId ? NEWS_DATA.find((n) => n.id === selectedNewsId) : null;
   const [featured, ...restWorks] = WORKS_DATA;
@@ -224,4 +224,4 @@ const BentoSite: React.FC<SiteProps> = ({ selectedNewsId, onSelectNews }) => {
   );
 };
 
-export default BentoSite;
+export default Site;
