@@ -29,9 +29,9 @@ const EditorialSite: React.FC<SiteProps> = ({ selectedNewsId, onSelectNews }) =>
   const marquee = ['Game', 'XR', 'Unity', 'Simulator', 'VR Booth', 'Automation', 'Web', 'AI'];
 
   return (
-    <div className="grain min-h-screen bg-[#f4f1ea] text-stone-900 font-sans antialiased selection:bg-stone-900 selection:text-[#f4f1ea]">
+    <div className="grain min-h-screen bg-[#eeefec] text-stone-900 font-sans antialiased selection:bg-stone-900 selection:text-[#eeefec]">
       {/* Header */}
-      <header className="fixed top-0 inset-x-0 z-40 mix-blend-difference text-[#f4f1ea]">
+      <header className="fixed top-0 inset-x-0 z-40 mix-blend-difference text-[#eeefec]">
         <div className="mx-auto max-w-7xl px-6 md:px-10 h-16 flex items-center justify-between">
           <button onClick={() => onSelectNews(null)} className="font-mincho font-bold text-xl tracking-wide">M Lab</button>
           <nav className="hidden md:flex items-center gap-8 text-xs tracking-[0.2em] uppercase">
@@ -171,12 +171,12 @@ const EditorialSite: React.FC<SiteProps> = ({ selectedNewsId, onSelectNews }) =>
             </Section>
 
             {/* ---------- Contact ---------- */}
-            <section id="contact" className="border-t border-stone-900/15 bg-stone-900 text-[#f4f1ea]">
+            <section id="contact" className="border-t border-stone-900/15 bg-stone-900 text-[#eeefec]">
               <div className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-40">
                 <p className="reveal font-mono text-xs tracking-[0.2em] uppercase text-stone-400 mb-8">Contact</p>
                 <a href={`mailto:${PROFILE.social.email}`} className="reveal reveal-delay-1 group block">
                   <h2 className="font-serif italic text-[14vw] md:text-[9rem] leading-[0.9] tracking-tight">
-                    Let's talk<span className="text-stone-500 group-hover:text-[#f4f1ea] transition-colors">.</span>
+                    Let's talk<span className="text-stone-500 group-hover:text-[#eeefec] transition-colors">.</span>
                   </h2>
                 </a>
                 <div className="reveal reveal-delay-2 mt-12 grid md:grid-cols-12 gap-8 items-end">
