@@ -9,6 +9,10 @@ import type { EventItem, NewsItem, Profile, SkillGroup, Talk, WorkItem } from '.
 
 export const PROFILE: Profile = {
   handle: 'kociden',
+  realName: '町原悠太',
+  school: '北海道大学 工学部 情報学科',
+  bio: '高校からゲーム制作をはじめ、今では 2D・3D ゲームから XR ゲームまで手がける。',
+  now: 'ゲーム会社の立ち上げを準備中',
   brand: 'M Lab',
   role: 'Game / XR Developer',
   location: 'Sapporo, Hokkaido',

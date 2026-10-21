@@ -81,7 +81,7 @@ function Status() {
   const maxN = Math.max(8, ...SKILLS.map((x) => x.items.length));
   return (
     <section className="sec" id="status" aria-labelledby="h-status">
-      <SectionHead n={2} text="ステータス" id="h-status" focusable />
+      <SectionHead n={3} text="ステータス" id="h-status" focusable />
       <div className="stat">
         <div className="radar-box">
           <Burst n={16} seed={12} />
@@ -130,9 +130,22 @@ export default function Home() {
         </aside>
       </section>
 
+      <section className="sec" id="profile" aria-labelledby="h-profile">
+        <SectionHead n={1} text="プロフィール" id="h-profile" />
+        <div className="prof">
+          <div className="prof-icon" aria-hidden="true"><img src="/assets/mlab-icon.svg" alt="" width="160" height="160" /></div>
+          <div className="prof-body">
+            <p className="prof-name"><b>{PROFILE.handle}</b><span className="prof-sep">/</span><span>{PROFILE.realName}</span></p>
+            <p className="prof-school">{PROFILE.school}</p>
+            <p className="prof-bio">{PROFILE.bio}</p>
+            <p className="prof-now"><span className="prof-now-k">いま</span>{PROFILE.now}</p>
+          </div>
+        </div>
+      </section>
+
       {EV ? (
         <section className="sec" id="event" aria-labelledby="h-event">
-          <SectionHead n={1} text="主催イベント" id="h-event" />
+          <SectionHead n={2} text="主催イベント" id="h-event" />
           <p className="lead">{PROFILE.intro} そして、つくる人を増やす場も主催しています。</p>
           <EventCard ev={EV} />
         </section>
@@ -141,7 +154,7 @@ export default function Home() {
       <Status />
 
       <section className="sec" aria-labelledby="h-works">
-        <SectionHead n={3} text="ワークス" id="h-works" />
+        <SectionHead n={4} text="ワークス" id="h-works" />
         <p className="lead">最近つくったもの。ゲームからシミュレータ、VR 空間まで。</p>
         <div className="cards">{WORKS.slice(0, 2).map((w, i) => <WorkCard key={w.id} w={w} i={i} />)}</div>
         <div className="sec-foot"><Link className="btn" href="/works/"><span>制作物をすべて見る（{WORKS.length}件）</span></Link></div>
@@ -149,7 +162,7 @@ export default function Home() {
 
       {t ? (
         <section className="sec" aria-labelledby="h-lt">
-          <SectionHead n={4} text="最新の LT" id="h-lt" />
+          <SectionHead n={5} text="最新の LT" id="h-lt" />
           <p className="lead">登壇したスライドは、すべてこのサイトで読めます。</p>
           <Link className="teaser" href={`/lt/${encodeURIComponent(t.slug)}/`}>
             <div className="teaser-img"><img src={t.cover} alt="" loading="lazy" width="1280" height="720" /></div>
@@ -167,7 +180,7 @@ export default function Home() {
       ) : null}
 
       <section className="sec" aria-labelledby="h-mis">
-        <SectionHead n={5} text="ミッション" id="h-mis" />
+        <SectionHead n={6} text="ミッション" id="h-mis" />
         <div className="missions" style={{ marginTop: 28 }}>
           <article className="mis main"><span className="mis-k">目標</span><h3 className="mis-t">{PROFILE.goal}</h3><p className="mis-s">進行中</p></article>
           <article className="mis"><span className="mis-k">夢</span><h3 className="mis-t">{PROFILE.dream}</h3><p className="mis-s">いつか必ず</p></article>
@@ -178,7 +191,7 @@ export default function Home() {
         <div className="contact on-red">
           <Burst n={14} seed={8} />
           <div>
-            <SectionHead n={6} text="コンタクト" id="h-contact" focusable />
+            <SectionHead n={7} text="コンタクト" id="h-contact" focusable />
             <p className="c-lead">制作の相談、ゲームジャムのお誘い、なんでも気軽にどうぞ。</p>
           </div>
           <div className="c-links">
