@@ -30,6 +30,7 @@ export interface WorkItem {
   image: string;
   desc: string;
   tech: string[];
+  url?: string;        // 公開ページ（タイトルがリンクになる）
 }
 
 export interface NewsItem {

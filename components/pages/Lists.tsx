@@ -23,7 +23,7 @@ export function Works() {
   return (
     <div className="page">
       <Burst n={16} seed={22} />
-      <PageHead title="ワークス" sub="これまでに手がけた制作物。設計から実装まで一人で担当しています。" count={<><b>{WORKS.length}</b>件</>} ghost="Works" seed={22} />
+      <PageHead title="ワークス" sub="これまでに手がけた制作物。" count={<><b>{WORKS.length}</b>件</>} ghost="Works" seed={22} />
       <div className="cards">{WORKS.map((w, i) => <WorkCard key={w.id} w={w} i={i} h="h2" />)}</div>
     </div>
   );

@@ -14,7 +14,9 @@ export function WorkCard({ w, i, h: Tag = 'h3' }: { w: WorkItem; i: number; h?: 
       <div className="card-img"><img src={w.image} alt={`${w.title} の画面`} loading="lazy" width="800" height="500" /></div>
       <div className="card-body">
         <p className="card-cat"><span>{w.category}</span><span>{w.year}</span></p>
-        <Tag className="card-title">{w.title}</Tag>
+        <Tag className="card-title">
+          {w.url ? <a href={w.url} target="_blank" rel="noopener">{w.title}</a> : w.title}
+        </Tag>
         <p className="card-desc">{w.desc}</p>
         <Chips list={w.tech} label="使用技術" />
       </div>
