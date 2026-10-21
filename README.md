@@ -52,8 +52,10 @@ npm ci            # 依存関係のインストール
 npm run dev       # 開発サーバー
 npm run build     # 型チェック → vite build → ルートごとの HTML 生成（dist/）
 npm run preview   # dist の確認
-npm run deploy    # build して dist を gh-pages ブランチへ公開
+npm run deploy    # 手動で build して dist を gh-pages ブランチへ公開
 ```
+
+main に push（PR をマージ）すると `.github/workflows/deploy.yml` が自動で build して gh-pages へ公開します。GitHub Pages の公開元は `gh-pages` ブランチの root です。
 
 ## クレジット
 
