@@ -79,7 +79,7 @@ export const WORKS: WorkItem[] = [
     category: 'VR / Metaverse',
     year: '2025',
     image: '/assets/satsueki-world.webp',
-    desc: '札幌駅南口駅前広場をモデルにした VRChat ワールド。通年 ver と、「雪ミク in JRタワー」のバーチャル会場になる雪ミク ver を担当。',
+    desc: '札幌駅南口駅前広場をモデルにした VRChat ワールド。通年 ver と「雪ミク in JRタワー」の雪ミク ver で、VRChat ワールドへの実装（Unity）を担当。',
     tech: ['Unity', 'Udon#', 'VRChat SDK'],
     url: 'https://yukimiku-jrtwr.com/events/world',
   },
