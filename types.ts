@@ -1,20 +1,73 @@
+// サイト全体のデータ型。constants.ts の中身はこの型に従う。
+// lib/routes.ts と scripts/prerender.ts（ビルド時に Node で実行）からも import されるので、
+// ここと constants.ts には DOM / React に依存するものを書かないこと。
+
+export interface Profile {
+  handle: string;      // 表示名（本名は載せない）
+  brand: string;
+  role: string;
+  location: string;
+  tagline: string;
+  intro: string;
+  goal: string;
+  dream: string;
+  photo: string;       // ヒーロー写真（顔にモザイク済みのもの）
+  photoCaption: string;
+  github: string;
+  email: string;
+}
+
+export interface SkillGroup {
+  group: string;
+  items: string[];
+}
+
 export interface WorkItem {
   id: string;
   title: string;
   category: string;
   year: string;
   image: string;
-  description: string;
-  techStack: string[];
-  url?: string;
+  desc: string;
+  tech: string[];
 }
 
 export interface NewsItem {
-  id: string;
-  date: string;
+  id: string;          // URL になる: /news/<id>/
+  date: string;        // YYYY.MM.DD
   title: string;
-  tag?: string;      // 'Award' | 'Info' | 'Release' など自由
-  url?: string;      // 外部リンク（任意）
-  thumbnail?: string;
-  content?: string;  // 詳細本文（HTML可）
+  tag?: string;        // 'Award' | 'Info' | 自由
+  url?: string;        // 関連する外部ページ（任意）
+  content?: string;    // 詳細本文（HTML 可・信頼できる自前の文章のみ）
+}
+
+export interface Talk {
+  slug: string;        // URL になる: /lt/<slug>/ 。スライドは public/lt/<slug>/ に置く
+  title: string;
+  subtitle: string;
+  date: string;
+  event?: string;
+  minutes: number;
+  tags: string[];
+  cover: string;       // 一覧・OGP に使う画像
+  slides: string[];
+  summary: string;
+  placeholder?: boolean; // true のものは「準備中」カードとして一覧に出るだけ（ページは作らない）
+}
+
+export interface EventItem {
+  title: string;
+  subtitle: string;
+  role: string;
+  org: string;
+  date: string;        // YYYY.MM.DD（JST）
+  time: string;        // '9:00〜21:00' の形式。カウントダウンに使う
+  place: string;
+  capacity: number;
+  fee: string;
+  sponsors: string[];
+  summary: string;
+  hashtag: string;
+  image: string;
+  url: string;
 }

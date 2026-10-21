@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kociden | Yuta Machihara — M Lab</title>
-  <meta name="description" content="町原悠太 (kociden) のポートフォリオ。Unity / XR / ゲーム開発、Web、業務自動化。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="color-scheme" content="dark">
+    <!-- Dark Reader などの自動ダーク化拡張に配色を書き換えさせない -->
+    <meta name="darkreader-lock">
+    <link rel="icon" type="image/png" href="/assets/mlab-icon.png">
+    <link rel="apple-touch-icon" href="/assets/mlab-icon.png">
+    <!-- title / description / OGP は scripts/prerender.ts がルートごとに差し込む -->
+    <!--app-meta-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Reggae+One&family=Teko:wght@500;600&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Zen+Old+Mincho:wght@900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
