@@ -7,6 +7,7 @@ export interface Profile {
   realName: string;    // 本名（ホームの自己紹介にだけ出す）
   school: string;
   bio: string;         // 自己紹介文
+  others: string;      // 他己紹介（三人称の紹介文）
   now: string;         // いま取り組んでいること
   brand: string;
   role: string;
