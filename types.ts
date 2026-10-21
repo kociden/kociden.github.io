@@ -3,7 +3,11 @@
 // ここと constants.ts には DOM / React に依存するものを書かないこと。
 
 export interface Profile {
-  handle: string;      // 表示名（本名は載せない）
+  handle: string;      // 表示名
+  realName: string;    // 本名（ホームの自己紹介にだけ出す）
+  school: string;
+  bio: string;         // 自己紹介文
+  now: string;         // いま取り組んでいること
   brand: string;
   role: string;
   location: string;
