@@ -64,6 +64,16 @@ export const WORKS: WorkItem[] = [
     url: 'https://unityroom.com/games/renewbage',
   },
   {
+    id: 'besties-site',
+    title: '株式会社bestIEs コーポレートサイト',
+    category: 'Web',
+    year: '2026',
+    image: '/assets/besties-site.webp',
+    desc: '農業DX・ITコンサルと台湾茶を手がける株式会社bestIEs のホームページ。日本語・英語・中国語の3言語対応。実装をすべて担当。',
+    tech: ['Next.js', 'Tailwind CSS'],
+    url: 'https://best-ies.com/ja/',
+  },
+  {
     id: 'bhsim',
     title: 'Heavy Machinery Simulator',
     category: 'Simulator',
