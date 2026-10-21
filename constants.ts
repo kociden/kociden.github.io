@@ -54,6 +54,16 @@ export const EVENTS: EventItem[] = [
 
 export const WORKS: WorkItem[] = [
   {
+    id: 'renewbage',
+    title: 'ReNewBage',
+    category: 'Game',
+    year: '2026',
+    image: '/assets/renewbage.webp',
+    desc: 'SapporoGameCamp2026 のチーム制作。ゴミを拾って、まぜて、売りまくるリサイクル工場アクション。フルスタック開発を担当。',
+    tech: ['Unity', 'C#'],
+    url: 'https://unityroom.com/games/renewbage',
+  },
+  {
     id: 'bhsim',
     title: 'Heavy Machinery Simulator',
     category: 'Simulator',

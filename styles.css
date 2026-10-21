@@ -419,6 +419,8 @@ kbd { font-family: var(--hud); font-size: 16px; line-height: 1.2; border: 1.5px 
 .card-body { padding: 6px 22px 24px; }
 .card-cat { display: flex; justify-content: space-between; gap: 12px; font-weight: 900; font-size: 13px; color: var(--red); }
 .card-title { font-family: var(--disp); font-weight: 400; font-size: 21px; line-height: 1.35; margin: 4px 0 8px; }
+.card-title a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-color: var(--red); }
+.card-title a:hover { color: var(--red); }
 .card-desc { color: var(--gry); font-size: 15px; margin-bottom: 14px; }
 
 /* LT teaser */
