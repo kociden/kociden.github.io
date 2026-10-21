@@ -1,100 +1,106 @@
-import { WorkItem, NewsItem } from './types';
+import type { EventItem, NewsItem, Profile, SkillGroup, Talk, WorkItem } from './types';
 
 // ==========================================
-// プロフィールデータ (Profile Data)
+// サイトのコンテンツ
+// ・画像などのパスは public/ からの絶対パス（/assets/...）で書く
+// ・本名はどこにも載せない（表示名は handle / brand のみ）
+// ・このファイルはビルド時の OGP 生成（scripts/prerender.ts）からも読まれる
 // ==========================================
-export const PROFILE = {
-  name: "町原 悠太",
-  englishName: "Yuta Machihara",
-  handle: "kociden",
-  brand: "M Lab",
-  role: "Game / XR Developer",
-  university: "北海道大学 工学部 情報エレクトロニクス学科",
-  affiliation: "学生団体Nラボ 所属",
-  location: "Sapporo, Hokkaido, Japan",
-  tagline: "ワクワクを、実装する。",
-  bio: "Unity(C#)、Python、TypeScriptを駆使し、XRゲームや重機シミュレータ、Vket企業ブース、業務効率化Discord Botなどを開発。「設計から実装まで」をワンストップで担当します。24時間戦える体力と「ワクワク」を原動力に、まだ見ぬ新しい体験を創造します。",
-  heroImage: "https://assets.st-note.com/img/1768467914-4XvN6kDJLc8UFCWO0KeBREfn.png?width=1200",
-  // ここにSNSや連絡先のURLを入力してください
-  social: {
-    github: "https://github.com/kociden/", // あなたのGitHubプロフィールURL
-    email: "kociden28@gmail.com" // お問い合わせ用メールアドレス
-  }
+
+export const PROFILE: Profile = {
+  handle: 'kociden',
+  brand: 'M Lab',
+  role: 'Game / XR Developer',
+  location: 'Sapporo, Hokkaido',
+  tagline: 'ワクワクを、実装する。',
+  intro: 'Unity・XR を軸に、ゲーム、シミュレータ、VR 空間、開発自動化ツールまでを設計から実装まで一気通貫で作ります。',
+  goal: '有名なゲーム会社を作る',
+  dream: 'サッカーチームを経営する',
+  photo: '/assets/activity.webp', // 顔にモザイク済み（connpass 掲載版）
+  photoCaption: '活動の様子',
+  github: 'https://github.com/kociden/',
+  email: 'kociden28@gmail.com',
 };
 
-// スキル一覧（About セクションで使用）
-export const SKILLS: { group: string; items: string[] }[] = [
-  { group: 'Engine', items: ['Unity', 'C#', 'XR Interaction Toolkit', 'PhysX', 'VRChat SDK / Udon#'] },
-  { group: 'Language', items: ['C#', 'Python', 'TypeScript', 'JavaScript'] },
+export const SKILLS: SkillGroup[] = [
+  { group: 'Engine', items: ['Unity', 'Godot', 'C#', 'XR Interaction Toolkit', 'PhysX', 'VRChat SDK / Udon#'] },
+  { group: 'Language', items: ['C#', 'C++', 'Python', 'TypeScript', 'JavaScript'] },
   { group: 'Web / Infra', items: ['React', 'Vite', 'Tailwind CSS', 'Docker', 'Discord.js'] },
-  { group: 'Tools', items: ['Blender', 'Git', 'Figma', 'Generative AI'] },
+  { group: 'AI / Tools', items: ['Claude Code', 'Codex (ChatGPT)', 'Qwen-Image', 'ComfyUI', 'LoRA', 'Blender', 'Figma'] },
 ];
 
-// ==========================================
-// 実績データ (Works Data)
-// ==========================================
-export const WORKS_DATA: WorkItem[] = [
+// ステータス欄で強調するスキル
+export const HOT_SKILLS = ['Claude Code', 'Codex (ChatGPT)'];
+
+// 主催・運営するイベント（先頭が「次のミッション」としてホームに出る）
+export const EVENTS: EventItem[] = [
   {
-    id: 'xr-1',
-    title: 'Immersive XR Game Project',
-    category: 'XR Game',
-    year: '2025',
-    image: 'https://picsum.photos/id/15/800/600', // Placeholder for XR Game
-    description: 'Unity(C#)を用いた没入型XRアクションゲーム。プレイヤーの動作と連動したリアルタイム物理演算と、視覚効果にこだわったパーティクルシステムを実装。企画からモデリング、実装までを一貫して担当。',
-    techStack: ['Unity', 'C#', 'XR Interaction Toolkit', 'Blender'],
+    title: 'AI Gamejam Sapporo@北大',
+    subtitle: '1日でゲームを作ろう。初心者歓迎・参加無料、懇親会（寿司）つき',
+    role: '主催',
+    org: '北海道大学ゲーム制作サークル Gamma',
+    date: '2026.11.29',
+    time: '9:00〜21:00',
+    place: '北海道大学 オープンイノベーションハブ エンレイソウ 2F',
+    capacity: 20,
+    fee: '無料',
+    sponsors: ['株式会社インフィニットループ', '株式会社EQUES', '東大発起業weekend'],
+    summary: 'コードが書けなくても、AIを使えばゲームは作れる。大作は目指さず、「これ、面白いかも」という核が遊べるところまで1日で持っていき、最後はみんなで遊びあって発表します。',
+    hashtag: '#AIGamejamSapporo',
+    image: '/assets/aigamejam-2026.webp',
+    url: 'https://gamma.connpass.com/event/409586/',
   },
+];
+
+export const WORKS: WorkItem[] = [
   {
-    id: 'sim-1',
+    id: 'bhsim',
     title: 'Heavy Machinery Simulator',
     category: 'Simulator',
     year: '2025',
-    image: 'images/bhsim.png',
-    description: '産業用の重機操作トレーニングシミュレータ。実機の操作パネルと連動し、物理エンジンを活用して土砂の挙動や機体の振動をリアルに再現。安全教育コストの削減に貢献。',
-    techStack: ['Unity', 'C#', 'PhysX', 'Hardware Integration'],
+    image: '/assets/bhsim.webp',
+    desc: '実機の操作パネルと連動する重機トレーニングシミュレータ。土砂の挙動や機体の振動を物理エンジンで再現。',
+    tech: ['Unity', 'C#', 'PhysX'],
   },
   {
-    id: 'vket-1',
+    id: 'vket',
     title: 'Vket Corporate Booth',
     category: 'VR / Metaverse',
     year: '2025',
-    image: 'images/vketsummer.png',
-    description: 'バーチャルマーケット（VketSummer2025）における企業出展ブースの制作。ブランドの世界観をVR空間に落とし込み、来場者が楽しめるインタラクティブなギミックを多数配置。',
-    techStack: ['Unity', 'Udon#', 'VRChat SDK', '3D Design'],
-    url: 'https://vket.com'
+    image: '/assets/vketsummer.webp',
+    desc: 'VketSummer2025 の企業出展ブース。ブランドの世界観を VR 空間に落とし込み、ギミックを多数配置。',
+    tech: ['Unity', 'Udon#', 'VRChat SDK'],
   },
   {
-    id: 'bot-1',
+    id: 'xr-game',
+    title: 'Immersive XR Game',
+    category: 'XR Game',
+    year: '2025',
+    image: 'https://picsum.photos/id/15/800/600',
+    desc: 'プレイヤーの動作と連動する物理演算とパーティクルにこだわった没入型 XR アクション。',
+    tech: ['Unity', 'XR Toolkit', 'Blender'],
+  },
+  {
+    id: 'discord-bot',
     title: 'Enterprise Discord Bot',
     category: 'Automation',
     year: '2024',
-    image: 'https://picsum.photos/id/60/800/600', // Placeholder for Bot
-    description: '大規模コミュニティ向けの管理・業務自動化Bot。ロール管理、問い合わせ自動応答、外部API連携機能を実装。24時間365日の安定稼働を実現。',
-    techStack: ['Python', 'JavaScript', 'Discord.js', 'Docker'],
+    image: 'https://picsum.photos/id/60/800/600',
+    desc: 'ロール管理・問い合わせ自動応答・外部 API 連携を備えた大規模コミュニティ向け Bot。',
+    tech: ['Python', 'Discord.js', 'Docker'],
   },
-  {
-    id: 'web-1',
-    title: 'M Lab Portfolio',
-    category: 'Web',
-    year: '2026',
-    image: 'https://picsum.photos/id/1/800/600',
-    description: '現在閲覧いただいているポートフォリオサイト。React (Vite) とTypeScriptで構築。パフォーマンスとアクセシビリティを考慮した設計。',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS'],
-  }
 ];
 
 // ==========================================
-// ニュースデータ (News Data)
-// contentには詳細本文を記載します（HTMLタグ使用可能）
-// 新しいものを上に追加してください
+// ニュース（/news/<id>/ に詳細ページができる）
+// content は詳細本文（HTML 可）。新しいものを上に追加。
 // ==========================================
-export const NEWS_DATA: NewsItem[] = [
+export const NEWS: NewsItem[] = [
   {
     id: 'n2',
     date: '2026.08.29',
     title: '札幌すごいAIハッカソン2026でゲームのアセット生成自動化アプリを制作、企業賞（HP賞）を獲得しました',
     tag: 'Award',
-    // 受賞写真をこのパスに配置してください: public/images/news/sugoiai-2026-hp.jpg
-    thumbnail: 'images/news/sugoiai-2026-hp.jpg',
     url: 'https://hack-2026-summer.sugoiai.org/',
     content: `
       <p>2026年8月29日に Deep Tech CORE SAPPORO で開催された「<a href="https://hack-2026-summer.sugoiai.org/" target="_blank" rel="noopener noreferrer">札幌すごいAIハッカソン 2026夏</a>」に参加し、
@@ -110,14 +116,13 @@ export const NEWS_DATA: NewsItem[] = [
 
       <p>ご一緒した参加者の皆さま、運営の札幌すごいAI会の皆さま、スポンサー各社に感謝いたします。<br>
       今回の知見を活かし、引き続きゲーム開発の効率化と新しい体験づくりに取り組んでいきます。</p>
-    `
+    `,
   },
   {
     id: 'n1',
     date: '2026.01.17',
     title: 'Mラボを開業しました',
     tag: 'Info',
-    thumbnail: 'https://picsum.photos/id/101/400/300',
     content: `
       <p>この度、個人事業主として「Mラボ」を開業いたしました。<br>
       北海道大学 工学部 情報エレクトロニクス学科での学びを活かしつつ、Web開発、XRコンテンツ制作、業務システム開発など、幅広い分野での課題解決に取り組んでまいります。</p>
@@ -132,6 +137,31 @@ export const NEWS_DATA: NewsItem[] = [
 
       <p>「ワクワクを実装する」を理念に、クライアント様の想いを形にするお手伝いをさせていただきます。<br>
       今後ともMラボをよろしくお願いいたします。</p>
-    `
+    `,
   },
+];
+
+// ==========================================
+// LT（/lt/<slug>/ に個別ページができる）
+// スライドは 1280x720 の webp を public/lt/<slug>/slide-01.webp, slide-02.webp ... に置く
+// 新しいものを上に追加（一覧の #番号は自動で振られる）
+// ==========================================
+const slideList = (slug: string, count: number): string[] =>
+  Array.from({ length: count }, (_, i) => `/lt/${slug}/slide-${String(i + 1).padStart(2, '0')}.webp`);
+
+export const TALKS: Talk[] = [
+  {
+    slug: 'ore-no-lora',
+    title: '俺のLoRAを作ってみた',
+    subtitle: '1本の動画から、本人を再現する差分を学習',
+    date: '2026.09',
+    event: '',
+    minutes: 5,
+    tags: ['Qwen-Image-2.1', 'LoRA', 'ComfyUI'],
+    cover: '/lt/ore-no-lora/slide-02.webp',
+    slides: slideList('ore-no-lora', 9),
+    summary: 'スマホ動画1本から240フレームを切り出し、30枚に絞って Qwen-Image-2.1 の人物LoRA（rank 32 / 600 steps / RTX 4090で約29分）を学習。生成の30 stepsで像が固まる様子と、条件で「本人度」が変わる話。',
+  },
+  // 次の LT の枠（一覧に「準備中」カードとして出る。公開するときは本物のエントリに置き換える）
+  { slug: 'coming-soon', title: '次のLT', subtitle: '準備中', date: '—', minutes: 5, tags: [], cover: '', slides: [], summary: '', placeholder: true },
 ];
