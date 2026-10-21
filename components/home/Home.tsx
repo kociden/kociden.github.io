@@ -131,7 +131,7 @@ export default function Home() {
       </section>
 
       <section className="sec" id="profile" aria-labelledby="h-profile">
-        <SectionHead n={1} text="プロフィール" id="h-profile" />
+        <SectionHead n={1} text="プロフィール" id="h-profile" focusable />
         <div className="prof">
           <div className="prof-icon" aria-hidden="true"><img src="/assets/mlab-icon.svg" alt="" width="160" height="160" /></div>
           <div className="prof-body">
@@ -140,6 +140,10 @@ export default function Home() {
             <p className="prof-bio">{PROFILE.bio}</p>
             <p className="prof-now"><span className="prof-now-k">いま</span>{PROFILE.now}</p>
           </div>
+          <figure className="prof-others">
+            <figcaption className="prof-others-k">他己紹介</figcaption>
+            <p>{PROFILE.others}</p>
+          </figure>
         </div>
       </section>
 
