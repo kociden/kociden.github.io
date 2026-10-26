@@ -685,3 +685,15 @@ a.log-card:hover .log-title { color: var(--wht); text-decoration: underline; tex
     scroll-behavior: auto !important;
   }
 }
+
+/* ============ command menu: HTML-in-Canvas shader (lib/glitch.ts, 対応ブラウザのみ) ============ */
+/* canvas は四方に --fxb 広げて負マージンで相殺。中身（.fx-wrap）の位置は通常版と同じ */
+.fx-canvas {
+  --fxb: 48px;
+  position: relative; z-index: 1; display: block;
+  width: calc(100% + var(--fxb) * 2); height: auto;
+  margin: calc(var(--fxb) * -1);
+  pointer-events: none;
+}
+.fx-wrap { width: 100%; padding: var(--fxb); pointer-events: none; } /* canvas の子は既定で shrink-to-fit になるので幅を明示 */
+.fx-wrap > * { pointer-events: auto; }
