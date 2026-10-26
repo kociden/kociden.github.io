@@ -88,6 +88,18 @@ function snapshot(w: number, h: number): { snap: HTMLDivElement; scrolls: [HTMLE
   copy.querySelectorAll('.cutin, .skip, #announce').forEach((n) => n.remove());
   copy.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
   copy.querySelectorAll('img[loading]').forEach((n) => n.setAttribute('loading', 'eager'));
+  // 他の演出（glitch メニュー・ink reveal）の canvas は複製すると中身が描かれないので、同じ class / style の div に開いて中身をそのまま見せる
+  copy.querySelectorAll('canvas').forEach((c) => {
+    if (!c.hasAttribute('layoutsubtree') && c.getAttribute('content') !== 'drawable') return;
+    const box = document.createElement('div');
+    box.className = c.className;
+    box.style.cssText = c.style.cssText;
+    if (!box.style.display) box.style.display = 'block';
+    while (c.firstChild) box.appendChild(c.firstChild);
+    c.replaceWith(box);
+  });
+  // 入れ子の drawable は親のスナップショットから抜けてしまうので外す
+  copy.querySelectorAll('[drawable]').forEach((n) => n.removeAttribute('drawable'));
 
   const snap = document.createElement('div');
   snap.className = 'fx-snap';
