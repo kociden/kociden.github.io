@@ -59,7 +59,7 @@ export function Chips({ list, label, hot = [] }: { list?: string[]; label: strin
 /** セクション見出し（番号 + 切り貼り文字） */
 export function SectionHead({ n, text, id, focusable }: { n: number; text: string; id: string; focusable?: boolean }) {
   return (
-    <h2 className="sh" id={id} tabIndex={focusable ? -1 : undefined}>
+    <h2 className="sh" id={id} tabIndex={focusable ? -1 : undefined} data-ink="">
       <span className="sh-n" aria-hidden="true">{n}</span>
       <span><Ransom text={text} seed={n * 3} /></span>
     </h2>

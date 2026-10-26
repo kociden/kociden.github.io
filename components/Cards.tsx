@@ -9,7 +9,7 @@ type H = 'h2' | 'h3';
 
 export function WorkCard({ w, i, h: Tag = 'h3' }: { w: WorkItem; i: number; h?: H }) {
   return (
-    <article className="card">
+    <article className="card" data-ink="">
       <span className="card-no" aria-hidden="true">{pad(i + 1)}</span>
       <div className="card-img"><img src={w.image} alt={`${w.title} の画面`} loading="lazy" width="800" height="500" /></div>
       <div className="card-body">
@@ -30,7 +30,7 @@ export const epNo = (t: Talk) => realTalks.length - realTalks.indexOf(t);
 export function EpCard({ t }: { t: Talk }) {
   if (t.placeholder) {
     return (
-      <div className="ep is-lock">
+      <div className="ep is-lock" data-ink="">
         <div className="ep-cover"><span className="lock">{t.subtitle || '準備中'}</span></div>
         <div className="ep-body">
           <h2 className="ep-title">{t.title}</h2>
@@ -41,7 +41,7 @@ export function EpCard({ t }: { t: Talk }) {
     );
   }
   return (
-    <Link className="ep" href={`/lt/${encodeURIComponent(t.slug)}/`}>
+    <Link className="ep" data-ink="" href={`/lt/${encodeURIComponent(t.slug)}/`}>
       <div className="ep-cover">
         <img src={t.cover} alt="" loading="lazy" width="1280" height="720" />
         <span className="ep-no">#{pad(epNo(t))}</span>
@@ -83,7 +83,7 @@ export function EventCard({ ev, h: Tag = 'h3' }: { ev: EventItem; h?: H }) {
   const { cutin } = useSite();
   const c = countdown(ev, now);
   return (
-    <div className="ev-wrap">
+    <div className="ev-wrap" data-ink="">
       <Burst n={12} seed={5} />
       <span className="burst-lbl" aria-hidden="true">参加<br />無料</span>
       <article className="ev on-red">
