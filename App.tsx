@@ -3,6 +3,7 @@ import { flushSync } from 'react-dom';
 import { EVENTS, PROFILE } from './constants';
 import { findTalk, parsePath, pathOf, routeMeta, tabOf, type Route } from './lib/routes';
 import { pad, reduced } from './lib/util';
+import { canShatter, shatter } from './lib/shatter';
 import { epNo } from './components/Cards';
 import { Footer, Header, TABS } from './components/Chrome';
 import CutIn, { type CutInHandle } from './components/CutIn';
@@ -63,6 +64,12 @@ export default function App() {
     return cut.current.play(label, mid);
   }, []);
 
+  /** ページ / セクションの切り替え演出。HTML-in-Canvas が使えれば画面を割る、無ければ従来のカットイン */
+  const transit = useCallback((label: CutInLabel, mid?: (() => void) | null) => {
+    if (!canShatter()) return cutin(label, mid);
+    return shatter(mid ?? null).then((r) => (r === 'failed' ? cutin(label, mid) : undefined));
+  }, [cutin]);
+
   const focusView = useCallback(() => {
     const f = document.querySelector<HTMLElement>('#view [data-focus]');
     if (f) f.focus({ preventScroll: true });
@@ -88,10 +95,10 @@ export default function App() {
       viewRef.current?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 160, easing: 'linear' });
       return;
     }
-    await cutin(cutLabel(r), () => { swap(); if (r.name === 'home') cascade(); });
+    await transit(cutLabel(r), () => { swap(); if (r.name === 'home') cascade(); });
     if (id !== navId.current) return;
     focusView();
-  }, [cutin, focusView, keys]);
+  }, [transit, focusView, keys]);
 
   const navigate = useCallback((href: string) => {
     const url = new URL(href, window.location.href);
@@ -101,7 +108,7 @@ export default function App() {
     void show();
   }, [show]);
 
-  const api = useMemo<SiteApi>(() => ({ navigate, cutin, keys }), [navigate, cutin, keys]);
+  const api = useMemo<SiteApi>(() => ({ navigate, cutin, transit, keys }), [navigate, cutin, transit, keys]);
 
   // 正規の URL（末尾スラッシュ付き）にそろえる
   useEffect(() => {

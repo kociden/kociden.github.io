@@ -141,6 +141,11 @@ kbd { font-family: var(--hud); font-size: 16px; line-height: 1.2; border: 1.5px 
 }
 .ci-big.lat { font-family: var(--lat); letter-spacing: .01em; }
 
+/* ============ shatter（HTML-in-Canvas 対応環境のみ、lib/shatter.ts が出し入れする） ============ */
+.fx-shatter { position: fixed; left: 0; top: 0; z-index: 150; pointer-events: none; }
+.fx-snap { overflow: hidden; background: var(--blk); }
+.fx-snap *, .fx-snap *::before, .fx-snap *::after { animation: none !important; transition: none !important; }
+
 /* ============ view ============ */
 .view { display: block; min-height: 70vh; }
 .view:focus { outline: none; }

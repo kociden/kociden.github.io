@@ -40,7 +40,7 @@ type Vars = CSSProperties & Record<`--${string}`, string | number>;
  * ・カーソル・装飾はすべて pointer-events:none。選択時に寸法が変わる CSS は使わない。
  */
 export default function CommandMenu() {
-  const { cutin, keys } = useSite();
+  const { transit, keys } = useSite();
   const listRef = useRef<HTMLUListElement>(null);
   const cursorRef = useRef<HTMLLIElement>(null);
   const rowRefs = useRef<(HTMLElement | null)[]>([]);
@@ -136,7 +136,7 @@ export default function CommandMenu() {
       target.querySelector<HTMLElement>('.sh')?.focus({ preventScroll: true });
     };
     if (reduced()) { go(); return; }
-    void cutin({ big: m.big || m.label, kick: m.label }, go);
+    void transit({ big: m.big || m.label, kick: m.label }, go);
   };
 
   const ticks = useMemo(() => Array.from({ length: 36 }, (_, i) => {
