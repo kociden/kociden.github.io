@@ -1,9 +1,11 @@
 import { useCallback, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
 import { EVENTS, PROFILE, WORKS } from '../../constants';
 import { realTalks } from '../../lib/routes';
+import { fxSupported } from '../../lib/glitch';
 import { reduced } from '../../lib/util';
 import { Burst } from '../Deco';
 import { Link, useSite } from '../SiteContext';
+import ShaderMenu from './ShaderMenu';
 
 interface MenuItem {
   label: string;
@@ -40,7 +42,7 @@ type Vars = CSSProperties & Record<`--${string}`, string | number>;
  * ・カーソル・装飾はすべて pointer-events:none。選択時に寸法が変わる CSS は使わない。
  */
 export default function CommandMenu() {
-  const { cutin, keys } = useSite();
+  const { transit, keys } = useSite();
   const listRef = useRef<HTMLUListElement>(null);
   const cursorRef = useRef<HTMLLIElement>(null);
   const rowRefs = useRef<(HTMLElement | null)[]>([]);
@@ -48,6 +50,9 @@ export default function CommandMenu() {
   const selRef = useRef(0);       // 最新の選択（同期的に更新）
   const placedRef = useRef(-1);   // カーソルを最後に置いた行
   const [sel, setSel] = useState(0);
+  // HTML-in-Canvas のシェーダ版（対応ブラウザかつ視差効果を減らす設定でないときだけ）。失敗したら通常版に戻す
+  const [fx, setFx] = useState(() => fxSupported() && !reduced());
+  const fxOff = useCallback(() => setFx(false), []);
 
   const measure = useCallback(() => {
     bands.current = rowRefs.current.map((r) => (r ? [r.offsetTop, r.offsetTop + r.offsetHeight] : [0, 0]));
@@ -96,6 +101,7 @@ export default function CommandMenu() {
     window.addEventListener('resize', relayout);
     let alive = true;
     document.fonts?.ready.then(() => { if (alive) relayout(); });
+    if (placedRef.current >= 0) place(selRef.current, true); // fx の切り替えで作り直したカーソル
     const list = listRef.current!;
     keys.menu = {
       list,
@@ -107,7 +113,7 @@ export default function CommandMenu() {
       window.removeEventListener('resize', relayout);
       if (keys.menu?.list === list) keys.menu = null;
     };
-  }, [keys, measure, place, select]);
+  }, [keys, measure, place, select, fx]);
 
   const onPointerMove = (e: PointerEvent<HTMLUListElement>) => {
     if (e.pointerType === 'touch') return;
@@ -136,7 +142,7 @@ export default function CommandMenu() {
       target.querySelector<HTMLElement>('.sh')?.focus({ preventScroll: true });
     };
     if (reduced()) { go(); return; }
-    void cutin({ big: m.big || m.label, kick: m.label }, go);
+    void transit({ big: m.big || m.label, kick: m.label }, go);
   };
 
   const ticks = useMemo(() => Array.from({ length: 36 }, (_, i) => {
@@ -152,12 +158,9 @@ export default function CommandMenu() {
     );
   }), []);
 
-  return (
-    <nav className="cmd" aria-label="コマンド">
-      <svg className="cmd-wheel" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false" style={{ rotate: `${sel * -12}deg` }}>
-        <circle r="47" strokeWidth="3" /><circle r="44" strokeWidth=".6" /><circle r="30" strokeWidth="10" opacity=".5" />
-        {ticks}
-      </svg>
+  // リストとヘルプ。fx のときは canvas の中に入る（DOM としては同じもの）
+  const body = (
+    <>
       <ul className="cmd-list" id="menu" ref={listRef} onPointerMove={onPointerMove}>
         <li className="cmd-cursor" aria-hidden="true" ref={cursorRef}>
           <span className="cc-r" /><span className="cc-w" /><Burst n={8} seed={7} className="cc-star" />
@@ -190,6 +193,16 @@ export default function CommandMenu() {
         <span className="txt" id="menu-help">{MENU[sel].help}</span>
         <span className="keys" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd>選択 <kbd>Enter</kbd>決定 <kbd>Q</kbd><kbd>E</kbd>タブ</span>
       </p>
+    </>
+  );
+
+  return (
+    <nav className="cmd" aria-label="コマンド">
+      <svg className="cmd-wheel" viewBox="-50 -50 100 100" aria-hidden="true" focusable="false" style={{ rotate: `${sel * -12}deg` }}>
+        <circle r="47" strokeWidth="3" /><circle r="44" strokeWidth=".6" /><circle r="30" strokeWidth="10" opacity=".5" />
+        {ticks}
+      </svg>
+      {fx ? <ShaderMenu sel={sel} onFail={fxOff}>{body}</ShaderMenu> : body}
     </nav>
   );
 }

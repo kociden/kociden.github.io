@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useInkReveal } from '../../lib/inkReveal';
 import { EVENTS, HOT_SKILLS, PROFILE, SKILLS, WORKS } from '../../constants';
 import { realTalks } from '../../lib/routes';
 import { countdown, jstParts, useNow } from '../../lib/time';
@@ -83,12 +84,12 @@ function Status() {
     <section className="sec" id="status" aria-labelledby="h-status">
       <SectionHead n={3} text="ステータス" id="h-status" focusable />
       <div className="stat">
-        <div className="radar-box">
+        <div className="radar-box" data-ink="">
           <Burst n={16} seed={12} />
           <Radar on={on} setOn={setOn} />
           <p className="radar-total"><span>スキル総数</span><b>{allSkills.size}</b></p>
         </div>
-        <div className="srows">
+        <div className="srows" data-ink="">
           {SKILLS.map((g, i) => (
             <div key={g.group} className={`srow${i === on ? ' on' : ''}`} onPointerEnter={() => setOn(i)}>
               <div className="srow-h"><h3>{g.group}</h3><span className="n">{g.items.length}<small>個</small></span></div>
@@ -106,6 +107,8 @@ function Status() {
 
 export default function Home() {
   const t = realTalks[0];
+  // 各ブロックを初めて画面に入った時にインクで出す（対応ブラウザのみ）
+  useInkReveal(() => document.getElementById('view'));
   return (
     <>
       <h1 className="vh">{PROFILE.handle}（{PROFILE.brand}）のポートフォリオ</h1>
@@ -132,7 +135,7 @@ export default function Home() {
 
       <section className="sec" id="profile" aria-labelledby="h-profile">
         <SectionHead n={1} text="プロフィール" id="h-profile" focusable />
-        <div className="prof">
+        <div className="prof" data-ink="">
           <div className="prof-icon" aria-hidden="true"><img src="/assets/mlab-icon.svg" alt="" width="160" height="160" /></div>
           <div className="prof-body">
             <p className="prof-name"><b>{PROFILE.handle}</b><span className="prof-sep">/</span><span>{PROFILE.realName}</span></p>
@@ -150,7 +153,7 @@ export default function Home() {
       {EV ? (
         <section className="sec" id="event" aria-labelledby="h-event">
           <SectionHead n={2} text="主催イベント" id="h-event" />
-          <p className="lead">{PROFILE.intro} そして、つくる人を増やす場も主催しています。</p>
+          <p className="lead" data-ink="">{PROFILE.intro} そして、つくる人を増やす場も主催しています。</p>
           <EventCard ev={EV} />
         </section>
       ) : null}
@@ -159,16 +162,16 @@ export default function Home() {
 
       <section className="sec" aria-labelledby="h-works">
         <SectionHead n={4} text="ワークス" id="h-works" />
-        <p className="lead">最近つくったもの。ゲームからシミュレータ、VR 空間まで。</p>
+        <p className="lead" data-ink="">最近つくったもの。ゲームからシミュレータ、VR 空間まで。</p>
         <div className="cards">{WORKS.slice(0, 2).map((w, i) => <WorkCard key={w.id} w={w} i={i} />)}</div>
-        <div className="sec-foot"><Link className="btn" href="/works/"><span>制作物をすべて見る（{WORKS.length}件）</span></Link></div>
+        <div className="sec-foot" data-ink=""><Link className="btn" href="/works/"><span>制作物をすべて見る（{WORKS.length}件）</span></Link></div>
       </section>
 
       {t ? (
         <section className="sec" aria-labelledby="h-lt">
           <SectionHead n={5} text="最新の LT" id="h-lt" />
-          <p className="lead">登壇したスライドは、すべてこのサイトで読めます。</p>
-          <Link className="teaser" href={`/lt/${encodeURIComponent(t.slug)}/`}>
+          <p className="lead" data-ink="">登壇したスライドは、すべてこのサイトで読めます。</p>
+          <Link className="teaser" data-ink="" href={`/lt/${encodeURIComponent(t.slug)}/`}>
             <div className="teaser-img"><img src={t.cover} alt="" loading="lazy" width="1280" height="720" /></div>
             <div className="teaser-body">
               <span className="teaser-new">新着</span>
@@ -179,20 +182,20 @@ export default function Home() {
               <span className="teaser-go">スライドを読む</span>
             </div>
           </Link>
-          <div className="sec-foot"><Link className="btn" href="/lt/"><span>LT 一覧へ</span></Link></div>
+          <div className="sec-foot" data-ink=""><Link className="btn" href="/lt/"><span>LT 一覧へ</span></Link></div>
         </section>
       ) : null}
 
       <section className="sec" aria-labelledby="h-mis">
         <SectionHead n={6} text="ミッション" id="h-mis" />
         <div className="missions" style={{ marginTop: 28 }}>
-          <article className="mis main"><span className="mis-k">目標</span><h3 className="mis-t">{PROFILE.goal}</h3><p className="mis-s">進行中</p></article>
-          <article className="mis"><span className="mis-k">夢</span><h3 className="mis-t">{PROFILE.dream}</h3><p className="mis-s">いつか必ず</p></article>
+          <article className="mis main" data-ink=""><span className="mis-k">目標</span><h3 className="mis-t">{PROFILE.goal}</h3><p className="mis-s">進行中</p></article>
+          <article className="mis" data-ink=""><span className="mis-k">夢</span><h3 className="mis-t">{PROFILE.dream}</h3><p className="mis-s">いつか必ず</p></article>
         </div>
       </section>
 
       <section className="sec" id="contact" aria-labelledby="h-contact">
-        <div className="contact on-red">
+        <div className="contact on-red" data-ink="k">
           <Burst n={14} seed={8} />
           <div>
             <SectionHead n={7} text="コンタクト" id="h-contact" focusable />

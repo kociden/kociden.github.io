@@ -23,6 +23,8 @@ export interface KeyTargets {
 export interface SiteApi {
   navigate: (href: string) => void;
   cutin: (label: CutInLabel, mid?: (() => void) | null) => Promise<void>;
+  /** 画面の切り替え（ページ遷移・セクション移動）。対応環境では「割れる」演出、それ以外はカットイン */
+  transit: (label: CutInLabel, mid?: (() => void) | null) => Promise<void>;
   keys: KeyTargets;
 }
 
