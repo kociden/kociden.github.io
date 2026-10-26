@@ -675,6 +675,11 @@ a.log-card:hover .log-title { color: var(--wht); text-decoration: underline; tex
   .cmd-sub { display: none; }
 }
 
+/* ============ ink reveal（lib/inkReveal.ts。HTML-in-Canvas 対応ブラウザでだけ html.fx-ink が付く） ============ */
+/* まだ出していないブロックを隠す。opacity なのでフォーカス移動・ページ内検索は効く（入ってきたら即座に出す） */
+html.fx-ink [data-ink-root] [data-ink]:not([data-ink-s]) { opacity: 0; }
+@media print { html.fx-ink [data-ink-root] [data-ink] { opacity: 1; } }
+
 /* ============ reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

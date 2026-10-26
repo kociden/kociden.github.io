@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { EVENTS, NEWS, TALKS, WORKS } from '../../constants';
+import { useInkReveal } from '../../lib/inkReveal';
 import { realTalks } from '../../lib/routes';
 import { EpCard, EventCard, LogItem, WorkCard } from '../Cards';
 import { Burst, PageHead } from '../Deco';
@@ -20,8 +22,10 @@ export function Events() {
 }
 
 export function Works() {
+  const root = useRef<HTMLDivElement>(null);
+  useInkReveal(() => root.current);
   return (
-    <div className="page">
+    <div className="page" ref={root}>
       <Burst n={16} seed={22} />
       <PageHead title="ワークス" sub="これまでに手がけた制作物。" count={<><b>{WORKS.length}</b>件</>} ghost="Works" seed={22} />
       <div className="cards">{WORKS.map((w, i) => <WorkCard key={w.id} w={w} i={i} h="h2" />)}</div>
@@ -31,8 +35,10 @@ export function Works() {
 
 export function LtList() {
   const pending = TALKS.length - realTalks.length;
+  const root = useRef<HTMLDivElement>(null);
+  useInkReveal(() => root.current);
   return (
-    <div className="page">
+    <div className="page" ref={root}>
       <Burst n={16} seed={23} />
       <PageHead
         title="LT アーカイブ" sub="登壇した LT のスライド。"
