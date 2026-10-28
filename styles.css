@@ -184,7 +184,7 @@ kbd { font-family: var(--hud); font-size: 16px; line-height: 1.2; border: 1.5px 
 .cmd-wheel {
   position: absolute; z-index: 0; pointer-events: none;
   width: calc(var(--rowh) * 7.4); height: calc(var(--rowh) * 7.4);
-  left: calc(var(--rowh) * -5.6); top: calc(var(--rowh) * 3 - var(--rowh) * 3.7);
+  left: calc(var(--rowh) * -5.6); top: calc(var(--rowh) * 3.5 - var(--rowh) * 3.7); /* 7 行のメニューの真ん中に合わせる */
   color: #2a2a2a;
   transition: rotate .22s var(--snap);
 }
@@ -290,12 +290,13 @@ kbd { font-family: var(--hud); font-size: 16px; line-height: 1.2; border: 1.5px 
   from { clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%); scale: 1.08; }
   to { clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%); scale: 1; }
 }
-.photo-cap a { color: inherit; text-decoration: none; }
+.photo-cap a { color: inherit; text-decoration: none; display: inline-block; padding: 5px 0; }
 .photo-cap a:hover { color: var(--red); }
-.photo-dots { position: absolute; z-index: 2; right: 7%; bottom: 3%; display: flex; gap: 5px; }
-.photo-dots button { width: 18px; height: 6px; padding: 0; border: 0; background: rgba(255,255,255,.45); transform: skewX(-20deg); cursor: pointer; }
-.photo-dots button[aria-pressed="true"] { background: var(--wht); width: 30px; }
-.photo-dots button:hover { background: var(--red); }
+/* 見た目は細いバー、押せる範囲は上下左右に広げる（background-clip で見た目だけ絞る） */
+.photo-dots { position: absolute; z-index: 2; right: 6%; bottom: 0; display: flex; }
+.photo-dots button { box-sizing: content-box; width: 18px; height: 6px; padding: 10px 2.5px; border: 0; background: rgba(255,255,255,.45); background-clip: content-box; transform: skewX(-20deg); cursor: pointer; }
+.photo-dots button[aria-pressed="true"] { background-color: var(--wht); width: 30px; }
+.photo-dots button:hover { background-color: var(--red); }
 .photo-cap { position: absolute; z-index: 2; top: 8%; right: 6%; background: var(--blk); color: var(--wht); font-weight: 900; font-size: 12.5px; padding: 0 10px; transform: rotate(3deg); }
 .plate {
   position: absolute; z-index: 2; left: -3%; bottom: -6%;
@@ -689,6 +690,7 @@ a.log-card:hover .log-title { color: var(--wht); text-decoration: underline; tex
   .radar .lbl { font-size: 17px; }
   .ev-wrap .burst { right: -4px; top: -40px; width: 96px; }
   .ev-wrap .burst-lbl { right: 12px; top: -14px; font-size: 15px; }
+  .cta { white-space: nowrap; padding: 13px 22px 14px; font-size: 16px; gap: 10px; }
 }
 @media (max-width: 380px) {
   .cmd-sub { display: none; }

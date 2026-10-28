@@ -18,11 +18,17 @@ export function Ransom({ text, seed = 1 }: { text: string; seed?: number }) {
     k++;
     return el;
   };
-  const out: ReactNode[] = tokens.map((t, i) => {
+  const piece = (t: string, i: number): ReactNode => {
     if (/^\s+$/.test(t)) return <span key={`s${i}`} className="rn-sp" />;
     if (t.length > 1) return <span key={`w${i}`} className="rn-w">{[...t].map(glyph)}</span>;
     return glyph(t);
-  });
+  };
+  // 「、」「。」までをひとかたまりにして、句の途中（「実装す／る。」など）で改行させない
+  const out: ReactNode[] = /[、。]/.test(text)
+    ? text.split(/(?<=[、。])/).map((ph, j) => (
+      <span key={`p${j}`} className="rn-w">{(ph.match(/[A-Za-z0-9@#.'’\-]+|\s+|./gu) || []).map((t, i) => piece(t, i))}</span>
+    ))
+    : tokens.map(piece);
   return (
     <>
       <span className="vh">{text}</span>
