@@ -30,6 +30,9 @@ export const PROFILE: Profile = {
 export const HERO_PHOTOS: HeroPhoto[] = [
   { src: '/assets/friends.webp', caption: '仲間たちと', alt: '仲間たちとの写真（一部の顔はモザイク処理済み）' },
   { src: '/assets/hp-award.webp', caption: 'HP賞', alt: 'HP賞の受賞パネルの前に立つ kociden', href: '/news/n2/' },
+  { src: '/assets/renewbage.webp', caption: 'ReNewBage', alt: 'ReNewBage のロボットが並ぶ画面', href: '/works/', color: true },
+  { src: '/assets/lt-opus55.webp', caption: 'LT：Opus 5.5でゲーム制作', alt: 'LT「Opus 5.5でゲーム制作が段違いに変わった話」の表紙', href: '/lt/opus55-gamedev/', color: true },
+  { src: '/assets/lt-chars.webp', caption: 'AIで作ったキャラ42人', alt: 'AIで作ったゲームキャラクターの立ち絵の一覧', href: '/lt/opus55-gamedev/', color: true },
   { src: '/assets/satsueki-world.webp', caption: 'さつえき.world', alt: 'VRChat ワールド「さつえき.world」雪ミク ver', href: '/works/' },
   { src: '/assets/aigamejam-2026.webp', caption: 'AI Gamejam Sapporo', alt: 'AI Gamejam Sapporo@北大 の告知画像', href: '/events/' },
   { src: '/assets/besties-site.webp', caption: 'bestIEs コーポレートサイト', alt: '株式会社bestIEs のホームページ', href: '/works/' },

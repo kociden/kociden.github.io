@@ -129,11 +129,11 @@ function HeroPhotos() {
   const pause = (v: boolean) => () => { hold.current = v; };
   return (
     <figure className="photo" onPointerEnter={pause(true)} onPointerLeave={pause(false)} onFocus={pause(true)} onBlur={pause(false)}>
-      <div className="photo-frame">
+      <div className={`photo-frame${p.color ? ' is-color' : ''}`}>
         {HERO_PHOTOS.map((ph, k) => (
           <img
             key={ph.src} src={ph.src} alt={k === cur ? ph.alt : ''} aria-hidden={k === cur ? undefined : true}
-            className={k === cur ? 'is-on' : k === prev ? 'is-prev' : undefined}
+            className={[k === cur ? 'is-on' : k === prev ? 'is-prev' : '', ph.color ? 'is-color' : ''].filter(Boolean).join(' ') || undefined}
             width="640" height="480" decoding="async"
           />
         ))}
