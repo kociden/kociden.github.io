@@ -186,6 +186,18 @@ const slideList = (slug: string, count: number): string[] =>
 
 export const TALKS: Talk[] = [
   {
+    slug: 'opus55-gamedev',
+    title: 'Opus 5.5でゲーム制作が段違いに変わった話',
+    subtitle: '実装の99%をAIに任せて、2日でゲームを公開した',
+    date: '2026.10',
+    event: '札幌AI会',
+    minutes: 5,
+    tags: ['Claude Opus 5.5', 'Claude Code', 'Unity', 'gpt-image', 'Suno'],
+    cover: '/lt/opus55-gamedev/slide-01.webp',
+    slides: slideList('opus55-gamedev', 15),
+    summary: 'SapporoGameCamp2026 で作った ReNewBage は、実装の99%を Opus 5.5 に任せた。UI はデザインごと提案させ、リグのないモデルもスクリプトで動かした。個人制作では Claude Code・gpt-image・Suno で「AI のチーム」を組み、キャラ差分は400枚以上。2か月でのモデルの伸びと、速く・安くなったことも数字で紹介。',
+  },
+  {
     slug: 'ore-no-lora',
     title: '俺のLoRAを作ってみた',
     subtitle: '1本の動画から、本人を再現する差分を学習',
@@ -197,6 +209,4 @@ export const TALKS: Talk[] = [
     slides: slideList('ore-no-lora', 9),
     summary: 'スマホ動画1本から240フレームを切り出し、30枚に絞って Qwen-Image-2.1 の人物LoRA（rank 32 / 600 steps / RTX 4090で約29分）を学習。生成の30 stepsで像が固まる様子と、条件で「本人度」が変わる話。',
   },
-  // 次の LT の枠（一覧に「準備中」カードとして出る。公開するときは本物のエントリに置き換える）
-  { slug: 'coming-soon', title: '次のLT', subtitle: '準備中', date: '—', minutes: 5, tags: [], cover: '', slides: [], summary: '', placeholder: true },
 ];
