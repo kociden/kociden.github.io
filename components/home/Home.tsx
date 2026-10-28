@@ -142,6 +142,7 @@ export default function Home() {
             <p className="prof-school">{PROFILE.school}</p>
             <p className="prof-bio">{PROFILE.bio}</p>
             <p className="prof-now"><span className="prof-now-k">いま</span>{PROFILE.now}</p>
+            <p className="prof-now prof-award"><span className="prof-now-k">受賞</span><Link href="/news/n2/">{PROFILE.award}</Link></p>
           </div>
           <figure className="prof-others">
             <figcaption className="prof-others-k">他己紹介</figcaption>

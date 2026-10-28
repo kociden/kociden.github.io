@@ -9,6 +9,7 @@ export interface Profile {
   bio: string;         // 自己紹介文
   others: string;      // 他己紹介（三人称の紹介文）
   now: string;         // いま取り組んでいること
+  award: string;       // 主な受賞
   brand: string;
   role: string;
   location: string;
@@ -45,6 +46,8 @@ export interface NewsItem {
   tag?: string;        // 'Award' | 'Info' | 自由
   url?: string;        // 関連する外部ページ（任意）
   content?: string;    // 詳細本文（HTML 可・信頼できる自前の文章のみ）
+  image?: string;      // 詳細ページの写真（任意）
+  imageAlt?: string;
 }
 
 export interface Talk {

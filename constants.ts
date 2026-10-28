@@ -14,6 +14,7 @@ export const PROFILE: Profile = {
   bio: '高校からゲーム制作をはじめ、今では 2D・3D ゲームから XR ゲームまで手がける。Claude Code や Codex などの AI を使いこなし、思いついたものを最速で形にする。',
   others: '思いついたら、もう作り始めている人。ハッカソンではゲームのアセット生成を自動化するアプリで企業賞を獲り、LT では自分の LoRA を学習させてみせる。VRChat の雪ミクのワールドから会社のホームページまで、頼まれたものは実装して返してくる。最近は「札幌でゲームを作る人を増やしたい」と、AI ゲームジャムを自分で立ち上げた。',
   now: 'ゲーム会社の立ち上げを準備中',
+  award: '札幌すごいAIハッカソン 2026夏　HP賞',
   brand: 'M Lab',
   role: 'Game / XR Developer',
   location: 'Sapporo, Hokkaido',
@@ -67,6 +68,16 @@ export const WORKS: WorkItem[] = [
     desc: 'SapporoGameCamp2026 のチーム制作。ゴミを拾って、まぜて、売りまくるリサイクル工場アクション。フルスタック開発を担当。',
     tech: ['Unity', 'C#'],
     url: 'https://unityroom.com/games/renewbage',
+  },
+  {
+    id: 'game-automation',
+    title: 'ゲーム自動化',
+    category: 'AI / Tool',
+    year: '2026',
+    image: '/assets/hp-award.webp',
+    desc: '札幌すごいAIハッカソン 2026夏で制作し、企業賞「HP賞」を受賞。生成AIでゲーム制作に必要なアセットを自動生成するアプリ。企画から実装まで担当。',
+    tech: ['生成AI'],
+    url: 'https://hack-2026-summer.sugoiai.org/',
   },
   {
     id: 'besties-site',
@@ -137,6 +148,8 @@ export const NEWS: NewsItem[] = [
     title: '札幌すごいAIハッカソン2026でゲームのアセット生成自動化アプリを制作、企業賞（HP賞）を獲得しました',
     tag: 'Award',
     url: 'https://hack-2026-summer.sugoiai.org/',
+    image: '/assets/hp-award.webp',
+    imageAlt: 'HP賞の受賞パネルの前に立つ kociden',
     content: `
       <p>2026年8月29日に Deep Tech CORE SAPPORO で開催された「<a href="https://hack-2026-summer.sugoiai.org/" target="_blank" rel="noopener noreferrer">札幌すごいAIハッカソン 2026夏</a>」に参加し、
       ゲーム開発におけるアセット生成を自動化するアプリ「ゲーム自動化」を制作しました。</p>
