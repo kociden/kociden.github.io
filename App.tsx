@@ -112,9 +112,10 @@ export default function App() {
       window.scrollTo(0, 0);
     };
     if (reduced()) { reset(); focusView(); return; }
-    await cutin({ big: 'SHOW NO MERCY', kick: `${PROFILE.handle} / ${PROFILE.brand}` }, () => { reset(); cascade(); });
+    // 作り直した直後（カットインの裏）でもメニューにフォーカスしておく。カットイン後にもう一度合わせる
+    await cutin({ big: 'SHOW NO MERCY', kick: `${PROFILE.handle} / ${PROFILE.brand}` }, () => { reset(); cascade(); focusView(); });
     if (id !== navId.current) return;
-    focusView();
+    if (!document.activeElement || document.activeElement === document.body) focusView();
   }, [cutin, focusView, keys]);
 
   const navigate = useCallback((href: string) => {
