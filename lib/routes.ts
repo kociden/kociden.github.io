@@ -73,7 +73,7 @@ export interface PageMeta {
   type: 'website' | 'article';
 }
 
-const DEFAULT_IMAGE = PROFILE.photo;
+const DEFAULT_IMAGE = '/assets/satsueki-world.webp'; // 共有時の既定画像
 const stripHtml = (html: string) => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 const clip = (s: string, n = 110) => (s.length > n ? s.slice(0, n - 1) + '…' : s);
 

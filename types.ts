@@ -17,10 +17,16 @@ export interface Profile {
   intro: string;
   goal: string;
   dream: string;
-  photo: string;       // ヒーロー写真（顔にモザイク済みのもの）
-  photoCaption: string;
   github: string;
   email: string;
+}
+
+// ホーム右側の写真枠で順番に流す写真
+export interface HeroPhoto {
+  src: string;
+  caption: string;
+  alt: string;
+  href?: string;       // キャプションのリンク先（サイト内）
 }
 
 export interface SkillGroup {

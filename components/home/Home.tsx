@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useInkReveal } from '../../lib/inkReveal';
-import { EVENTS, HOT_SKILLS, PROFILE, SKILLS, WORKS } from '../../constants';
+import { EVENTS, HERO_PHOTOS, HOT_SKILLS, PROFILE, SKILLS, WORKS } from '../../constants';
 import { realTalks } from '../../lib/routes';
 import { countdown, jstParts, useNow } from '../../lib/time';
-import { pad } from '../../lib/util';
+import { pad, reduced } from '../../lib/util';
 import type { EventItem } from '../../types';
 import { EventCard, WorkCard } from '../Cards';
 import { Burst, Chips, Ransom, SectionHead } from '../Deco';
@@ -105,6 +105,50 @@ function Status() {
   );
 }
 
+const PHOTO_MS = 4200;
+
+/** 右側の写真枠: サイト内の写真を斜めのワイプで順に流す。ホバー・フォーカス中とタブ非表示中は止める */
+function HeroPhotos() {
+  const [{ cur, prev }, setShow] = useState({ cur: 0, prev: -1 });
+  const hold = useRef(false);
+  const go = (n: number) => setShow((s) => (n === s.cur ? s : { cur: n, prev: s.cur }));
+  // 写真が変わるたびに（手で選んだときも）タイマーを掛け直す
+  useEffect(() => {
+    if (reduced() || HERO_PHOTOS.length < 2) return;
+    let t = 0;
+    const arm = () => {
+      t = window.setTimeout(() => {
+        if (hold.current || document.hidden) { arm(); return; }
+        setShow((s) => ({ cur: (s.cur + 1) % HERO_PHOTOS.length, prev: s.cur }));
+      }, PHOTO_MS);
+    };
+    arm();
+    return () => window.clearTimeout(t);
+  }, [cur]);
+  const p = HERO_PHOTOS[cur];
+  const pause = (v: boolean) => () => { hold.current = v; };
+  return (
+    <figure className="photo" onPointerEnter={pause(true)} onPointerLeave={pause(false)} onFocus={pause(true)} onBlur={pause(false)}>
+      <div className="photo-frame">
+        {HERO_PHOTOS.map((ph, k) => (
+          <img
+            key={ph.src} src={ph.src} alt={k === cur ? ph.alt : ''} aria-hidden={k === cur ? undefined : true}
+            className={k === cur ? 'is-on' : k === prev ? 'is-prev' : undefined}
+            width="640" height="480" decoding="async"
+          />
+        ))}
+      </div>
+      <figcaption className="photo-cap" aria-live="polite">{p.href ? <Link href={p.href}>{p.caption}</Link> : p.caption}</figcaption>
+      <div className="photo-dots" role="group" aria-label="写真を選ぶ">
+        {HERO_PHOTOS.map((ph, k) => (
+          <button key={ph.src} type="button" aria-label={ph.caption} aria-pressed={k === cur} onClick={() => go(k)} />
+        ))}
+      </div>
+      <div className="plate" aria-hidden="true"><p className="plate-h">{PROFILE.brand}</p><p className="plate-n">{PROFILE.handle}</p><p className="plate-r">{PROFILE.location}</p></div>
+    </figure>
+  );
+}
+
 export default function Home() {
   const t = realTalks[0];
   // 各ブロックを初めて画面に入った時にインクで出す（対応ブラウザのみ）
@@ -125,11 +169,7 @@ export default function Home() {
         </div>
         <aside className="hero-side" aria-label="ステータス表示">
           <HudBox />
-          <figure className="photo">
-            <div className="photo-frame"><img src={PROFILE.photo} alt={`${PROFILE.photoCaption}（顔にはモザイク処理済み）`} width="640" height="480" /></div>
-            <figcaption className="photo-cap">{PROFILE.photoCaption}</figcaption>
-            <div className="plate" aria-hidden="true"><p className="plate-h">{PROFILE.brand}</p><p className="plate-n">{PROFILE.handle}</p><p className="plate-r">{PROFILE.location}</p></div>
-          </figure>
+          <HeroPhotos />
         </aside>
       </section>
 
