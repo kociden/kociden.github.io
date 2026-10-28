@@ -15,6 +15,7 @@ export default function NewsDetail({ id }: { id: string }) {
         <LogMeta n={n} />
         <h1 className="nd-title" tabIndex={-1} data-focus="">{n.title}</h1>
       </header>
+      {n.image ? <figure className="nd-photo"><img src={n.image} alt={n.imageAlt ?? ''} /></figure> : null}
       {/* content は constants.ts に自分で書いた HTML のみ（外部入力は入らない） */}
       {n.content ? <div className="nd-body" dangerouslySetInnerHTML={{ __html: n.content }} /> : null}
       {n.url ? (
