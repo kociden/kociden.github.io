@@ -1,4 +1,4 @@
-import type { EventItem, NewsItem, Profile, SkillGroup, Talk, WorkItem } from './types';
+import type { EventItem, HeroPhoto, NewsItem, Profile, SkillGroup, Talk, WorkItem } from './types';
 
 // ==========================================
 // サイトのコンテンツ
@@ -22,11 +22,20 @@ export const PROFILE: Profile = {
   intro: 'Unity・XR を軸に、ゲーム、シミュレータ、VR 空間、開発自動化ツールまでを設計から実装まで一気通貫で作ります。',
   goal: '有名なゲーム会社を作る',
   dream: 'サッカーチームを経営する',
-  photo: '/assets/activity.webp', // 顔にモザイク済み（connpass 掲載版）
-  photoCaption: '活動の様子',
   github: 'https://github.com/kociden/',
   email: 'kociden28@gmail.com',
 };
+
+// ホーム右側の写真枠で順番に流す写真（サイト内に出てくる写真から）
+export const HERO_PHOTOS: HeroPhoto[] = [
+  { src: '/assets/friends.webp', caption: '仲間たちと', alt: '仲間たちとの写真（一部の顔はモザイク処理済み）' },
+  { src: '/assets/hp-award.webp', caption: 'HP賞', alt: 'HP賞の受賞パネルの前に立つ kociden', href: '/news/n2/' },
+  { src: '/assets/satsueki-world.webp', caption: 'さつえき.world', alt: 'VRChat ワールド「さつえき.world」雪ミク ver', href: '/works/' },
+  { src: '/assets/aigamejam-2026.webp', caption: 'AI Gamejam Sapporo', alt: 'AI Gamejam Sapporo@北大 の告知画像', href: '/events/' },
+  { src: '/assets/besties-site.webp', caption: 'bestIEs コーポレートサイト', alt: '株式会社bestIEs のホームページ', href: '/works/' },
+  { src: '/assets/vketsummer.webp', caption: 'Vket Corporate Booth', alt: 'VketSummer2025 の企業出展ブース', href: '/works/' },
+  { src: '/assets/bhsim.webp', caption: 'Heavy Machinery Simulator', alt: '重機トレーニングシミュレータの画面', href: '/works/' },
+];
 
 export const SKILLS: SkillGroup[] = [
   { group: 'Engine', items: ['Unity', 'Godot', 'C#', 'XR Interaction Toolkit', 'PhysX', 'VRChat SDK / Udon#'] },
