@@ -27,6 +27,7 @@ export interface HeroPhoto {
   caption: string;
   alt: string;
   href?: string;       // キャプションのリンク先（サイト内）
+  color?: boolean;     // 赤のモノトーンにせず、色を残す（明るい画面やイラスト向け）
 }
 
 export interface SkillGroup {
