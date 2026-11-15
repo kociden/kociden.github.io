@@ -15,7 +15,7 @@ https://kociden.github.io/ のソース（Vite + React + TypeScript、素の CSS
 | `public/assets/`, `public/lt/` | サイトの画像・LT スライド |
 | `public/` のその他のフォルダ | 独立した静的サブサイト（`/sakimise/` など）。そのまま `dist/` にコピーされる |
 
-URL は `/`, `/works/`, `/lt/`, `/lt/<slug>/`, `/events/`, `/news/`, `/news/<id>/`。
+URL は `/`, `/works/`, `/lt/`, `/lt/<slug>/`, `/events/`, `/games/<slug>/`, `/news/`, `/news/<id>/`。
 GitHub Pages で直接開けるよう、ビルド時にルートごとの静的 HTML（OGP 付き）を生成します。
 新しいルートを足すときは `public/` のフォルダ名と被らないようにしてください（被るとビルドが止まります）。
 
@@ -42,6 +42,12 @@ GitHub Pages で直接開けるよう、ビルド時にルートごとの静的 
    ```
 
 3. `npm run build` すると `/lt/my-talk/` のページ（OGP 付き）ができます。「準備中」の枠（`placeholder: true`）は不要になったら消してください。
+
+## ゲームを追加する
+
+`constants.ts` の `GAMES` にエントリを足すと `/games/<slug>/` の紹介ページ（OGP 付き）ができます。
+ゲームの X・YouTube など発信先は `links` に書き、ホームのコンタクト（メール・GitHub）とは分けます。
+ホームの「開発中のゲーム」・コマンドメニューの「新作」は `GAMES[0]` を出します。ワークスに出すときは `WORKS` に `page: '/games/<slug>/'` 付きで足してください。
 
 ニュースは `NEWS` に `{ id, date, title, tag, content }` を足すと `/news/<id>/` ができます。
 

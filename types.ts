@@ -3,8 +3,7 @@
 // ここと constants.ts には DOM / React に依存するものを書かないこと。
 
 export interface Profile {
-  handle: string;      // 表示名
-  realName: string;    // 本名（ホームの自己紹介にだけ出す）
+  handle: string;      // 表示名（本名は載せない）
   school: string;
   bio: string;         // 自己紹介文
   others: string;      // 他己紹介（三人称の紹介文）
@@ -44,6 +43,8 @@ export interface WorkItem {
   desc: string;
   tech: string[];
   url?: string;        // 公開ページ（タイトルがリンクになる）
+  page?: string;       // サイト内の詳細ページ（url より優先。/games/<slug>/ など）
+  badge?: string;      // 画像の上に出す札（'開発中' など）
 }
 
 export interface NewsItem {
@@ -86,4 +87,34 @@ export interface EventItem {
   hashtag: string;
   image: string;
   url: string;
+}
+
+// 開発中・発売済みのゲーム（/games/<slug>/ に紹介ページができる）
+export interface GameLink {
+  kind: 'post' | 'x' | 'youtube' | 'store' | 'demo';
+  label: string;       // 小見出し（'X（開発アカウント）' など）
+  text: string;        // リンクの文字
+  href: string;
+}
+
+export interface GameItem {
+  slug: string;        // URL になる: /games/<slug>/
+  title: string;
+  subtitle: string;    // 副題
+  en: string;          // 英題
+  status: string;      // '開発中' など
+  catch: string;       // ひとことのキャッチ
+  genre: string;
+  release: string;     // 外に出す発売時期の表記
+  platform: string;
+  circle: string;      // 発売元（サークル名）
+  role: string;        // kociden の担当
+  story: string;       // あらすじ
+  features: { t: string; d: string }[];
+  tags: string[];
+  hero: string;        // ページ上部の横長の絵（文字なし）
+  card: string;        // 一覧・ホームの 16:9 の絵
+  ogp: string;         // 共有用 1200x630
+  shots: { src: string; alt: string; caption: string }[];
+  links: GameLink[];   // X・YouTube など、ゲームの発信先（個人の連絡先とは分ける）
 }

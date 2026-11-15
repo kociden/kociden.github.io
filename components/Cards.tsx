@@ -11,11 +11,14 @@ export function WorkCard({ w, i, h: Tag = 'h3' }: { w: WorkItem; i: number; h?: 
   return (
     <article className="card" data-ink="">
       <span className="card-no" aria-hidden="true">{pad(i + 1)}</span>
-      <div className="card-img"><img src={w.image} alt={`${w.title} の画面`} loading="lazy" width="800" height="500" /></div>
+      <div className="card-img">
+        <img src={w.image} alt={`${w.title} の画面`} loading="lazy" width="800" height="500" />
+        {w.badge ? <span className="card-badge">{w.badge}</span> : null}
+      </div>
       <div className="card-body">
         <p className="card-cat"><span>{w.category}</span><span>{w.year}</span></p>
         <Tag className="card-title">
-          {w.url ? <a href={w.url} target="_blank" rel="noopener">{w.title}</a> : w.title}
+          {w.page ? <Link href={w.page}>{w.title}</Link> : w.url ? <a href={w.url} target="_blank" rel="noopener">{w.title}</a> : w.title}
         </Tag>
         <p className="card-desc">{w.desc}</p>
         <Chips list={w.tech} label="使用技術" />

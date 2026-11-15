@@ -1,7 +1,7 @@
 // ルート定義とページごとのメタ情報。
 // アプリ（History API ルーター・document.title）と、ビルド時の静的 HTML 生成
 // （scripts/prerender.ts）の両方がこのファイルを使う。DOM / React に依存させないこと。
-import { EVENTS, NEWS, PROFILE, TALKS, WORKS } from '../constants';
+import { EVENTS, GAMES, NEWS, PROFILE, TALKS, WORKS } from '../constants';
 
 export const SITE_URL = 'https://kociden.github.io';
 
@@ -11,6 +11,7 @@ export type Route =
   | { name: 'lt' }
   | { name: 'talk'; slug: string }
   | { name: 'events' }
+  | { name: 'game'; slug: string }
   | { name: 'news' }
   | { name: 'newsDetail'; id: string }
   | { name: 'notFound' };
@@ -21,6 +22,7 @@ export type TabId = 'home' | 'events' | 'works' | 'lt' | 'news';
 export const realTalks = TALKS.filter((t) => !t.placeholder);
 export const findTalk = (slug: string) => realTalks.find((t) => t.slug === slug);
 export const findNews = (id: string) => NEWS.find((n) => n.id === id);
+export const findGame = (slug: string) => GAMES.find((g) => g.slug === slug);
 
 const decode = (s: string) => {
   try { return decodeURIComponent(s); } catch { return s; }
@@ -36,6 +38,7 @@ export function parsePath(pathname: string): Route {
   if (a === 'works' && !b) return { name: 'works' };
   if (a === 'events' && !b) return { name: 'events' };
   if (a === 'lt') return b ? { name: 'talk', slug: b } : { name: 'lt' };
+  if (a === 'games' && b) return { name: 'game', slug: b };
   if (a === 'news') return b ? { name: 'newsDetail', id: b } : { name: 'news' };
   return { name: 'notFound' };
 }
@@ -48,6 +51,7 @@ export function pathOf(r: Route): string {
     case 'lt': return '/lt/';
     case 'talk': return `/lt/${encodeURIComponent(r.slug)}/`;
     case 'events': return '/events/';
+    case 'game': return `/games/${encodeURIComponent(r.slug)}/`;
     case 'news': return '/news/';
     case 'newsDetail': return `/news/${encodeURIComponent(r.id)}/`;
     case 'notFound': return '/404.html';
@@ -57,7 +61,7 @@ export function pathOf(r: Route): string {
 export function tabOf(r: Route): TabId | null {
   switch (r.name) {
     case 'home': return 'home';
-    case 'works': return 'works';
+    case 'works': case 'game': return 'works';
     case 'lt': case 'talk': return 'lt';
     case 'events': return 'events';
     case 'news': case 'newsDetail': return 'news';
@@ -99,6 +103,11 @@ export function routeMeta(r: Route): PageMeta {
       if (!ev) return { ...base, title: sub('イベント'), description: `${PROFILE.handle} が主催するイベント。` };
       return { ...base, title: sub('イベント'), description: clip(`${ev.title}（${ev.date} ${ev.time}）${ev.subtitle}。${ev.summary}`, 160), image: ev.image };
     }
+    case 'game': {
+      const g = findGame(r.slug);
+      if (!g) return { ...base, title: sub('Games'), description: 'このゲームのページは見つかりませんでした。' };
+      return { ...base, type: 'article', title: sub(`${g.title} ${g.subtitle}`), description: clip(`${g.genre}。${g.catch}${g.release}。${g.story}`, 160), image: g.ogp };
+    }
     case 'news':
       return { ...base, title: sub('News'), description: `${PROFILE.handle}（${PROFILE.brand}）の受賞やお知らせなど、これまでの記録。` };
     case 'newsDetail': {
@@ -119,6 +128,7 @@ export function staticRoutes(): Route[] {
     { name: 'lt' },
     ...realTalks.map((t): Route => ({ name: 'talk', slug: t.slug })),
     { name: 'events' },
+    ...GAMES.map((g): Route => ({ name: 'game', slug: g.slug })),
     { name: 'news' },
     ...NEWS.map((n): Route => ({ name: 'newsDetail', id: n.id })),
   ];
