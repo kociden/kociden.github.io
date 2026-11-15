@@ -1,5 +1,5 @@
 import { useCallback, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
-import { EVENTS, PROFILE, WORKS } from '../../constants';
+import { EVENTS, GAMES, PROFILE, WORKS } from '../../constants';
 import { realTalks } from '../../lib/routes';
 import { fxSupported } from '../../lib/glitch';
 import { reduced } from '../../lib/util';
@@ -17,9 +17,11 @@ interface MenuItem {
 }
 
 const EV = EVENTS[0];
+const GM = GAMES[0];
 const MENU: MenuItem[] = [
   { label: 'プロフィール', sub: '自己紹介', help: `${PROFILE.handle}　${PROFILE.school}`, scroll: 'profile', big: 'PROFILE' },
   { label: 'イベント', sub: '主催', help: EV ? `${EV.title}　${EV.date}` : '主催イベント', href: '/events/' },
+  ...(GM ? [{ label: '新作', sub: '開発中', help: `${GM.title} ${GM.subtitle}　${GM.release}`, href: `/games/${GM.slug}/` }] : []),
   { label: 'ワークス', sub: '制作物', help: `制作物 ${WORKS.length} 件`, href: '/works/' },
   { label: 'LT', sub: '登壇資料', help: `登壇スライド ${realTalks.length} 本`, href: '/lt/' },
   { label: 'ステータス', sub: 'スキル', help: '使える技術', scroll: 'status', big: 'STATUS' },

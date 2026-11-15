@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { flushSync } from 'react-dom';
 import { EVENTS, PROFILE } from './constants';
-import { findTalk, parsePath, pathOf, routeMeta, tabOf, type Route } from './lib/routes';
+import { findGame, findTalk, parsePath, pathOf, routeMeta, tabOf, type Route } from './lib/routes';
 import { pad, reduced } from './lib/util';
 import { canShatter, shatter } from './lib/shatter';
 import { epNo } from './components/Cards';
@@ -11,6 +11,7 @@ import Home from './components/home/Home';
 import LtDetail from './components/pages/LtDetail';
 import { Events, LtList, News, NotFound, Works } from './components/pages/Lists';
 import NewsDetail from './components/pages/NewsDetail';
+import GameDetail from './components/pages/GameDetail';
 import { SiteContext, type CutInLabel, type KeyTargets, type SiteApi } from './components/SiteContext';
 
 function Page({ route }: { route: Route }) {
@@ -20,6 +21,7 @@ function Page({ route }: { route: Route }) {
     case 'lt': return <LtList />;
     case 'talk': return <LtDetail slug={route.slug} />;
     case 'events': return <Events />;
+    case 'game': return <GameDetail slug={route.slug} />;
     case 'news': return <News />;
     case 'newsDetail': return <NewsDetail id={route.id} />;
     default: return <NotFound />;
@@ -33,6 +35,10 @@ function cutLabel(r: Route): CutInLabel {
     return t ? { big: t.title, kick: `LT #${pad(epNo(t))}` } : { big: 'LT', kick: '登壇資料' };
   }
   if (r.name === 'events' && EVENTS[0]) return { big: 'EVENT', kick: EVENTS[0].title };
+  if (r.name === 'game') {
+    const g = findGame(r.slug);
+    return g ? { big: 'NEW GAME', kick: `${g.title} ${g.subtitle}` } : { big: 'GAME', kick: 'ゲーム' };
+  }
   if (r.name === 'newsDetail') return { big: 'NEWS', kick: 'お知らせ' };
   const tab = TABS.find((x) => x.id === tabOf(r));
   return tab ? { big: tab.big, kick: tab.sub } : { big: '404', kick: 'ページが見つかりません' };

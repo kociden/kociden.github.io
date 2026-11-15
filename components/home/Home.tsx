@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useInkReveal } from '../../lib/inkReveal';
-import { EVENTS, HERO_PHOTOS, HOT_SKILLS, PROFILE, SKILLS, WORKS } from '../../constants';
+import { EVENTS, GAMES, HERO_PHOTOS, HOT_SKILLS, PROFILE, SKILLS, WORKS } from '../../constants';
 import { realTalks } from '../../lib/routes';
 import { countdown, jstParts, useNow } from '../../lib/time';
 import { pad, reduced } from '../../lib/util';
@@ -82,7 +82,7 @@ function Status() {
   const maxN = Math.max(8, ...SKILLS.map((x) => x.items.length));
   return (
     <section className="sec" id="status" aria-labelledby="h-status">
-      <SectionHead n={3} text="ステータス" id="h-status" focusable />
+      <SectionHead n={4} text="ステータス" id="h-status" focusable />
       <div className="stat">
         <div className="radar-box" data-ink="">
           <Burst n={16} seed={12} />
@@ -151,6 +151,7 @@ function HeroPhotos() {
 
 export default function Home() {
   const t = realTalks[0];
+  const g = GAMES[0];
   // 各ブロックを初めて画面に入った時にインクで出す（対応ブラウザのみ）
   useInkReveal(() => document.getElementById('view'));
   return (
@@ -178,7 +179,7 @@ export default function Home() {
         <div className="prof" data-ink="">
           <div className="prof-icon" aria-hidden="true"><img src="/assets/mlab-icon.svg" alt="" width="160" height="160" /></div>
           <div className="prof-body">
-            <p className="prof-name"><b>{PROFILE.handle}</b><span className="prof-sep">/</span><span>{PROFILE.realName}</span></p>
+            <p className="prof-name"><b>{PROFILE.handle}</b></p>
             <p className="prof-school">{PROFILE.school}</p>
             <p className="prof-bio">{PROFILE.bio}</p>
             <p className="prof-now"><span className="prof-now-k">いま</span>{PROFILE.now}</p>
@@ -199,18 +200,35 @@ export default function Home() {
         </section>
       ) : null}
 
+      {g ? (
+        <section className="sec" id="game" aria-labelledby="h-game">
+          <SectionHead n={3} text="開発中のゲーム" id="h-game" />
+          <p className="lead" data-ink="">いま全力で作っているのがこれ。{g.release}。</p>
+          <Link className="teaser" data-ink="" href={`/games/${encodeURIComponent(g.slug)}/`}>
+            <div className="teaser-img"><img src={g.card} alt="" loading="lazy" width="1280" height="720" /></div>
+            <div className="teaser-body">
+              <span className="teaser-new">{g.status}</span>
+              <h3 className="teaser-title">{g.title}<br /><small className="teaser-title-s">{g.subtitle}</small></h3>
+              <p className="teaser-sub">{g.catch}</p>
+              <p className="teaser-meta">{g.genre}　{g.release}</p>
+              <span className="teaser-go">ゲームの紹介を見る</span>
+            </div>
+          </Link>
+        </section>
+      ) : null}
+
       <Status />
 
       <section className="sec" aria-labelledby="h-works">
-        <SectionHead n={4} text="ワークス" id="h-works" />
+        <SectionHead n={5} text="ワークス" id="h-works" />
         <p className="lead" data-ink="">最近つくったもの。ゲームからシミュレータ、VR 空間まで。</p>
-        <div className="cards">{WORKS.slice(0, 2).map((w, i) => <WorkCard key={w.id} w={w} i={i} />)}</div>
+        <div className="cards">{WORKS.filter((w) => !w.page).slice(0, 2).map((w, i) => <WorkCard key={w.id} w={w} i={i} />)}</div>
         <div className="sec-foot" data-ink=""><Link className="btn" href="/works/"><span>制作物をすべて見る（{WORKS.length}件）</span></Link></div>
       </section>
 
       {t ? (
         <section className="sec" aria-labelledby="h-lt">
-          <SectionHead n={5} text="最新の LT" id="h-lt" />
+          <SectionHead n={6} text="最新の LT" id="h-lt" />
           <p className="lead" data-ink="">登壇したスライドは、すべてこのサイトで読めます。</p>
           <Link className="teaser" data-ink="" href={`/lt/${encodeURIComponent(t.slug)}/`}>
             <div className="teaser-img"><img src={t.cover} alt="" loading="lazy" width="1280" height="720" /></div>
@@ -228,7 +246,7 @@ export default function Home() {
       ) : null}
 
       <section className="sec" aria-labelledby="h-mis">
-        <SectionHead n={6} text="ミッション" id="h-mis" />
+        <SectionHead n={7} text="ミッション" id="h-mis" />
         <div className="missions" style={{ marginTop: 28 }}>
           <article className="mis main" data-ink=""><span className="mis-k">目標</span><h3 className="mis-t">{PROFILE.goal}</h3><p className="mis-s">進行中</p></article>
           <article className="mis" data-ink=""><span className="mis-k">夢</span><h3 className="mis-t">{PROFILE.dream}</h3><p className="mis-s">いつか必ず</p></article>
@@ -239,12 +257,13 @@ export default function Home() {
         <div className="contact on-red" data-ink="k">
           <Burst n={14} seed={8} />
           <div>
-            <SectionHead n={7} text="コンタクト" id="h-contact" focusable />
+            <SectionHead n={8} text="コンタクト" id="h-contact" focusable />
             <p className="c-lead">制作の相談、ゲームジャムのお誘い、なんでも気軽にどうぞ。</p>
           </div>
           <div className="c-links">
             <a className="c-link" href={`mailto:${PROFILE.email}`}><small>メール</small><b>{PROFILE.email}</b></a>
             <a className="c-link" href={PROFILE.github} target="_blank" rel="noopener"><small>GitHub</small><b>{ghLabel}</b></a>
+            {g ? <Link className="c-link" href={`/games/${encodeURIComponent(g.slug)}/`}><small>新作の情報</small><b>X・YouTube で発信中 →</b></Link> : null}
           </div>
         </div>
       </section>

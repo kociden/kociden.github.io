@@ -1,4 +1,4 @@
-import type { EventItem, HeroPhoto, NewsItem, Profile, SkillGroup, Talk, WorkItem } from './types';
+import type { EventItem, GameItem, HeroPhoto, NewsItem, Profile, SkillGroup, Talk, WorkItem } from './types';
 
 // ==========================================
 // サイトのコンテンツ
@@ -9,7 +9,6 @@ import type { EventItem, HeroPhoto, NewsItem, Profile, SkillGroup, Talk, WorkIte
 
 export const PROFILE: Profile = {
   handle: 'kociden',
-  realName: '町原悠太',
   school: '北海道大学 工学部 情報学科',
   bio: '高校からゲーム制作をはじめ、今では 2D・3D ゲームから XR ゲームまで手がける。Claude Code や Codex などの AI を使いこなし、思いついたものを最速で形にする。',
   others: '思いついたら、もう作り始めている人。ハッカソンではゲームのアセット生成を自動化するアプリで企業賞を獲り、LT では自分の LoRA を学習させてみせる。VRChat の雪ミクのワールドから会社のホームページまで、頼まれたものは実装して返してくる。最近は「札幌でゲームを作る人を増やしたい」と、AI ゲームジャムを自分で立ち上げた。',
@@ -29,6 +28,7 @@ export const PROFILE: Profile = {
 // ホーム右側の写真枠で順番に流す写真（サイト内に出てくる写真から）
 export const HERO_PHOTOS: HeroPhoto[] = [
   { src: '/assets/friends.webp', caption: '仲間たちと', alt: '仲間たちとの写真（一部の顔はモザイク処理済み）' },
+  { src: '/assets/riichi-photo.webp', caption: '開発中：放課後リーチ！', alt: '開発中のゲーム「放課後リーチ！ 〜麻雀部の夏〜」のキービジュアル', href: '/games/houkago-riichi/', color: true },
   { src: '/assets/hp-award.webp', caption: 'HP賞', alt: 'HP賞の受賞パネルの前に立つ kociden', href: '/news/n2/' },
   { src: '/assets/renewbage.webp', caption: 'ReNewBage', alt: 'ReNewBage のロボットが並ぶ画面', href: '/works/', color: true },
   { src: '/assets/lt-opus55.webp', caption: 'LT：Opus 5.5でゲーム制作', alt: 'LT「Opus 5.5でゲーム制作が段違いに変わった話」の表紙', href: '/lt/opus55-gamedev/', color: true },
@@ -70,7 +70,57 @@ export const EVENTS: EventItem[] = [
   },
 ];
 
+// ==========================================
+// ゲーム（/games/<slug>/ に紹介ページができる）
+// X・YouTube などゲームの発信先は links に書き、プロフィールの連絡先とは混ぜない
+// ==========================================
+export const GAMES: GameItem[] = [
+  {
+    slug: 'houkago-riichi',
+    title: '放課後リーチ！',
+    subtitle: '〜麻雀部の夏〜',
+    en: 'After School Riichi!',
+    status: '開発中',
+    catch: 'あと一人で廃部の麻雀部で、仲間を集めて全国をめざす夏。',
+    genre: '麻雀 × 学園恋愛ADV',
+    release: '2027年春 発売予定',
+    platform: 'Windows（Steam ほか）',
+    circle: 'とーちかそふと',
+    role: '個人制作。企画・プログラム・演出を担当し、絵や音は AI とチームを組んで制作中',
+    story: '星見台学園に転校してきた主人公は、部員が足りず廃部寸前の麻雀部に誘われる。明るく元気な部長のミナ、理屈っぽくてクールなレナ、旧家のお嬢様のあやめ、そして監督の千景先生。春の練習から夏の地区予選、48校が集まる全国大会へ。卓の上の勝ち負けが、少しずつ気持ちを近づけていく。',
+    features: [
+      { t: '本格リーチ麻雀', d: '4人打ち（東風・半荘）、3人打ち、物語の中の1対1の勝負。役満・ダブル役満まで全部の役と、本格的な点数計算。' },
+      { t: 'はじめてでも遊べる', d: 'チュートリアル、待ちの確認、役の本、強さ3段階の相手。キャラごとに打ち方の癖と「運」がある。' },
+      { t: '恋愛アドベンチャー', d: '4月から8月末まで、カレンダーと町の地図で毎日の過ごし方を選ぶ。ヒロインごとのルートとエンディング。' },
+      { t: '大会の物語', d: '先鋒から大将までの団体戦。全国大会はくじ引きからトーナメント表、表彰式まで。' },
+    ],
+    tags: ['Unity', 'C#', 'Claude Code', 'gpt-image'],
+    hero: '/assets/riichi-hero.webp',
+    card: '/assets/riichi-card.webp',
+    ogp: '/assets/riichi-ogp.webp',
+    shots: [
+      { src: '/assets/riichi-play.webp', alt: '「放課後リーチ！」の対局画面。中央に卓、下に手牌、右にヒロインのミナ', caption: '対局の画面（開発中のもの）' },
+    ],
+    links: [
+      { kind: 'post', label: '告知ポスト', text: '制作発表のポストを見る', href: 'https://x.com/MvKWt5XpPV36233/status/2120861099528777747' },
+      { kind: 'x', label: 'X（開発アカウント）', text: '@MvKWt5XpPV36233', href: 'https://x.com/MvKWt5XpPV36233' },
+      { kind: 'youtube', label: 'YouTube（開発チャンネル）', text: 'PV・開発の動画', href: 'https://www.youtube.com/channel/UCyh4WBLPylGOF3RLF5s-PWA' },
+    ],
+  },
+];
+
 export const WORKS: WorkItem[] = [
+  {
+    id: 'houkago-riichi',
+    title: '放課後リーチ！ 〜麻雀部の夏〜',
+    category: 'Game',
+    year: '2027',
+    image: '/assets/riichi-card.webp',
+    desc: '開発中の麻雀 × 学園恋愛ADV。廃部寸前の麻雀部で全国をめざす。本格リーチ麻雀のエンジンから物語まで個人で制作中。2027年春 発売予定。',
+    tech: ['Unity', 'C#', 'Claude Code', 'gpt-image'],
+    page: '/games/houkago-riichi/',
+    badge: '開発中',
+  },
   {
     id: 'renewbage',
     title: 'ReNewBage',
